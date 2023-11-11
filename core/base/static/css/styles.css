@@ -25,8 +25,8 @@ white- #ffffff rgba(255,255,255,255)
 
 li, a, button{
   font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  font-size: 30px;
+  font-weight: 500;
+  font-size: 20px;
   color: #ffffff;
   text-decoration: none;
 }
@@ -40,7 +40,7 @@ nav{
   color: var(--secondary-color);
 
   width: auto;
-  height: 100px;
+  height: 80px;
 
   margin: 0px;
   padding: 10px;
@@ -53,7 +53,7 @@ nav{
 .navLogo{
   background-color: var(--tertiary-color) ;
   
-  height: 100px;
+  height: 80px;
   cursor: pointer;
 }
 
