@@ -57,13 +57,6 @@ nav{
   cursor: pointer;
 }
 
-.navTitle{
-  background-color: var(--tertiary-color);
-  color: white;
-  margin-right: auto;
-  padding: 0px;
-}
-
 #yellow{
   color: var(--secondary-color);
 }
