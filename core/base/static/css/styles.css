@@ -1,0 +1,111 @@
+/* 
+black-#010101 rgba(1,1,1,255)
+
+yellow- #fbc30c rgba(249,195,9,255)
+
+white- #ffffff rgba(255,255,255,255)
+
+
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+:root {
+  --primary-color: #1a1b1c;       
+  --secondary-color: #fbc30c;
+  --tertiary-color: #010101;
+}
+
+
+*{
+  background-color: var(--primary-color);
+
+  margin: 0px;
+}
+
+li, a, button{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+nav{
+  background-color: var(--tertiary-color);
+}
+
+.navbar{
+  background-color: var(--tertiary-color) ;
+  color: var(--secondary-color);
+
+  width: auto;
+  height: 100px;
+
+  margin: 0px;
+  padding: 10px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navLogo{
+  background-color: var(--tertiary-color) ;
+  
+  height: 100px;
+  cursor: pointer;
+}
+
+.navTitle{
+  background-color: var(--tertiary-color);
+  color: white;
+  margin-right: auto;
+  padding: 0px;
+}
+
+#yellow{
+  color: var(--secondary-color);
+}
+
+.aNavLogo{
+  margin-left: 30px;
+  margin-right: auto;
+  background-color: var(--tertiary-color) ;
+}
+
+.navLinks{
+  list-style: none;
+  background-color: var(--tertiary-color);
+  margin: 5px;
+}
+
+.navLinks li{
+  background-color: var(--tertiary-color);
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.navLinks li, a{
+  background-color: var(--tertiary-color);
+  transition: all 0.3s ease 0s;
+}
+
+.navLinks li, a:hover{
+  color: #fbc30c;
+}
+
+button{
+  padding: 10px 15px;
+  margin: 20px;
+  background-color: rgba(249,195,9,1);
+  color: #010101;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover{
+  background-color: rgba(249,195,9,0.8);
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CEL</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'css/styles.css'%}"> 
+    <link rel="icon" type="image/png" href="{%static 'images/celLogoCircular.png'%}">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <a class="aNavLogo" href="" >
+        <img class="navLogo" src="{%static 'images/celLogoRect.png'%}" alt="logo">
+      </a>
+      
+      <nav>
+        <ul class="navLinks">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+      <a class="ctaButton" href="#"> <button>Contact Us</button></a>
+    </div>
+    {%block content%}
+
+    {%endblock%}
+  </body>
+</html>

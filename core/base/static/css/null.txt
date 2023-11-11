@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CEL</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'css/styles.css'%}"> 
+    <link rel="icon" type="image/png" href="{%static 'images/celLogoCircular.png'%}">
+
+  </head>
+
+  <body>
+    <header>
+      <img class = "logoNav" src="{%static 'images/celLogoRect.png'%}" alt="logo">
+
+      <nav>
+        <ul class="navLinks">
+          <!-- <li><a href="#">Home</a></li> -->
+          <!-- <li><a href="#">About Us</a></li> -->
+        </ul>
+      </nav>
+      <a class="ctaButton" href="#"> <button>Contact Us</button></a>
+      <!-- Contact us -->
+    </header>
+    {%block content%}
+
+    {%endblock%}
+  </body>
+</html>
+==================================================
+/* 
+black-#010101 rgba(1,1,1,255)
+
+yellow- #fbc30c rgba(249,195,9,255)
+
+white- #ffffff rgba(255,255,255,255)
+
+
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  background-color: #1f1e1e ;
+}
+
+li, a, button{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+header{
+  background-color: #010101 ;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+.logoNav{
+  margin-left: 20px;
+  margin-right: auto;
+  height: 120px;
+  cursor: pointer;
+  background-color: #010101 ;
+}
+
+.navLinks{
+  list-style: none;
+  background-color: #010101 ;
+}
+
+.navLinks li{
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.navLinks li, a{
+  background-color: #010101 ;
+  transition: all 0.3s ease 0s;
+}
+
+.navLinks li, a:hover{
+  color: #fbc30c;
+}
+
+button{
+  padding: 10px 15px;
+  margin: 20px;
+  background-color: rgba(249,195,9,1);
+  color: #010101;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover{
+  background-color: rgba(249,195,9,0.8);
+}
