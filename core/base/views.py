@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+from .models import *
 # Create your views here.
 
 
@@ -8,7 +8,9 @@ def frontPage(request):
 
 
 def aboutUs(request):
-    return render(request, 'base/aboutUs.html')
+    cordis = cordi.objects.all()
+    context = {'cordiLsObj': cordis}
+    return render(request, 'base/aboutUs.html', context)
 
 
 def contact(request):
