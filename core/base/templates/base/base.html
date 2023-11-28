@@ -8,23 +8,26 @@
     <title>{%block title %} {%endblock%}</title>
     <link rel="stylesheet" type="text/css" href="{%static 'css/styles.css'%}"> 
     <link rel="icon" type="image/png" href="{%static 'images/celLogoCircular.png'%}">
-    {% block extrahead %}{% endblock %}
+    {% block extrahead %}
+    {% endblock %}
   </head>
 
   <body>
     <div class="navbar">
-      <a class="aNavLogo" href="/ " >
+      <a class="aNavLogo" href="{%url 'frontPage'%}" >
         <img class="navLogo" src="{%static 'images/celLogoRect.png'%}" alt="logo">
       </a>
       
       <nav>
         <ul class="navLinks">
-          <li><a href="/ ">Home</a></li>
-          <li><a href="/about/">About</a></li>
+          <li><a href="{%url 'frontPage'%}">Home</a></li>
+          <li><a href="{%url 'aboutUs'%}">About</a></li>
+          <li><a href="{%url 'blogs'%}">Blogs</a></li>
+          <li><a class="ctaButton" href="{%url 'contact'%}"> <button class="ctaButton">Contact Us</button></a>
+          </li>
         </ul>
       </nav>
-      <a class="ctaButton" href="/contact/"> <button>Contact Us</button></a>
-    </div>
+      </div>
     {%block content%}
     {%endblock%}
   </body>

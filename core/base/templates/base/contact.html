@@ -5,5 +5,20 @@
 {% block extrahead %}<link rel="stylesheet" href="{% static 'css/Contact.css' %}">{% endblock %}
 
 {%block content%}
-<h1> Contact<h1>
+{%if submitted%}
+<p>
+    You will be contacted soon.
+</p>
+{%else%}
+<form action="" method=POST >
+    {% csrf_token %}
+    
+    <div class="contactForm">
+      {{form.as_p}}
+      <button type="submit" class = "ctaButton">Submit</button>
+      </div>
+    
+  </form>
+{%endif%}
+
 {%endblock%}

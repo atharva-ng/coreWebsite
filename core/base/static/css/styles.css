@@ -11,7 +11,7 @@ white- #ffffff rgba(255,255,255,255)
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 
 :root {
-  --primary-color: #1a1b1c;       
+  --primary-color: #ffffff;       
   --secondary-color: #fbc30c;
   --tertiary-color: #010101;
 }

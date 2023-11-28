@@ -1,0 +1,29 @@
+.card {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the card image */
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+/* Styles for the card content */
+.card-content {
+  padding: 16px;
+}
+
+/* Styles for the card title */
+.card-title {
+  font-size: 1.5em;
+  margin-bottom: 8px;
+}
+
+/* Styles for the card text */
+.card-text {
+  color: #666;
+}
