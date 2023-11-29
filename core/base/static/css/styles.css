@@ -23,7 +23,7 @@ white- #ffffff rgba(255,255,255,255)
   margin: 0px;
 }
 
-li, a, button{
+#navText{
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 20px;
@@ -88,7 +88,7 @@ nav{
   color: #fbc30c;
 }
 
-button{
+.buttonNav{
   padding: 10px 15px;
   margin: 20px;
   background-color: rgba(249,195,9,1);
@@ -99,6 +99,6 @@ button{
   transition: all 0.3s ease 0s;
 }
 
-button:hover{
+.buttonNav:hover{
   background-color: rgba(249,195,9,0.8);
 }
