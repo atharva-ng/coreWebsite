@@ -5,15 +5,35 @@
 {% block extrahead %}<link rel="stylesheet" href="{% static 'css/blogs.css' %}">{% endblock %}
 
 {%block content%}
-  {%for blog in blogs%}
 
-  <a href="{{blog.link}}">
-  <div class="card">
-    <img src="{{blog.image.url}}" alt="Card Image">
-    <div class="card-content">
-      <h2 class="card-title">{{blog.title}}</h2>
+  
+  <div id="blog" class="blogContainer">
+    <div id="blog" class="blogRow">
+      {%for blog in blogs%}
+      <span  class="card">
+        <a  class="card" href="{{blog.link}}">
+          <div class="card">
+            <img src="{{blog.image.url}}" alt="Card Image">
+            <div class="card-content">
+              <h2 class="card-title">{{blog.title}}</h2>
+            </div>
+          </div>
+        </a>
+      </span>
+      {%endfor%}
     </div>
   </div>
-</a>
-  {%endfor%}
+ 
 {%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+
