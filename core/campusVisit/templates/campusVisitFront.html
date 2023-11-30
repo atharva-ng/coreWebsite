@@ -1,24 +1,23 @@
 {%extends "base/base.html"%}
 {%load static%}
 
-{%block title %}CEL|Contact{%endblock%}
-{% block extrahead %}<link rel="stylesheet" href="{% static 'css/Contact.css' %}">{% endblock %}
+{%block title %}CEL|Campus Visit{%endblock%}
+{% block extrahead %}<link rel="stylesheet" href="{% static 'css/campusVisitFront.css' %}">{% endblock %}
 
 {%block content%}
 {%if submitted%}
 <p>
-    You will be contacted soon.
+    Your request has been submitted. Further communications would be sent through the registered mail.
 </p>
 {%else%}
 <form action="" method=POST >
     {% csrf_token %}
     
-    <div >
+    <div>
       {{form.as_p}}
       <button type="submit" >Submit</button>
       </div>
     
   </form>
 {%endif%}
-
 {%endblock%}
