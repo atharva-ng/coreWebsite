@@ -1,15 +1,23 @@
 from django import forms
-from .models import campusVisitRequest
+from .models import *
 
 
-class dateTimeInput(forms.DateInput):
-    input_type = "date"
-
-
-class campusVisitRequestForm(forms.ModelForm):
+class aluminiForm(forms.ModelForm):
     class Meta:
-        model = campusVisitRequest
-        widgets = {'datesFrom': dateTimeInput(),
-                   'datesTo': dateTimeInput()}
-        fields = ("name", "studentId", "email",
-                  "phoneNumber", "reason", "datesFrom", "datesTo")
+        model = alumni
+        exclude = ['aluminiPK', 'visitRequestForm']
+
+
+class guestForm(forms.ModelForm):
+    class Meta:
+        model = guest
+        exclude = ['guestPK', 'relatedAlumni']
+
+
+class visitReqForm:
+    alumini_Form = aluminiForm()
+    guest_Form = guestForm()
+
+    class Meta:
+        model = visitRequest
+        exclude = ['requestPK', 'created', 'updated', 'valid']

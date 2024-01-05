@@ -5,19 +5,10 @@
 {% block extrahead %}<link rel="stylesheet" href="{% static 'css/campusVisitFront.css' %}">{% endblock %}
 
 {%block content%}
-{%if submitted%}
-<p>
-    Your request has been submitted. Further communications would be sent through the registered mail.
-</p>
-{%else%}
-<form action="" method=POST >
+<form method="post" action="{% url 'campusVisitFront' %}">
     {% csrf_token %}
-    
-    <div>
-      {{form.as_p}}
-      <button type="submit" >Submit</button>
-      </div>
-    
-  </form>
-{%endif%}
+    {{ form.alumini_Form.as_p }}
+    {{ form.guest_Form.as_p }}
+  <button type="submit">Submit</button>
+</form>
 {%endblock%}

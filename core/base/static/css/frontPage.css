@@ -1,0 +1,49 @@
+
+.counter-container{
+  padding-top: 20px;
+}
+
+.counter-list{
+  list-style-type: none;
+}
+
+.counter-tag{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 1;
+}
+
+.counter-value{
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+  font-size: 70px;
+  color: #000;
+}
+
+
+.counter-list-container{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.custom-row {
+  margin-right: 15px;
+  margin-left: -15px;
+}
+.custom-col {
+  margin-right: 100px;
+  margin-left: 15px;
+}
+
+
+hr{
+  width : 100%;
+}
+
+.counter-info-row{
+  margin-bottom: 20px;
+}
