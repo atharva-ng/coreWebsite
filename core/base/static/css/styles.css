@@ -269,14 +269,14 @@ header{
   background-color: #A51C30; /* Harvard red color */
   height: 25px;
   width: 100%;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
   z-index: 1000;
 }
 
 .navbar-container {
-  position: fixed;
+  /* position: fixed; */
   top: 8px; /* Height of the red bar */
   width: 100%;
   z-index: 900;
