@@ -5,15 +5,12 @@
 {% block extrahead %}<link rel="stylesheet" href="{% static 'css/campusVisitFront.css' %}">{% endblock %}
 
 {%block content%}
-{{%if submitted%}}
-<h1>Submitted</h1>
-{{%else%}}
-<form method="post" action="{% url 'campusVisitFront' %}">
-  {% csrf_token %}
-  {{ alumniFormView.as_p }}
-  {{ guestFormView.as_p }}
-<button type="submit">Submit</button>
-</form>
-{{%endif%}}
+
+  <form method="post" action="{% url 'campusVisitFront' %}">
+    {% csrf_token %}
+    {{ alumniFormView.as_p }}
+    {{ guestFormView.as_p }}
+  <button type="submit">Submit</button>
+  </form>
 
 {%endblock%}

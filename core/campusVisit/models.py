@@ -17,9 +17,9 @@ class visitRequest(models.Model):
 
 
 class alumni(models.Model):
-    aluminiPK = models.AutoField(primary_key=True)
+    alumniPK = models.AutoField(primary_key=True)
     visitRequestForm = models.ForeignKey(
-        visitRequest, on_delete=models.CASCADE, related_name='aluminis')
+        visitRequest, on_delete=models.CASCADE, related_name='aluminis', null=False, blank=False)
     firstName = models.CharField(max_length=50, null=False, blank=False)
     lastName = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
