@@ -1,16 +1,29 @@
-{%extends "base/base.html"%}
-{%load static%}
-
-{%block title %}CEL|Campus Visit{%endblock%}
-{% block extrahead %}<link rel="stylesheet" href="{% static 'css/campusVisitFront.css' %}">{% endblock %}
-
+{%extends "base/base.html"%} 
+{%load static%} 
+{%block title %}
+  CEL|CampusVisit
+{%endblock%} 
+{% block extrahead %}
+  <link
+    rel="stylesheet"
+    href="{% static 'css/campusVisitFront.css' %}"
+  />
+{% endblock %} 
 {%block content%}
 
-  <form method="post" action="{% url 'campusVisitFront' %}">
-    {% csrf_token %}
-    {{ alumniFormView.as_p }}
-    {{ guestFormView.as_p }}
+<form method="post" action="{% url 'campusVisitFront' %}">
+  {% csrf_token %} 
+  {{formset.management_form}}
+  {%for form in alumniFormSet%}
+    <div>
+      {%for field in form%}
+        <div class='{%if field.field.required%}{{form.required_css_class}}{%endif%}'>
+          {{field.label_tag}}{{field}}
+        </div>
+      {%endfor%}
+    </div>
+  {%endfor%}
   <button type="submit">Submit</button>
-  </form>
+</form>
 
 {%endblock%}
