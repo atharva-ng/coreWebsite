@@ -9,9 +9,9 @@ from .models import visitRequest
 
 def campusVisitFront(request):
     if request.method == 'POST':
-        alumniFormSetClass = formset_factory(alumniForm, extra=1)
+        alumniFormSetClass = formset_factory(alumniForm, extra=1, max_num=5)
         # guestFormSetClass = inlineformset_factory(
-        #     alumni, guest, form=guestForm, extra=1)
+        #     alumni, guest, form=guestForm, extra=1,max_num=5)
 
         alumniFormSet = alumniFormSetClass(request.POST, prefix='Alumni')
         # guestFormSet = guestFormSetClass(request.POST, prefix='Guest')

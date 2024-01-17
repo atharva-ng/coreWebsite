@@ -5,20 +5,60 @@
 {% block extrahead %}<link rel="stylesheet" href="{% static 'css/Contact.css' %}">{% endblock %}
 
 {%block content%}
-{%if submitted%}
-<p>
-    You will be contacted soon.
-</p>
-{%else%}
-<form action="" method=POST >
-    {% csrf_token %}
-    
-    <div >
-      {{form.as_p}}
-      <button type="submit" >Submit</button>
+
+  <section class="align-items-end">
+    <div class="image-banner align-items-end" style="background-image: url({%static 'images/bdomeImageMain.jpeg'%});">
+      <div class="overlay"></div>
+      <div class="container text">
+        <h1 class="image-banner-title">Contact us</h1>
+        <p class="image-banner-description">If you have any questions or would like to get in touch with us, please find the contact details below.</p>
       </div>
-    
-  </form>
-{%endif%}
+    </div>
+  </section>
+
+  <section class="blueGradientBG contact-us-form-section" style="margin-bottom: 0px;">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-12 col-lg-8 m-auto">
+              <form class="multisteps-form__form" method=POST>
+                {% csrf_token %}
+                <!-- single form panel -->
+                <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
+                  <div class="multisteps-form__content">
+                    <div class="form-row mt-4">
+                      <div class="col-12 col-sm-6">                      
+                        {{form.firstName}}
+                      </div>
+                      <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                        {{form.lastName}}
+                      </div>
+                    </div>
+                    <div class="form-row mt-4">
+                      <div class="col">
+                        {{form.email}}
+                      </div>
+                    </div>
+                    <div class="form-row mt-4">
+                      <div class="col"> 
+                  {{form.subject}}
+                      </div>
+                    </div>
+                    <div class="form-group mt-4">
+                      {{form.message}}
+                    </div>
+                    <div class="button-row d-flex mt-4">
+                      <button class="btn btn-success btn-lg ml-auto"  type="submit" title="Submit">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 {%endblock%}

@@ -1,0 +1,106 @@
+.image-banner {
+  position: relative;
+  height: 450px;
+  /* top: 150px;             Keep in percentages               */
+
+  /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  /*height: 30vw;*/
+  /* Adjusts height relative to the width of the viewport */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.);
+
+}
+
+/* .image-banner::before,
+.image-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: rgba(0, 0, 0, 0.5);
+}*/
+
+/* .image-banner::before {
+  left: 0;
+}
+
+.image-banner::after {
+  right: 0;
+  background: rgba(0, 0, 0, 0.5); 
+}*/
+
+.image-banner-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 450%;
+  /* Adjust the font size as needed */
+  font-weight: 500;
+  /* position: absolute;*/
+
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; */
+}
+
+.image-banner-description {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 150%;
+  /* Adjust the font size as needed */
+  font-weight: 200;
+  margin-bottom: 2em;
+  /*position: absolute;*/
+
+  /* top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; */
+}
+
+.overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Adjust the alpha value for the darkness effect */
+}
+
+.text {
+  position: absolute;
+  bottom: -15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  z-index: 1;
+  /* Place the text above the overlay */
+}
+
+.contact-us-form-section {
+  position: relative;
+  /* top: 150px; */
+  /* height: 100%; */
+}
+
+
+.blueGradientBG {
+  --comm-bottom: 16px;
+  --comm-section: 60px;
+  --comm-section-big: 110px;
+  --blueGradient: linear-gradient(45deg, #0b3589 0, #0d72ca 40%, #0fecfa 100%);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  box-sizing: border-box;
+  display: block;
+  background: var(--blueGradient);
+  padding: var(--comm-section-big) 0;
+  position: relative;
+}

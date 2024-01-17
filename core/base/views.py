@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .models import *
 from .forms import contactForm
 # Create your views here.
@@ -11,23 +12,23 @@ def frontPage(request):
 
 
 def aboutUs(request):
-    cordis = coordi.objects.all()
-    context = {'cordiLsObj': cordis}
+    # cordis = coordi.objects.all()
+    context = {}  # {'cordiLsObj': cordis}
     return render(request, 'base/aboutUs.html', context)
 
 
 def contact(request):
-    submitted = False
     if request.method == 'POST':
+        print("==============================post")
         form = contactForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect("/contact?submitted=True")
+            return HttpResponseRedirect(reverse("contact"))
+
     else:
-        form = contactForm
-        if 'submitted' in request.GET:
-            submitted = True
-    return render(request, 'base/contact.html', {"form": form, 'submitted': submitted})
+        form = contactForm()
+    context = {"form": form}
+    return render(request, 'base/contact.html', context)
 
 
 def blogs(request):

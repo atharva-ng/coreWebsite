@@ -3,7 +3,7 @@ from .models import *
 
 
 # Register your models here.
-admin.site.register(person)
-admin.site.register(coordi)
 admin.site.register(contactDetail)
-admin.site.register(blog)
+# admin.site.register(person)
+# admin.site.register(coordi)
+# admin.site.register(blog)
