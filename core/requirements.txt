@@ -1,7 +1,118 @@
+absl-py==1.4.0
+anyascii==0.3.2
 asgiref==3.7.2
-Django==4.2.7
+astunparse==1.6.3
+beautifulsoup4==4.11.2
+boltons @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_f63n9uulmp/croot/boltons_1677628710094/work
+brotlipy==0.7.0
+cachetools==5.3.1
+certifi @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_5c4sjwommo/croot/certifi_1683875376620/work/certifi
+cffi @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_ab19r4bji3/croot/cffi_1670423206034/work
+charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+conda @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_3bspr1yk3p/croot/conda_1685025187626/work
+conda-content-trust @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_11146a2b-93c2-444c-a378-ad4fac363e991s0r1hnp/croots/recipe/conda-content-trust_1658126383571/work
+conda-package-handling @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_5f3f459f9v/croot/conda-package-handling_1672865025324/work
+conda_package_streaming @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_58gpsa_6af/croot/conda-package-streaming_1670508144037/work
+contourpy==1.1.0
+cryptography @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_a9zjqvif1f/croot/cryptography_1677533099634/work
+cycler==0.11.0
+defusedxml==0.7.1
+distlib==0.3.7
+Django==4.2.4
+django-filter==23.4
+django-modelcluster==6.1
+django-permissionedforms==0.1
 django-phonenumber-field==7.3.0
+django-taggit==4.0.0
+django-treebeard==4.7
+djangorestframework==3.14.0
+draftjs-exporter==2.1.7
+et-xmlfile==1.1.0
+filelock==3.12.2
+filetype==1.2.0
+flatbuffers==23.5.26
+fonttools==4.40.0
+gast==0.4.0
+gitdb==4.0.10
+GitPython==3.1.31
+gmpy2 @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/croot-muov7gw1/gmpy2_1645462616268/work
+google-auth==2.21.0
+google-auth-oauthlib==1.0.0
+google-pasta==0.2.0
+grpcio @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_f0it_w9tlw/croot/grpc-suite_1681912595383/work
+h5py @ file:///Users/ktietz/ci_310/h5py_1644262287129/work
+html5lib==1.1
+idna @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_771olrhiqw/croot/idna_1666125579282/work
+Jinja2 @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_9fjgzv9ant/croot/jinja2_1666908141308/work
+jsonpatch @ file:///tmp/build/80754af9/jsonpatch_1615747632069/work
+jsonpointer==2.1
+keras==2.13.1
+kiwisolver==1.4.4
+l18n==2021.3
+libclang==16.0.0
+Markdown==3.4.3
+MarkupSafe==2.1.3
+matplotlib==3.7.1
+mpmath==1.3.0
+networkx==3.1
+numpy==1.24.3
+oauthlib==3.2.2
+opencv-python==4.7.0.72
+openpyxl==3.1.2
+opt-einsum==3.3.0
+packaging @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_e946luvhc3/croot/packaging_1678965323926/work
+pandas==2.0.2
 phonenumberslite==8.13.27
-Pillow==10.1.0
+Pillow==9.5.0
+pillow-heif==0.13.1
+platformdirs==3.9.1
+pluggy @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_croot-w6jyveby/pluggy_1648109277227/work
+protobuf==4.23.4
+psutil==5.9.5
+pyasn1==0.5.0
+pyasn1-modules==0.3.0
+pycosat @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_e9xhel3kyj/croot/pycosat_1666805516297/work
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+pyOpenSSL @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_38h4axtq38/croot/pyopenssl_1677607699670/work
+pyparsing==3.1.0
+PySocks @ file:///Users/ktietz/ci_310/pysocks_1643961536721/work
+python-dateutil==2.8.2
+python-mnist==0.7
+pytz==2023.3
+PyYAML==6.0
+requests @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_e91odxd5at/croot/requests_1678709739765/work
+requests-oauthlib==1.3.1
+rsa==4.9
+ruamel.yaml @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_aeh5mqcw49/croot/ruamel.yaml_1666304555976/work
+ruamel.yaml.clib @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_f64xdg2rww/croot/ruamel.yaml.clib_1666302244208/work
+scipy==1.10.1
+seaborn==0.12.2
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+smmap==5.0.0
+soupsieve==2.5
 sqlparse==0.4.4
-typing_extensions==4.8.0
+sympy==1.12
+telepath==0.3.1
+tensorboard==2.13.0
+tensorboard-data-server==0.7.1
+tensorflow==2.13.0
+tensorflow-estimator==2.13.0
+tensorflow-macos==2.13.0
+termcolor==2.3.0
+thop==0.1.1.post2209072238
+tk==0.1.0
+toolz @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_362wyqvvgy/croot/toolz_1667464079070/work
+torch==2.0.1
+torchvision==0.15.2
+tqdm @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_ac7zic_tin/croot/tqdm_1679561870178/work
+typing_extensions==4.5.0
+tzdata==2023.3
+ultralytics==8.0.121
+urllib3 @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_c7xh0_scrc/croot/urllib3_1680254693282/work
+virtualenv==20.24.0
+wagtail==5.2.1
+webencodings==0.5.1
+Werkzeug==2.3.6
+Willow==1.6.2
+wrapt==1.15.0
+zstandard @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_41b3vxtask/croot/zstandard_1677013668452/work

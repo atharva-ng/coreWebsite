@@ -1,13 +1,12 @@
-
-.counter-container{
+.counter-container {
   padding-top: 20px;
 }
 
-.counter-list{
+.counter-list {
   list-style-type: none;
 }
 
-.counter-tag{
+.counter-tag {
   font-family: 'Open Sans', sans-serif;
   font-size: 40px;
   font-style: normal;
@@ -15,7 +14,7 @@
   line-height: 1;
 }
 
-.counter-value{
+.counter-value {
   font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -25,7 +24,7 @@
 }
 
 
-.counter-list-container{
+.counter-list-container {
   margin-top: 50px;
   margin-bottom: 50px;
 }
@@ -34,16 +33,17 @@
   margin-right: 15px;
   margin-left: -15px;
 }
+
 .custom-col {
   margin-right: 100px;
   margin-left: 15px;
 }
 
 
-hr{
-  width : 100%;
+hr {
+  width: 100%;
 }
 
-.counter-info-row{
+.counter-info-row {
   margin-bottom: 20px;
 }

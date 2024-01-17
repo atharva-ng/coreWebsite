@@ -10,20 +10,16 @@
     href="{% static 'css/campusVisitFront.css' %}"
   />
 {% endblock %} 
-{%block content%}
 
+{%block content%}
 <form method="post" action="{% url 'campusVisitFront' %}">
+
   {% csrf_token %} 
   {{formset.management_form}}
 
   <div id='alumni-Form-List'>
     {%for form in alumniFormSet%}
       <div class='alumniForm'>
-        <!-- {%for field in form%}
-          <div class='{%if field.field.required%}{{form.required_css_class}}{%endif%}'>
-            {{field.label_tag}}{{field}}
-          </div>
-        {%endfor%} -->
         {{form.as_p}}
       </div>
     {%endfor%}
@@ -32,6 +28,7 @@
   <div id='alumni-empty-form'>{{alumniFormSet.empty_form}}</div>
 
   <button type='button' id='add-more-alumni'>Add Alumni</buttom>
+
   <button type="submit">Submit</button>
 </form>
 
@@ -41,13 +38,15 @@
 
   function add_alumni_form(event){
     if(event){
-      event.preventDefault()
+      event.preventDefault() 
     }
+    
     const alumniFormCopyTarget=document.getElementById('alumni-Form-List')
     const alumniForms=document.getElementById('alumni-empty-form').cloneNode(true)
     // const alumniForms=document.getElementById('alumniForm')
 
     alumniForms.setAttribute('class','alumniForm')
+    alumniForms.setAttribute('id','')
 
     alumniFormCopyTarget.append(alumniForms)
   }

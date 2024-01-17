@@ -1,0 +1,180 @@
+.image-banner {
+  position: relative;
+  top: 170px;
+  /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  height: 30vw;
+  /* Adjusts height relative to the width of the viewport */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.image-banner::before,
+.image-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  /* Dark shade */
+}
+
+.image-banner::before {
+  left: 0;
+}
+
+.image-banner::after {
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  /* Changed from 0.7 to 0.5 to make it less dark */
+}
+
+.line-divider {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid #fff;
+  /* Line dividing the shades */
+}
+
+@keyframes slideFadeUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.left-text {
+  position: absolute;
+  left: 4%;
+  /* Percentage-based positioning */
+  z-index: 2;
+  /* To ensure text is above the shades */
+  font-size: 4vw;
+  /* Responsive font size */
+  animation: slideFadeUp 0.5s ease-out forwards;
+  /* Apply pop-in animation */
+  animation-delay: 0.2s;
+  /* Optional: adjust delay as needed */
+}
+
+.right-text {
+  position: absolute;
+  right: 6%;
+  /* This moves the text away from the right edge */
+  top: 15vw;
+  /* Increased to move the text further down */
+  z-index: 2;
+  font-size: 1.5vw;
+  /* Responsive font size */
+  max-width: 40%;
+  /* Optional: to ensure the text doesn't stretch too wide on larger screens */
+  animation: slideFadeUp 0.5s ease-out forwards;
+  /* Apply pop-in animation */
+  animation-delay: 0.3s;
+  /* Optional: adjust delay as needed */
+}
+
+/* Remaining CSS for other elements */
+
+
+@media (max-width: 768px) {
+  .right-text {
+    font-size: 2vw;
+    /* Larger font size for smaller screens */
+    right: 8%;
+    /* Adjust right position for smaller screens if necessary */
+    top: 20vw;
+    /* Increased to move the text further down on smaller screens */
+  }
+
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  color: #555;
+}
+
+.welcome-text {
+  position: relative;
+  top: 150px;
+  background: #cdcdcd;
+  /* Updated background color */
+  padding: 40px;
+  text-align: center;
+  color: #1d1d1d;
+  /* Change text color for better readability on the dark background */
+}
+
+.welcome-text .headline {
+  font-family: 'Open Sans', sans-serif;
+  color: #1d1d1d;
+  /* Lighter color for the headline for contrast */
+  font-size: 3rem;
+  margin-bottom: 0.5em;
+}
+
+.welcome-text .subtext {
+  margin-bottom: 1em;
+}
+
+/* Remaining CSS stays the same */
+
+/* Slide fade-up animation */
+@keyframes slideFadeUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.pop-in {
+  animation: slideFadeUp 0.5s ease-out forwards;
+}
+
+/* Stagger the animation for each element */
+.pop-in:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.pop-in:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.pop-in:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.visit-form {
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .welcome-text .headline {
+    font-size: 4rem;
+  }
+
+  .welcome-text .subtext {
+    font-size: 1.25rem;
+  }
+}
