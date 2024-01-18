@@ -12,46 +12,190 @@
 {% endblock %} 
 
 {%block content%}
-<form method="post" action="{% url 'campusVisitFront' %}">
 
-  {% csrf_token %} 
-  {{formset.management_form}}
+<!-- Image Banner -->
 
-  <div id='alumni-Form-List'>
-    {%for form in alumniFormSet%}
-      <div class='alumniForm'>
-        {{form.as_p}}
-      </div>
-    {%endfor%}
+<div class="image-banner" style="background-image: url({%static 'images/bdomeImageMain.jpeg'%});">
+  <div class="line-divider"></div>
+  <h1 class="left-text">Visit BITS Goa</h1>
+  <p class="right-text">Whether you have a few hours or a few days, many discoveries await.</p>
+</div>
+
+<!-- Welcome Text -->
+
+<section class="welcome-text">
+  <div class="container">
+      <h1 class="headline pop-in welcome-text-title">Explore BITS Goa</h1>
+      <p class="subtext pop-in">Step into a world where education meets innovation. At BITS Goa, every path leads to a new discovery, and every corner tells a story of success and aspiration.</p>
+      <p class="subtext pop-in">Ready to witness the pulse of BITS Goa? Fill in the form to book your campus tour. Whether you're exploring academic opportunities, revisiting memories as an alum, or simply soaking in the ambiance of our dynamic campus, we're excited to welcome you. Just a few details, and you'll be on your way to an inspiring visit.</p>
   </div>
+</section>
 
-  <div id='alumni-empty-form'>{{alumniFormSet.empty_form}}</div>
+<!-- Alumni Form -->
 
-  <button type='button' id='add-more-alumni'>Add Alumni</buttom>
+<section class="form-container">
+  <div class="container-fluid">
+    
+    <div class="container">
+      <div class="row">
+        <h1>Alumni Information</h1> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-lg-8 m-auto">
+        <form class="multisteps-form__form">
+          <!--single form panel-->
+          <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
+            <div class="multisteps-form__content">
+              <div class="form-row mt-4">
+                <div class="col-12 col-sm-6">
+                  <input class="multisteps-form__input form-control" type="text" placeholder="First Name"/>
+                </div>
+                <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                  <input class="multisteps-form__input form-control" type="text" placeholder="Last Name"/>
+                </div>
+              </div>
+              <div class="form-row mt-4">
+                <div class="col-12 col-sm-6">
+                  <input class="multisteps-form__input form-control" type="text" placeholder="BITS ID"/>
+                </div>
+                <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                  <input class="multisteps-form__input form-control" type="email" placeholder="Email"/>
+                </div>
+              </div>
+              <div class="form-row mt-4">
+                <div class="col">
+                  <input class="multisteps-form__input form-control" type="text" placeholder="Address"/>
+                </div>
+              </div>
+              <div class="form-row mt-4">
+                <div class="col-12 col-sm-6">
+                  <input class="multisteps-form__input form-control" type="text" placeholder="City"/>
+                </div>
+                <div class="col-6 col-sm-3 mt-4 mt-sm-0">
+                  <select class="multisteps-form__select form-control">
+                    <option selected="selected">State...</option>
+                    <option>...</option>
+                  </select>
+                </div>
+                <div class="col-6 col-sm-3 mt-4 mt-sm-0">
+                  <input class="multisteps-form__input form-control" type="text" placeholder="Zip"/>
+                </div>
+              </div>
+              <div class="form-row mt-4">
+                  <div class="col-12 col-sm-6">
+                    <input class="multisteps-form__input form-control" type="text" placeholder="Current Company"/>
+                  </div>
+                  <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                    <input class="multisteps-form__input form-control" type="email" placeholder="Designation"/>
+                  </div>
+                </div>
+                <div class="form-row mt-4">
+                  <div class="col-sm-3 mt-4 mt-sm-0">
+                      <input class="multisteps-form__input form-control" type="date" placeholder="Date of Visit"/>
+                  </div>
+                  <div class="col-sm-6 mt-1 mt-sm-0">
+                      <input class="multisteps-form__input form-control" type="text" placeholder="Purpose of Visit"/>
+                  </div>
+                  <div class="col-sm-3 mt-4 mt-sm-0">
+                    <input class="multisteps-form__input form-control" type="text" placeholder="Duration of Visit"/>
+                  </div>
+                </div>
+                <!--  d-flex mt-4 -->
+              <div class="button-row d-flex mt-4">
+                <button class="btn btn-success btn-lg ml-auto" id="alumni-send-button" type="button" title="Send">Send</button>
+                <button class="btn btn-primary ml-auto" id="add-non-alumni-button" type="button" title="Send" onclick="toggleNonAlumniPart()">Add a non-alumni</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</section>
 
-  <button type="submit">Submit</button>
-</form>
+<!-- Guest Form -->
+
+<section>
+  <div class="container-fluid form-container" id="non-alumni-container-1" style="display:none">
+    <div class="container non-alumni-title">
+      <h1>Non-alumni Information</h1>
+    </div>
+    <div class="row">
+      <div class="col-12 col-lg-8 m-auto">
+        <form class="multisteps-form__form">
+          <!--single form panel-->
+          <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
+            <div class="multisteps-form__content">
+              <div class="form-row mt-4">
+                <div class="col-12 col-sm-6">
+                  <input class="multisteps-form__input form-control" type="text" placeholder="First Name"/>
+                </div>
+                <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                  <input class="multisteps-form__input form-control" type="text" placeholder="Last Name"/>
+                </div>
+              </div>
+  
+              <div class="form-row mt-4">
+                <div class="col">
+                  <input class="multisteps-form__input form-control" type="text" placeholder="Address"/>
+                </div>
+              </div>
+
+              <div class="form-row mt-4">
+                <div class="col">
+                  <input class="multisteps-form__input form-control" type="text" placeholder="Phone Number"/>
+                </div>
+              </div>
+              
+                <!--  d-flex mt-4 -->
+              <div class="button-row d-flex mt-4">
+                <button class="btn btn-success btn-lg ml-auto" type="button" title="Send">Send</button>
+                <button class="btn btn-primary ml-auto" type="button" title="Send">Add a non-alumni</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</section>
 
 <script>
-  const addMoreAlumni=document.getElementById('add-more-alumni')
-  addMoreAlumni.addEventListener('click',add_alumni_form)
 
-  function add_alumni_form(event){
-    if(event){
-      event.preventDefault() 
+function toggleNonAlumniPart() {
+    // Get the non-alumni part element
+      var nonAlumniPart = document.getElementById('non-alumni-container-1');
+      var alumni_send_button = document.getElementById('alumni-send-button');
+      var add_non_alumni_button = document.getElementById('add-non-alumni-button');
+      
+      if (nonAlumniPart.style.display === 'block') {
+        nonAlumniPart.style.display = 'none';
+        alumni_send_button.removeAttribute("hidden");
+
+        add_non_alumni_button.textContent = "Add non-alumni";
+        add_non_alumni_button.classList.add('btn-primary');
+        add_non_alumni_button.classList.remove('btn-danger');
+
+        
+      }else{
+        nonAlumniPart.style.display = 'block';
+        alumni_send_button.setAttribute("hidden","hidden");
+        
+        add_non_alumni_button.textContent = "Remove non-alumni";
+        add_non_alumni_button.classList.remove('btn-primary');
+        add_non_alumni_button.classList.add('btn-danger');
+      }
     }
-    
-    const alumniFormCopyTarget=document.getElementById('alumni-Form-List')
-    const alumniForms=document.getElementById('alumni-empty-form').cloneNode(true)
-    // const alumniForms=document.getElementById('alumniForm')
-
-    alumniForms.setAttribute('class','alumniForm')
-    alumniForms.setAttribute('id','')
-
-    alumniFormCopyTarget.append(alumniForms)
-  }
 </script>
-
 
 {%endblock%}
 

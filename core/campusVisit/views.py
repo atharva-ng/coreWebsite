@@ -2,14 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.forms import formset_factory, inlineformset_factory
 from .forms import *
-from .models import visitRequest
+from .models import visitRequest, alumni
 
 # Create your views here.
 
 
 def campusVisitFront(request):
     if request.method == 'POST':
-        alumniFormSetClass = formset_factory(alumniForm, extra=1, max_num=5)
+        alumniFormSetClass = inlineformset_factory(
+            visitRequest, alumni, form=alumniForm, extra=1, max_num=5)
         # guestFormSetClass = inlineformset_factory(
         #     alumni, guest, form=guestForm, extra=1,max_num=5)
 
