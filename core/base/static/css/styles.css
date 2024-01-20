@@ -9,6 +9,7 @@ body {
   font-family: Arial, sans-serif;
   max-width: 100%;
   overflow-x: hidden;
+  /* min-height: 100vh; */
 }
 
 header {
@@ -129,7 +130,7 @@ header {
 
 .navbar-brand .navbar-brand-img {
   /* Fixed height of the logo */
-  height: 150px;
+  height: 100px;
   width: 420px;
   /* Fixed width of the logo */
   /* Adjust height and width as needed */
