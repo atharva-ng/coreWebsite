@@ -12,50 +12,51 @@
 {% endblock %} 
 
 {%block content%}
-  <form method="post" action="{% url 'campusVisitFront' %}">
+<form method="post" action="{% url 'campusVisitFront' %}">
 
-    {% csrf_token %} 
-    {{alumniFormSet.management_form}}
+  {% csrf_token %} 
+  <!-- {{alumniFormSet.management_form}} -->
 
-    <div id='alumni-Form-Container' method="POST">
-      {%for form in alumniFormSet%}
-        <div class='alumniForm'>
-          {{form.as_p}}
-        </div>
-      {%endfor%}
-    </div>
+  <div id='alumni-Form-List'>
+    {%for form in alumniFormSet%}
+      <div id='Alumni-Form-Items' class='alumniForm' >
+        {{form.as_p}}
+      </div>
+    {%endfor%}
+  </div>
 
-    <button type='button' id='add-more-alumni'>Add Alumni</buttom>
+  <div id='alumni-empty-form' class= "hidden">{{alumniFormSet.empty_form.as_p}}</div>
 
-    <button type="submit">Submit</button>
-  </form>
+  <button type='button' id='add-more-alumni'>Add Alumni</buttom>
+
+  <button type="submit">Submit</button>
+</form>
 
 <script>
-  
-  let form = document.querySelectorAll(".alumniForm")
-  let container=document.getElementById("alumni-Form-Container")
-  let addButton=document.getElementById("add-more-alumni")
-  let totalForm=document.getElementById("id_form-TOTAL_FORMS")
+  // const addMoreAlumni=document.getElementById('add-more-alumni')
+  // addMoreAlumni.addEventListener('click',add_alumni_form)
 
-  let formNum= form.length-1
+  // function add_alumni_form(event){addEventListener
+  //   if(event){
+  //     event.preventDefault() 
+  //   }
+    
+  //   //Incrementing the total forms count
+  //   const totalForms=document.getElementById('id_Alumni-TOTAL_FORMS')
+  //   let formCount=Number(totalForms.value)
+  //   totalForms.value=formCount+1   
 
-  addButton.addEventListener('click', addAlumniForm)
+  //   const alumniFormsCopy=document.getElementById('alumni-empty-form').cloneNode(true)    
+  //   alumniFormsCopy.setAttribute('class','alumniForm')
+  //   alumniFormsCopy.setAttribute('id','Alumni-Form-Items')
 
-  function addAlumniForm(event){
-      event.preventDefault()
-
-      let newForm = form[0].cloneNode(true)
-      console.log(newForm)
-      let formRegex = RegExp(`form-(\\d){1}-`,'g')
-      console.log(formRegex)
-      formNum++
-      console.log(formNum)
-      newForm.innerHTML = newForm.innerHTML.replace(formRegex, `form-${formNum}-`)
-      console.log(newForm.innerHTML)
-      // container.insertBefore(newForm, addButton)
-      totalForm.setAttribute('value', formNum+1)
-  }
+  //   const regex=new RegExp('__prefix__','g')
+  //   alumniFormsCopy.innerHTML=alumniFormsCopy.innerHTML.replace(regex,formCount)
+    
+  //   //Copying the new form to the target
+  //   const alumniFormCopyTarget=document.getElementById('alumni-Form-List')    
+  //   alumniFormCopyTarget.append(alumniFormsCopy)
+  // }
 </script>
-
 {%endblock%}
 

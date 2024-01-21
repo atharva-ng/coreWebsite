@@ -1,3 +1,7 @@
+.hidden {
+  display: none;
+}
+
 .image-banner {
   position: relative;
   /* top: 170px; */

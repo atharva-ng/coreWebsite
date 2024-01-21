@@ -1,9 +1,11 @@
+
+
 <form method="post" action="{% url 'campusVisitFront' %}">
 
   {% csrf_token %} 
-  {{formset.management_form}}
+  {{alumniFormSet.management_form}}
 
-  <div id='alumni-Form-List'>
+  <div id='alumni-Form-Container' method="POST">
     {%for form in alumniFormSet%}
       <div class='alumniForm'>
         {{form.as_p}}
@@ -11,33 +13,37 @@
     {%endfor%}
   </div>
 
-  <div id='alumni-empty-form'>{{alumniFormSet.empty_form}}</div>
-
   <button type='button' id='add-more-alumni'>Add Alumni</buttom>
 
   <button type="submit">Submit</button>
 </form>
 
 <script>
-  const addMoreAlumni=document.getElementById('add-more-alumni')
-  addMoreAlumni.addEventListener('click',add_alumni_form)
 
-  function add_alumni_form(event){addEventListener
-    if(event){
-      event.preventDefault() 
-    }
-    
-    const alumniFormCopyTarget=document.getElementById('alumni-Form-List')
-    const alumniForms=document.getElementById('alumni-empty-form').cloneNode(true)
-    // const alumniForms=document.getElementById('alumniForm')
+let form = document.querySelectorAll(".alumniForm")
+let container=document.getElementById("alumni-Form-Container")
+let addButton=document.getElementById("add-more-alumni")
+let totalForm=document.getElementById("id_form-TOTAL_FORMS")
 
-    alumniForms.setAttribute('class','alumniForm')
-    alumniForms.setAttribute('id','')
+let formNum= form.length-1
 
-    alumniFormCopyTarget.append(alumniForms)
-  }
+addButton.addEventListener('click', addAlumniForm)
+
+function addAlumniForm(event){
+    event.preventDefault()
+
+    let newForm = form[0].cloneNode(true)
+    console.log(newForm)
+    let formRegex = RegExp(`form-(\\d){1}-`,'g')
+    console.log(formRegex)
+    formNum++
+    console.log(formNum)
+    newForm.innerHTML = newForm.innerHTML.replace(formRegex, `form-${formNum}-`)
+    console.log(newForm.innerHTML)
+    // container.insertBefore(newForm, addButton)
+    totalForm.setAttribute('value', formNum+1)
+}
 </script>
-
 
 ========================================================================================================================================
 

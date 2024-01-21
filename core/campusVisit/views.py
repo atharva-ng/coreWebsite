@@ -25,7 +25,7 @@ def campusVisitFront(request):
             for alumniFormInstance in alumniFormSetInstances:
                 alumniFormInstance.visitRequestForm = formInstance
                 alumniFormInstance.save()
-        return HttpResponseRedirect(request, 'campusVisitFront.html')
+        return HttpResponseRedirect(request, 'campusVisitFront')
     else:
         alumniFormSetClass = formset_factory(alumniForm, extra=1)
         # guestFormSetClass = inlineformset_factory(
