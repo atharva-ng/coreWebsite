@@ -10,33 +10,23 @@ from .models import visitRequest, alumni
 def campusVisitFront(request):
     if request.method == 'POST':
         alumniFormSetClass = inlineformset_factory(
-            visitRequest, alumni, form=alumniForm, extra=1, max_num=5)
-        # guestFormSetClass = inlineformset_factory(
-        #     alumni, guest, form=guestForm, extra=1,max_num=5)
+            visitRequest, alumni, form=alumniForm, extra=1, max_num=5,)
 
-        alumniFormSet = alumniFormSetClass(request.POST, prefix='Alumni')
-        # guestFormSet = guestFormSetClass(request.POST, prefix='Guest')
-
-        if alumniFormSet.is_valid():  # and guestFormSet.is_valid():
+        alumniFormSet = alumniFormSetClass(
+            request.POST, prefix='Alumni')
+        if alumniFormSet.is_valid():
             formInstance = visitRequest()
             formInstance.save()
             alumniFormSetInstances = alumniFormSet.save(commit=False)
-            # guestFormSetInstances = guestFormSet.save(commit=False)
             for alumniFormInstance in alumniFormSetInstances:
                 alumniFormInstance.visitRequestForm = formInstance
                 alumniFormInstance.save()
-        return HttpResponseRedirect(request, 'campusVisitFront')
-    else:
-        alumniFormSetClass = formset_factory(alumniForm, extra=1)
-        # guestFormSetClass = inlineformset_factory(
-        #     alumni, guest, form=guestForm, extra=1)
-        alumniFormSet = alumniFormSetClass(prefix='Alumni')
-        # guestFormSet = guestFormSetClass(prefix='Guest')
 
-        context = {
-            "alumniFormSet": alumniFormSet,
-            # "guestFormSet": guestFormSet
-        }
+    alumniFormSetClass = formset_factory(alumniForm, extra=1)
+    alumniFormSet = alumniFormSetClass(prefix='Alumni')
+    context = {
+        "alumniFormSet": alumniFormSet
+    }
 
     return render(request, 'campusVisitFront.html', context)
 
