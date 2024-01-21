@@ -35,7 +35,7 @@ class alumni(models.Model):
     CompanyDesignation = models.CharField(
         max_length=254, null=False, blank=False, default="NONE")
     comingFrom = models.CharField(
-        max_length=254, null=False, blank=False, default="NONE")
+        max_length=254, null=False, blank=False, default="NONE")  # Remove this field
     currAddress = models.CharField(
         max_length=254, null=False, blank=False, default="NONE")
 

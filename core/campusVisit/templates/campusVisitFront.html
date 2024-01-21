@@ -33,11 +33,11 @@
 
 
 
-<form method="post" action="{% url 'campusVisitFront' %}">
 
-  {% csrf_token %} 
-  {{alumniFormSet.management_form}}
-  <!-- Alumni Form -->
+
+
+
+<!-- Alumni Form -->
 
 <section class="form-container">
   <div class="container-fluid">
@@ -49,10 +49,13 @@
     </div>
     <div class="row">
       <div class="col-12 col-lg-8 m-auto">
-        <form class="multisteps-form__form">
+        {% csrf_token %} 
+        {{alumniFormSet.management_form}}
+        <form class= "multisteps-form__form" method="post" action="{% url 'campusVisitFront' %}">
           <!--single form panel-->
           <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" id='alumni-Form-List' data-animation="scaleIn">
-            <div class="multisteps-form__content" id="Alumni-Form-Items">
+            {%for form in alumniFormSet%}
+            <div class="multisteps-form__content alumniForm" id="Alumni-Form-Items">
               <div class="form-row mt-4">
                 <div class="col-12 col-sm-6">
                   {{form.firstName}}
@@ -108,12 +111,16 @@
                   </div>
                 </div>
                 <!--  d-flex mt-4 -->
-              <div class="button-row d-flex mt-4">
-                <button class="btn btn-success btn-lg ml-auto" id="alumni-send-button" type="button" title="Send">Send</button>
-                <button class="btn btn-primary ml-auto" id="add-non-alumni-button" type="button" title="Send" onclick="toggleNonAlumniPart()">Add a non-alumni</button>
               </div>
+              <hr style="height: 2px; background-color:black">
+              {%endfor%}
             </div>
-          </div>
+            <div class="button-row d-flex mt-4">
+              <button class="btn btn-success btn-lg ml-auto" id="alumni-send-button" type="submit" title="Send">Submit</button>
+              <button class="btn btn-primary ml-auto" id="add-more-alumni" type="button" title="Send">Add another Alumni</button>
+              <button class="btn btn-primary ml-auto" id="add-non-alumni-button" type="button" title="Send" onclick="toggleNonAlumniPart()">Add a non-alumni</button>
+            </div>
+            
         </form>
       </div>
     </div>
@@ -123,17 +130,6 @@
   </div>
   </div>
 </section>
-  <!-- <div id='alumni-Form-List'>
-    {%for form in alumniFormSet%}
-      <div id='Alumni-Form-Items' class='alumniForm' >
-        {{form.as_p}}
-      </div>
-    {%endfor%}
-  </div>
-
-  <button type='button' id='add-more-alumni'>Add Alumni</buttom>
-
-  <button type="submit">Submit</button> -->
 </form>
 
 <script>
