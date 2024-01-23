@@ -12,9 +12,16 @@ def campusVisitFront(request):
         alumniFormSetClass = inlineformset_factory(
             visitRequest, alumni, form=alumniForm, extra=1, max_num=5,)
 
+        guestFormSetClass = inlineformset_factory(
+            visitRequest, guest, form=guestForm, extra=1, max_num=5,)
+
         alumniFormSet = alumniFormSetClass(
             request.POST, prefix='Alumni')
-        if alumniFormSet.is_valid():
+
+        guestFormSet = guestFormSetClass(
+            request.POST, prefix='Guest')
+
+        if alumniFormSet.is_valid() and guestFormSet.is_valid():
             formInstance = visitRequest()
             formInstance.save()
             alumniFormSetInstances = alumniFormSet.save(commit=False)
@@ -22,34 +29,21 @@ def campusVisitFront(request):
                 alumniFormInstance.visitRequestForm = formInstance
                 alumniFormInstance.save()
 
-    alumniFormSetClass = formset_factory(alumniForm, extra=1)
+            guestFormSetInstances = guestFormSet.save(commit=False)
+            for guestFormSetInstance in guestFormSetInstances:
+                guestFormSetInstance.visitRequestForm = formInstance
+                guestFormSetInstance.save()
+
+    alumniFormSetClass = inlineformset_factory(
+        visitRequest, alumni, form=alumniForm, extra=1, max_num=5,)
     alumniFormSet = alumniFormSetClass(prefix='Alumni')
+
+    guestFormSetClass = inlineformset_factory(
+        visitRequest, guest, form=guestForm, extra=1, max_num=5,)
+    guestFormSet = guestFormSetClass(prefix='Guest')
     context = {
-        "alumniFormSet": alumniFormSet
+        "alumniFormSet": alumniFormSet,
+        "guestFormSet": guestFormSet
     }
 
     return render(request, 'campusVisitFront.html', context)
-
-
-# def campusVisitFront(request):
-#     if request.method == 'POST':
-#         alumniDetails = alumniForm(request.POST)
-#         guestDetails = guestForm(request.POST)
-#         if alumniDetails.is_valid() and guestDetails.is_valid():
-#             formInstance = visitRequest()
-#             formInstance.save()
-
-#             alumniInstance = alumniDetails.save(commit=False)
-#             alumniInstance.visitRequestForm = formInstance
-
-#             guestInstance = guestDetails.save(commit=False)
-#             guestInstance.relatedAlumni = alumniInstance
-
-#             alumniInstance.save()
-#             guestInstance.save()
-
-#     alumniFormView = alumniForm()
-#     guestFormView = guestForm()
-#     context = {"alumniFormView": alumniFormView,
-#                "guestFormView": guestFormView}
-#     return render(request, 'campusVisitFront.html', context)

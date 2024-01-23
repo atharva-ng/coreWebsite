@@ -69,28 +69,28 @@ class alumniForm(forms.ModelForm):
             "type": "text",
             "name": "Alumni-0-currCompany",
             "id": "id_Alumni-0-currCompany",
-            "placeholder": "BITS ID",
+            "placeholder": "Current Company",
         })
         self.fields['CompanyDesignation'].widget.attrs.update({
             "class": "multisteps-form__input form-control",
             "type": "text",
             "name": "Alumni-0-CompanyDesignation",
             "id": "Alumni-0-CompanyDesignation",
-            "placeholder": "BITS ID",
+            "placeholder": "Designation in the Current Company",
         })
-        self.fields['comingFrom'].widget.attrs.update({
-            "class": "multisteps-form__input form-control",
-            "type": "text",
-            "name": "Alumni-0-comingFrom",
-            "id": "id_Alumni-0-comingFrom",
-            "placeholder": "BITS ID",
-        })
+        # self.fields['comingFrom'].widget.attrs.update({
+        #     "class": "multisteps-form__input form-control",
+        #     "type": "text",
+        #     "name": "Alumni-0-comingFrom",
+        #     "id": "id_Alumni-0-comingFrom",
+        #     "placeholder": "Coming From",
+        # })
         self.fields['currAddress'].widget.attrs.update({
             "class": "multisteps-form__input form-control",
             "type": "text",
             "name": "Alumni-0-currAddress",
             "id": "id_Alumni-0-currAddress",
-            "placeholder": "BITS ID",
+            "placeholder": "Current Address",
         })
 
     class Meta:
@@ -99,6 +99,40 @@ class alumniForm(forms.ModelForm):
 
 
 class guestForm(forms.ModelForm):
+    required_css_class = 'required-field'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['firstName'].widget.attrs.update({
+            "class": "multisteps-form__input form-control",
+            "type": "text",
+            "name": "Guest-0-firstName",
+            "id": "id_Guest-0-firstName",
+            "placeholder": "First Name",
+        })
+        self.fields['lastName'].widget.attrs.update({
+            "class": "multisteps-form__input form-control",
+            "type": "text",
+            "name": "Guest-0-lastName",
+            "id": "id_Guest-0-lastName",
+            "placeholder": "Last Name",
+        })
+        self.fields['email'].widget.attrs.update({
+            "class": "multisteps-form__input form-control",
+            "type": "email",
+            "name": "Guest-0-email",
+            "id": "id_Guest-0-email",
+            "placeholder": "Email",
+        })
+
+        self.fields['phoneNumber'].widget.attrs.update({
+            "class": "multisteps-form__input form-control",
+            "type": "tel",
+            "name": "Guest-0-phoneNumber",
+            "id": "id_Guest-0-phoneNumber",
+            "placeholder": "Contact Number",
+        })
+
     class Meta:
         model = guest
         exclude = ['guestPK', 'relatedAlumni']
