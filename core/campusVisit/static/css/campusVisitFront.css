@@ -1,6 +1,6 @@
 .image-banner {
   position: relative;
-  top: 170px;
+  /* top: 170px; */
   /* Replace with your image path */
   background-size: cover;
   background-position: center;
@@ -110,8 +110,15 @@ body {
   color: #555;
 }
 
+.welcome-text-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 150%;
+  /* Adjust the font size as needed */
+  font-weight: 500;
+}
+
 .welcome-text {
-  position: relative;
+  /* position: relative; */
   top: 150px;
   background: #cdcdcd;
   /* Updated background color */
@@ -178,3 +185,21 @@ body {
     font-size: 1.25rem;
   }
 }
+
+.form-container {
+  /* position: relative; */
+  top: 170px;
+  margin-bottom: 50px;
+}
+
+.non-alumni-title {
+  margin-top: 40px;
+}
+
+/* 
+.footer-section {
+  position: relative;
+  bottom: 0px;
+  top: 170px;
+
+} */
