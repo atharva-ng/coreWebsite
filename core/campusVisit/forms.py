@@ -132,6 +132,13 @@ class guestForm(forms.ModelForm):
             "id": "id_Guest-0-phoneNumber",
             "placeholder": "Contact Number",
         })
+        # self.fields['currAddress'].widget.attrs.update({
+        #     "class": "multisteps-form__input form-control",
+        #     "type": "text",
+        #     "name": "Alumni-0-currAddress",
+        #     "id": "id_Alumni-0-currAddress",
+        #     "placeholder": "Current Address",
+        # })
 
     class Meta:
         model = guest
