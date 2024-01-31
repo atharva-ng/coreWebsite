@@ -1,4 +1,6 @@
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
+
 # from django.utils import timezone
 # Create your models here.
 # checking
@@ -9,6 +11,7 @@ class contactDetail(models.Model):
     firstName = models.CharField(max_length=50, default="defaultName")
     lastName = models.CharField(max_length=50, default="defaultName")
     email = models.EmailField(max_length=254)
+    # phoneNumber = PhoneNumberField()
     subject = models.CharField(max_length=254)
     message = models.TextField(max_length=508)
     contacted = models.BooleanField(default=False)
