@@ -52,14 +52,14 @@ class alumniForm(forms.ModelForm):
         })
         self.fields['arrivialDateTime'].widget.attrs.update({
             "class": "multisteps-form__input form-control",
-            "type": "text",
+            "type": "date",
             "name": "Alumni-0-arrivialDateTime",
             "id": "id_Alumni-0-arrivialDateTime",
             "placeholder": "Arrival Datetime",
         })
         self.fields['departureDateTime'].widget.attrs.update({
             "class": "multisteps-form__input form-control",
-            "type": "text",
+            "type": "date",
             "name": "Alumni-0-departureDateTime",
             "id": "id_Alumni-0-departureDateTime",
             "placeholder": "Departure DateTime",
@@ -78,19 +78,40 @@ class alumniForm(forms.ModelForm):
             "id": "Alumni-0-CompanyDesignation",
             "placeholder": "Designation in the Current Company",
         })
-        # self.fields['comingFrom'].widget.attrs.update({
-        #     "class": "multisteps-form__input form-control",
-        #     "type": "text",
-        #     "name": "Alumni-0-comingFrom",
-        #     "id": "id_Alumni-0-comingFrom",
-        #     "placeholder": "Coming From",
-        # })
         self.fields['currAddress'].widget.attrs.update({
             "class": "multisteps-form__input form-control",
             "type": "text",
             "name": "Alumni-0-currAddress",
             "id": "id_Alumni-0-currAddress",
             "placeholder": "Current Address",
+        })
+        self.fields['zip'].widget.attrs.update({
+            "class": "multisteps-form__input form-control",
+            "type": "text",
+            "name": "Alumni-0-zip",
+            "id": "id_Alumni-0-zip",
+            "placeholder": "ZIP",
+        })
+        self.fields['city'].widget.attrs.update({
+            "class": "multisteps-form__input form-control",
+            "type": "text",
+            "name": "Alumni-0-city",
+            "id": "id_Alumni-0-city",
+            "placeholder": "City",
+        })
+        self.fields['country'].widget.attrs.update({
+            "class": "multisteps-form__input form-control",
+            "type": "text",
+            "name": "Alumni-0-country",
+            "id": "id_Alumni-0-country",
+            "placeholder": "Country",
+        })
+        self.fields['state'].widget.attrs.update({
+            "class": "multisteps-form__input form-control",
+            "type": "text",
+            "name": "Alumni-0-state",
+            "id": "id_Alumni-0-state",
+            "placeholder": "State",
         })
 
     class Meta:
@@ -138,6 +159,41 @@ class guestForm(forms.ModelForm):
         #     "name": "Alumni-0-currAddress",
         #     "id": "id_Alumni-0-currAddress",
         #     "placeholder": "Current Address",
+        # })
+        # self.fields['currAddress'].widget.attrs.update({
+        #     "class": "multisteps-form__input form-control",
+        #     "type": "text",
+        #     "name": "Guest-0-currAddress",
+        #     "id": "id_Guest-0-currAddress",
+        #     "placeholder": "Current Address",
+        # })
+        # self.fields['zip'].widget.attrs.update({
+        #     "class": "multisteps-form__input form-control",
+        #     "type": "text",
+        #     "name": "Guest-0-zip",
+        #     "id": "id_Guest-0-zip",
+        #     "placeholder": "ZIP",
+        # })
+        # self.fields['city'].widget.attrs.update({
+        #     "class": "multisteps-form__input form-control",
+        #     "type": "text",
+        #     "name": "Guest-0-city",
+        #     "id": "id_Guest-0-city",
+        #     "placeholder": "City",
+        # })
+        # self.fields['country'].widget.attrs.update({
+        #     "class": "multisteps-form__input form-control",
+        #     "type": "text",
+        #     "name": "Guest-0-country",
+        #     "id": "id_Guest-0-country",
+        #     "placeholder": "Country",
+        # })
+        # self.fields['state'].widget.attrs.update({
+        #     "class": "multisteps-form__input form-control",
+        #     "type": "text",
+        #     "name": "Guest-0-state",
+        #     "id": "id_Guest-0-state",
+        #     "placeholder": "State",
         # })
 
     class Meta:

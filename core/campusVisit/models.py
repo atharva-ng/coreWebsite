@@ -34,10 +34,16 @@ class alumni(models.Model):
         max_length=254, null=False, blank=False, default="NONE")
     CompanyDesignation = models.CharField(
         max_length=254, null=False, blank=False, default="NONE")
-    comingFrom = models.CharField(
-        max_length=254, null=False, blank=False, default="NONE")  # Remove this field
     currAddress = models.CharField(
         max_length=254, null=False, blank=False, default="NONE")
+    city = models.CharField(
+        max_length=100, null=False, blank=False, default="NONE")
+    state = models.CharField(
+        max_length=100, null=False, blank=False, default="NONE")
+    country = models.CharField(
+        max_length=100, null=False, blank=False, default="NONE")
+    zip = models.IntegerField(
+        null=False, blank=False, default=0)
 
     def __str__(self):
         return self.firstName+self.lastName

@@ -10,18 +10,20 @@ from .models import visitRequest, alumni
 def campusVisitFront(request):
     if request.method == 'POST':
         alumniFormSetClass = inlineformset_factory(
-            visitRequest, alumni, form=alumniForm, extra=1, max_num=5,)
+            visitRequest, alumni, form=alumniForm, extra=1, max_num=5, min_num=1)
 
         guestFormSetClass = inlineformset_factory(
-            visitRequest, guest, form=guestForm, extra=1, max_num=5,)
+            visitRequest, guest, form=guestForm, extra=0, max_num=5, min_num=0)
 
         alumniFormSet = alumniFormSetClass(
             request.POST, prefix='Alumni')
-
+        print(alumniFormSet)
         guestFormSet = guestFormSetClass(
             request.POST, prefix='Guest')
+        print(guestFormSet)
 
         if alumniFormSet.is_valid() and guestFormSet.is_valid():
+            print("VALID")
             formInstance = visitRequest()
             formInstance.save()
             alumniFormSetInstances = alumniFormSet.save(commit=False)

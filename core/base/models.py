@@ -11,7 +11,7 @@ class contactDetail(models.Model):
     firstName = models.CharField(max_length=50, default="defaultName")
     lastName = models.CharField(max_length=50, default="defaultName")
     email = models.EmailField(max_length=254)
-    # phoneNumber = PhoneNumberField()
+    phoneNumber = PhoneNumberField()
     subject = models.CharField(max_length=254)
     message = models.TextField(max_length=508)
     contacted = models.BooleanField(default=False)
@@ -46,3 +46,14 @@ class blog(models.Model):
     link = models.URLField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+
+class event(models.Model):
+    title = models.CharField(max_length=254, null=False, blank=False)
+    image = models.ImageField(upload_to="eventsImages/")
+    content = models.CharField(max_length=1016, null=False, blank=False)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title

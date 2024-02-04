@@ -7,4 +7,5 @@ urlpatterns = [
     path('about', aboutUs, name='aboutUs'),
     path('contact/', contact, name='contact'),
     path('blogs', blogs, name='blogs'),
+    path('events/', eventView, name="events"),
 ]

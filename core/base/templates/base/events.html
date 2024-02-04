@@ -1,0 +1,181 @@
+{%extends "base/base.html"%}
+{%load static%}
+
+{%block title %}CEL|Events{%endblock%}
+{% block extrahead %}
+  <link rel="stylesheet" href="{% static 'css/events.css' %}">
+  <meta charset="UTF-8" />
+
+  <script href="{% static 'js/events.js' %}"></script>
+  <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100i,300,400,500,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Allura"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <script>
+      window.console = window.console || function (t) {};
+    </script>
+{% endblock %}
+
+{%block content%}
+<section class="timeline">
+  <div
+    class="container text-center"
+    style="
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+      justify-content: center;
+    "
+  >
+    <button
+      class="btn btn-lg"
+      style="
+        background-color: #d1281c;
+        border-radius: 50px;
+        width: 20%;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <h3 style="color: #ffffff; margin-bottom: 5px; margin-top: 5px">
+        2024
+      </h3>
+    </button>
+  </div>
+  <div class="container" style="margin-top: 50px; position: relative">
+
+    {%for event in events%}
+      <div class="timeline-item">
+        <div class="timeline-img"></div>
+
+        <div class="timeline-content timeline-card js--fadeInRight">
+          <!-- <img src="{{event.image}}"> -->   <!--Add an image field -->
+          <div class="timeline-img-header">
+            <h2>{{event.title}}</h2>
+          </div>
+          <div class="date">{{event.created}}</div>
+          <p>
+            {{event.content}}
+          </p>
+          <a class="bnt-more" href="javascript:void(0)">More</a>
+        </div>
+      </div>
+    {%endfor%}
+
+  </div>
+
+  <div class="container text-center"
+    style="
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+      justify-content: center;
+    "
+  >
+    <button
+      class="btn btn-lg"
+      style="
+        background-color: #d1281c;
+        border-radius: 50px;
+        width: 20%;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <h3 style="color: #ffffff; margin-bottom: 5px; margin-top: 5px">
+        2023
+      </h3>
+    </button>
+  </div>
+</section>
+
+<script href="{% static 'js/1.js' %}"></script>
+<script href="{% static 'js/scrollreveal.js' %}"></script>
+   <script id="rendered-js">
+      $(function () {
+        window.sr = ScrollReveal();
+
+        if ($(window).width() < 768) {
+          if ($(".timeline-content").hasClass("js--fadeInLeft")) {
+            $(".timeline-content")
+              .removeClass("js--fadeInLeft")
+              .addClass("js--fadeInRight");
+          }
+
+          sr.reveal(".js--fadeInRight", {
+            origin: "right",
+            distance: "300px",
+            easing: "ease-in-out",
+            duration: 800,
+          });
+        } else {
+          sr.reveal(".js--fadeInLeft", {
+            origin: "left",
+            distance: "300px",
+            easing: "ease-in-out",
+            duration: 800,
+          });
+
+          sr.reveal(".js--fadeInRight", {
+            origin: "right",
+            distance: "300px",
+            easing: "ease-in-out",
+            duration: 800,
+          });
+        }
+
+        sr.reveal(".js--fadeInLeft", {
+          origin: "left",
+          distance: "300px",
+          easing: "ease-in-out",
+          duration: 800,
+        });
+
+        sr.reveal(".js--fadeInRight", {
+          origin: "right",
+          distance: "300px",
+          easing: "ease-in-out",
+          duration: 800,
+        });
+      });
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+{%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+

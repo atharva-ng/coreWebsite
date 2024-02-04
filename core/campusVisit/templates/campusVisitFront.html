@@ -39,12 +39,15 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 col-lg-8 m-auto">
-          {% csrf_token %} 
           {{alumniFormSet.management_form}}
           <form class= "multisteps-form__form" id="alumni-information-form" method="post" action="{% url 'campusVisitFront' %}">
+            {% csrf_token %} 
             <!--single form panel-->
             <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" id='alumni-Form-List' data-animation="scaleIn">
               {%for form in alumniFormSet%}
+              {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+              {% endfor %}
               <div class="multisteps-form__content">
                 <div class="row justify-content-center">
                   <div class="col-12 text-center">
@@ -66,11 +69,14 @@
                     </div>
                   </div>
                   <div class="form-row mt-4">
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-sm-4">
                       {{form.BitsId}}
                     </div>
-                    <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                    <div class="col-12 col-sm-4 mt-4 mt-sm-0">
                       {{form.email}}
+                    </div>
+                    <div class="col-12 col-sm-4 mt-4 mt-sm-0">
+                      {{form.phoneNumber}}
                     </div>
                   </div>
                   <div class="form-row mt-4">
@@ -79,17 +85,20 @@
                     </div>
                   </div>
                   <div class="form-row mt-4">
-                    <div class="col-12 col-sm-6">
-                      <input class="multisteps-form__input form-control" type="text" placeholder="City"/>
+                    <div class="col-12 col-sm-3">
+                      {{form.city}}
                     </div>
-                    <div class="col-6 col-sm-3 mt-4 mt-sm-0">
-                      <select class="multisteps-form__select form-control">
-                        <option selected="selected">State...</option>
-                        <option>...</option>
-                      </select>
+
+                    <div class="col-12 col-sm-3">
+                      {{form.state}}
                     </div>
-                    <div class="col-6 col-sm-3 mt-4 mt-sm-0">
-                      <input class="multisteps-form__input form-control" type="text" placeholder="Zip"/>
+
+                    <div class="col-12 col-sm-3">
+                      {{form.country}}
+                    </div>
+
+                    <div class="col-12 col-sm-3">
+                      {{form.zip}}
                     </div>
                   </div>
                   <div class="form-row mt-4">
@@ -102,13 +111,15 @@
                     </div>
                     <div class="form-row mt-4">
                       <div class="col-sm-3 mt-4 mt-sm-0">
-                          <input class="multisteps-form__input form-control" type="date" placeholder="Date of Visit"/>
+                          <!-- <input class="multisteps-form__input form-control" type="date" placeholder="Date of Visit"/> -->
+                          {{form.arrivialDateTime}}
                       </div>
                       <div class="col-sm-6 mt-1 mt-sm-0">
                           {{form.purposeOfVisit}}
                       </div>
                       <div class="col-sm-3 mt-4 mt-sm-0">
-                        <input class="multisteps-form__input form-control" type="text" placeholder="Duration of Visit"/>
+                        <!-- <input class="multisteps-form__input form-control" type="text" placeholder="Duration of Visit"/> -->
+                        {{form.departureDateTime}}
                       </div>
                     </div>
                     <!--  d-flex mt-4 -->
@@ -139,9 +150,9 @@
     <div class="container-fluid form-container guest-form-container" id="non-alumni-container-1" style="display:none">
       <div class="row">
         <div class="col-12 col-lg-8 m-auto">
-          {% csrf_token %} 
           {{guestFormSet.management_form}}
-          <form class="multisteps-form__form" method='post'>
+          <form class="multisteps-form__form" method='post' id="guest-information-form" action="{% url 'campusVisitFront' %}">
+            {% csrf_token %}
             <!--single form panel-->
             <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" id="guest-Form-List"data-animation="scaleIn" >
               {%for form in guestFormSet%}
@@ -159,40 +170,21 @@
                   </div>
                   <div class="form-row mt-4">
                     <div class="col-12 col-sm-6">
-                      <input class="multisteps-form__input form-control" type="text" placeholder="First Name"/>
+                      {{form.firstName}}
                     </div>
                     <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                      <input class="multisteps-form__input form-control" type="text" placeholder="Last Name"/>
+                      {{form.lastName}}
                     </div>
-                  </div>
-                  <div class="form-row mt-4">
-                    <div class="col">
-                      <input class="multisteps-form__input form-control" type="text" placeholder="Address"/>
-                    </div>
-                  </div>
-      
+                  </div>      
+
                   <div class="form-row mt-4">
                     <div class="col-12 col-sm-6">
-                      <input class="multisteps-form__input form-control" type="text" placeholder="City"/>
+                      {{form.phoneNumber}}
                     </div>
-                    <div class="col-6 col-sm-3 mt-4 mt-sm-0">
-                      <select class="multisteps-form__select form-control">
-                        <option selected="selected">State...</option>
-                        <option>...</option>
-                      </select>
-                    </div>
-                    <div class="col-6 col-sm-3 mt-4 mt-sm-0">
-                      <input class="multisteps-form__input form-control" type="text" placeholder="Zip"/>
+                    <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                      {{form.email}}
                     </div>
                   </div>
-    
-                  <div class="form-row mt-4">
-                    <div class="col">
-                      <input class="multisteps-form__input form-control" type="text" placeholder="Phone Number"/>
-                    </div>
-                  </div>
-                  
-                    <!--  d-flex mt-4 -->
                   </div>
                   {%endfor%}
                 </div>
@@ -221,7 +213,7 @@
     <div class="container" style="padding-bottom: 50px;">
       <div class="row">
         <div class="col-lg-12">
-          <button class="btn btn-success btn-block ml-auto btn-lg" type="button">Confirm</button>
+          <button class="btn btn-success btn-block ml-auto btn-lg" type="submit" id="submit-forms-btn">Confirm</button>
         </div>
       </div>
     </div>
@@ -301,19 +293,13 @@
         
       }
     }
-    // function add_non_alumni(){
-    //   //alert('the add non alumni button was clicked')
-    //   var non_alumni_information_form = document.getElementById("guest-form-div");
-    //   var additional_non_alumni_form = document.getElementById("additional-guest-form-container");
-    //   //additional_Alumni_Form.style.display = 'inline';
-    //   var additional_non_alumni_form_content = additional_non_alumni_form.innerHTML;
-    //   var newForm = document.createElement("div");
 
-    //   newForm.innerHTML = additional_non_alumni_form_content;
-    //   // Append the new form to the existing form
-    //   non_alumni_information_form.appendChild(newForm)
+    document.getElementById('submit-forms-btn').addEventListener('click',submit_form)
 
-    // }
+    function submit_form(){
+      document.getElementById("alumni-information-form").submit()
+      document.getElementById("guest-information-form").submit()
+    }
 
     function removeSection(button) {
       // Find the parent section of the clicked button and remove it

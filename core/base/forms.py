@@ -12,6 +12,7 @@ class contactForm(ModelForm):
             "placeholder": "First Name",
         })
         self.fields['firstName'].initial = ''
+
         self.fields['lastName'].widget.attrs.update({
             "class": "multisteps-form__input form-control",
             "type": "text",
@@ -19,12 +20,21 @@ class contactForm(ModelForm):
             "placeholder": "Last Name",
         })
         self.fields['lastName'].initial = ''
+
         self.fields['email'].widget.attrs.update({
             "class": "multisteps-form__input form-control",
             "type": "email",
             "required_id": "id_email",
             "placeholder": "Email",
         })
+
+        self.fields['phoneNumber'].widget.attrs.update({
+            "class": "multisteps-form__input form-control",
+            "type": "tel",
+            "required_id": "id_phoneNumber",
+            "placeholder": "Contact Number",
+        })
+
         self.fields['subject'].widget.attrs.update({
             "class": "multisteps-form__input form-control",
             "type": "text",
@@ -42,4 +52,5 @@ class contactForm(ModelForm):
 
     class Meta:
         model = contactDetail
-        fields = ("firstName", "lastName", "email", "subject", "message")
+        fields = ("firstName", "lastName", "email",
+                  "subject", "message", "phoneNumber")

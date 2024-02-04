@@ -35,3 +35,9 @@ def blogs(request):
     blogs = blog.objects.all()
     print(blogs)
     return render(request, 'base/blog.html', {"blogs": blogs})
+
+
+def eventView(request):
+    eventObjects = event.objects.all()
+    context = {"events": eventObjects}
+    return render(request, 'base/events.html', context)
