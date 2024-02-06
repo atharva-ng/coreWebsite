@@ -19,7 +19,10 @@ def aboutUs(request):
 
 def contact(request):
     if request.method == 'POST':
-        print("==============================post")
+        # print("==============================post")
+        for data in request.POST.items():
+            print(data)
+
         form = contactForm(request.POST)
         if form.is_valid():
             form.save()

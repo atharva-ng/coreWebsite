@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from django.forms import formset_factory, inlineformset_factory
+from django.forms import inlineformset_factory
 from .forms import *
 from .models import visitRequest, alumni
 
@@ -8,22 +8,20 @@ from .models import visitRequest, alumni
 
 
 def campusVisitFront(request):
+    alumniFormSetClass = inlineformset_factory(
+        visitRequest, alumni, form=alumniForm, extra=0, max_num=5, min_num=1)
+
+    guestFormSetClass = inlineformset_factory(
+        visitRequest, guest, form=guestForm, extra=1, max_num=5, min_num=0)
+
     if request.method == 'POST':
-        alumniFormSetClass = inlineformset_factory(
-            visitRequest, alumni, form=alumniForm, extra=1, max_num=5, min_num=1)
-
-        guestFormSetClass = inlineformset_factory(
-            visitRequest, guest, form=guestForm, extra=0, max_num=5, min_num=0)
-
         alumniFormSet = alumniFormSetClass(
             request.POST, prefix='Alumni')
-        print(alumniFormSet)
+
         guestFormSet = guestFormSetClass(
             request.POST, prefix='Guest')
-        print(guestFormSet)
 
         if alumniFormSet.is_valid() and guestFormSet.is_valid():
-            print("VALID")
             formInstance = visitRequest()
             formInstance.save()
             alumniFormSetInstances = alumniFormSet.save(commit=False)
@@ -36,12 +34,8 @@ def campusVisitFront(request):
                 guestFormSetInstance.visitRequestForm = formInstance
                 guestFormSetInstance.save()
 
-    alumniFormSetClass = inlineformset_factory(
-        visitRequest, alumni, form=alumniForm, extra=1, max_num=5,)
     alumniFormSet = alumniFormSetClass(prefix='Alumni')
 
-    guestFormSetClass = inlineformset_factory(
-        visitRequest, guest, form=guestForm, extra=1, max_num=5,)
     guestFormSet = guestFormSetClass(prefix='Guest')
     context = {
         "alumniFormSet": alumniFormSet,

@@ -1,3 +1,44 @@
+
+{%extends "base/base.html"%} 
+{%load static%} 
+{%block title %}
+  CEL|CampusVisit
+{%endblock%} 
+{% block extrahead %}
+  <link
+    rel="stylesheet"
+    href="{% static 'css/campusVisitFront.css' %}"
+  />
+{% endblock %} 
+
+{%block content%}
+
+<!-- Image Banner -->
+
+<div class="image-banner" style="background-image: url({%static 'images/bdomeImageMain.jpeg'%});">
+  <div class="line-divider"></div>
+  <h1 class="left-text">Visit BITS Goa</h1>
+  <p class="right-text">Whether you have a few hours or a few days, many discoveries await.</p>
+</div>
+
+<!-- Welcome Text -->
+
+<section class="welcome-text">
+  <div class="container">
+      <h1 class="headline pop-in welcome-text-title">Explore BITS Goa</h1>
+      <p class="subtext pop-in">Step into a world where education meets innovation. At BITS Goa, every path leads to a new discovery, and every corner tells a story of success and aspiration.</p>
+      <p class="subtext pop-in">Ready to witness the pulse of BITS Goa? Fill in the form to book your campus tour. Whether you're exploring academic opportunities, revisiting memories as an alum, or simply soaking in the ambiance of our dynamic campus, we're excited to welcome you. Just a few details, and you'll be on your way to an inspiring visit.</p>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- Alumni Form -->
+
 <section class="form-container">
   <div class="container-fluid">
     
@@ -8,10 +49,10 @@
     </div>
     <div class="row">
       <div class="col-12 col-lg-8 m-auto">
-        <form class= "multisteps-form__form" id="alumni-information-form" method="post" action="{% url 'campusVisitFront' %}">
-          <!--single form panel-->
-          {% csrf_token %} 
+        <form class= "multisteps-form__form" method="post" action="{% url 'campusVisitFront' %}">
           {{alumniFormSet.management_form}}
+          {% csrf_token %} 
+          <!--single form panel-->
           <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" id='alumni-Form-List' data-animation="scaleIn">
             {%for form in alumniFormSet%}
               <div class="multisteps-form__content" id="additional-alumni-Form" class="alumniForm" >
@@ -91,13 +132,13 @@
               </div>
               {%endfor%}
             </div>
+            <div class="button-row d-flex mt-4">
+              <button class="btn btn-success btn-lg ml-auto" id="alumni-send-button" type="submit" title="Send">Submit</button>
+              <button class="btn btn-primary ml-auto" id="add-more-alumni" type="button" title="Send">Add another Alumni</button>
+              <button class="btn btn-primary ml-auto" id="add-non-alumni-button" type="button" title="Send" onclick="toggleNonAlumniPart()">Add a non-alumni</button>
+            </div>
             
-          </form>
-          <div class="button-row d-flex mt-4">
-            <button class="btn btn-success btn-lg ml-auto" id="submit-forms-btn" type="submit" title="Send">Submit</button>
-            <button class="btn btn-primary ml-auto" id="add-more-alumni" type="button" title="Send">Add another Alumni</button>
-            <button class="btn btn-primary ml-auto" id="add-non-alumni-button" type="button" title="Send" onclick="toggleNonAlumniPart()">Add a non-alumni</button>
-          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -106,3 +147,33 @@
   </div>
   </div>
 </section>
+</form>
+
+<script>
+  const addMoreAlumni=document.getElementById('add-more-alumni')
+  addMoreAlumni.addEventListener('click',add_alumni_form)
+
+  function add_alumni_form(event){
+    if(event){
+      event.preventDefault() 
+    }
+    
+    //Incrementing the total forms count
+    const totalForms=document.getElementById('id_Alumni-TOTAL_FORMS')
+    let formCount=Number(totalForms.value)
+    totalForms.value=formCount+1   
+
+    //Creating new form element
+    let form = document.getElementByClass(".alumniForm")
+    let alumniFormsCopy = form[0].cloneNode(true)
+    
+    //Editing the inner values
+    const regex=new RegExp('-0-','g')
+    alumniFormsCopy.innerHTML=alumniFormsCopy.innerHTML.replace(regex,`-${formCount}-`)
+    
+    //Copying the new form to the target
+    const alumniFormCopyTarget=document.getElementById('alumni-Form-List')    
+    alumniFormCopyTarget.append(alumniFormsCopy)
+  }
+</script>
+{%endblock%}

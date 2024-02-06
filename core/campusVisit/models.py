@@ -51,8 +51,8 @@ class alumni(models.Model):
 
 class guest(models.Model):
     guestPK = models.AutoField(primary_key=True)
-    relatedAlumni = models.ForeignKey(
-        visitRequest, on_delete=models.CASCADE, related_name='guests')
+    visitRequestForm = models.ForeignKey(
+        visitRequest, on_delete=models.CASCADE, related_name='guests', null=False, blank=False)
     firstName = models.CharField(max_length=50, null=False, blank=False)
     lastName = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
