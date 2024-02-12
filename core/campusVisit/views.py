@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect, JsonResponse
+
 from django.forms import inlineformset_factory
 from .forms import *
 from .models import visitRequest, alumni
@@ -33,6 +34,11 @@ def campusVisitFront(request):
             for guestFormSetInstance in guestFormSetInstances:
                 guestFormSetInstance.visitRequestForm = formInstance
                 guestFormSetInstance.save()
+            return JsonResponse({'message': 'Form submitted successfully'}, status=200)
+        else:
+            errors = {"alumniFormErrors": alumniFormSet.errors.as_json(),
+                      "guestFormErrors": guestFormSet.errors.as_json()}
+            return JsonResponse({'errors': errors}, status=400)
 
     alumniFormSet = alumniFormSetClass(prefix='Alumni')
 

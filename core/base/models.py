@@ -19,7 +19,11 @@ class contactDetail(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.firstName+' '+self.lastName
+        if self.contacted:
+            response = "Contacted"
+        else:
+            response = "Not Contacted"
+        return self.firstName+' '+self.lastName + ' '+response
 
 
 # class person(models.Model):

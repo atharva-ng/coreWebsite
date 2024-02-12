@@ -31,17 +31,17 @@ class alumni(models.Model):
     departureDateTime = models.DateTimeField(
         default=timezone.now, null=False, blank=False, verbose_name="To Date")
     currCompany = models.CharField(
-        max_length=254, null=False, blank=False, default="NONE")
+        max_length=254, null=False, blank=False)
     CompanyDesignation = models.CharField(
-        max_length=254, null=False, blank=False, default="NONE")
+        max_length=254, null=False, blank=False)
     currAddress = models.CharField(
-        max_length=254, null=False, blank=False, default="NONE")
+        max_length=254, null=False, blank=False)
     city = models.CharField(
-        max_length=100, null=False, blank=False, default="NONE")
+        max_length=100, null=False, blank=False)
     state = models.CharField(
-        max_length=100, null=False, blank=False, default="NONE")
+        max_length=100, null=False, blank=False)
     country = models.CharField(
-        max_length=100, null=False, blank=False, default="NONE")
+        max_length=100, null=False, blank=False)
     zip = models.IntegerField(
         null=False, blank=False, default=0)
 
