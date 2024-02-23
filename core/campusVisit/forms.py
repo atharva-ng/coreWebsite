@@ -1,5 +1,10 @@
 from django import forms
 from .models import *
+from django.forms import TextInput
+
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
 
 class alumniForm(forms.ModelForm):
@@ -50,19 +55,19 @@ class alumniForm(forms.ModelForm):
             "id": "id_Alumni-0-purposeOfVisit",
             "placeholder": "Purpose of Visit",
         })
-        self.fields['arrivialDateTime'].widget.attrs.update({
+        self.fields['arrivialDate'].widget.attrs.update({
             "class": "multisteps-form__input form-control",
             "type": "date",
-            "name": "Alumni-0-arrivialDateTime",
-            "id": "id_Alumni-0-arrivialDateTime",
-            "placeholder": "Arrival Datetime",
+            "name": "Alumni-0-arrivialDate",
+            "id": "id_Alumni-0-arrivialDate",
+            "placeholder": "Arrival Date",
         })
-        self.fields['departureDateTime'].widget.attrs.update({
+        self.fields['departureDate'].widget.attrs.update({
             "class": "multisteps-form__input form-control",
             "type": "date",
-            "name": "Alumni-0-departureDateTime",
-            "id": "id_Alumni-0-departureDateTime",
-            "placeholder": "Departure DateTime",
+            "name": "Alumni-0-departureDate",
+            "id": "id_Alumni-0-departureDate",
+            "placeholder": "Departure Date",
         })
         self.fields['currCompany'].widget.attrs.update({
             "class": "multisteps-form__input form-control",
@@ -114,9 +119,25 @@ class alumniForm(forms.ModelForm):
             "placeholder": "State",
         })
 
+    def clean(self):
+        cleaned_data = super().clean()
+        start_date = cleaned_data.get("start_date")
+        end_date = cleaned_data.get("end_date")
+        print("Called====================================================")
+        if start_date and end_date:
+            if start_date > end_date:
+                raise forms.ValidationError(
+                    "End date should be after start date.")
+        return cleaned_data
+
     class Meta:
         model = alumni
         exclude = ['aluminiPK', 'visitRequestForm']
+        widgets = {
+            'departureDate': DateInput(),
+            'arrivialDate': DateInput(),
+            'zip': TextInput()
+        }
 
 
 class guestForm(forms.ModelForm):
@@ -153,48 +174,6 @@ class guestForm(forms.ModelForm):
             "id": "id_Guest-0-phoneNumber",
             "placeholder": "Contact Number",
         })
-        # self.fields['currAddress'].widget.attrs.update({
-        #     "class": "multisteps-form__input form-control",
-        #     "type": "text",
-        #     "name": "Alumni-0-currAddress",
-        #     "id": "id_Alumni-0-currAddress",
-        #     "placeholder": "Current Address",
-        # })
-        # self.fields['currAddress'].widget.attrs.update({
-        #     "class": "multisteps-form__input form-control",
-        #     "type": "text",
-        #     "name": "Guest-0-currAddress",
-        #     "id": "id_Guest-0-currAddress",
-        #     "placeholder": "Current Address",
-        # })
-        # self.fields['zip'].widget.attrs.update({
-        #     "class": "multisteps-form__input form-control",
-        #     "type": "text",
-        #     "name": "Guest-0-zip",
-        #     "id": "id_Guest-0-zip",
-        #     "placeholder": "ZIP",
-        # })
-        # self.fields['city'].widget.attrs.update({
-        #     "class": "multisteps-form__input form-control",
-        #     "type": "text",
-        #     "name": "Guest-0-city",
-        #     "id": "id_Guest-0-city",
-        #     "placeholder": "City",
-        # })
-        # self.fields['country'].widget.attrs.update({
-        #     "class": "multisteps-form__input form-control",
-        #     "type": "text",
-        #     "name": "Guest-0-country",
-        #     "id": "id_Guest-0-country",
-        #     "placeholder": "Country",
-        # })
-        # self.fields['state'].widget.attrs.update({
-        #     "class": "multisteps-form__input form-control",
-        #     "type": "text",
-        #     "name": "Guest-0-state",
-        #     "id": "id_Guest-0-state",
-        #     "placeholder": "State",
-        # })
 
     class Meta:
         model = guest

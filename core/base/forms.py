@@ -32,7 +32,7 @@ class contactForm(ModelForm):
             "class": "multisteps-form__input form-control",
             "type": "tel",
             "required_id": "id_phoneNumber",
-            "placeholder": "Contact Number",
+            "placeholder": "Contact Number (+91 xxxxx xxxxx)",
         })
 
         self.fields['subject'].widget.attrs.update({

@@ -1,7 +1,7 @@
 {%extends "base/base.html"%}
 {%load static%}
 
-{%block title %}CEL|Events{%endblock%}
+{%block title %}SARC|Events{%endblock%}
 {% block extrahead %}
   <link rel="stylesheet" href="{% static 'css/events.css' %}">
   <meta charset="UTF-8" />
@@ -61,7 +61,7 @@
         <div class="timeline-img"></div>
 
         <div class="timeline-content timeline-card js--fadeInRight">
-          <!-- <img src="{{event.image}}"> -->   <!--Add an image field -->
+          <!-- <img src="{{event.image.url}}">   Add an image field -->
           <div class="timeline-img-header">
             <h2>{{event.title}}</h2>
           </div>

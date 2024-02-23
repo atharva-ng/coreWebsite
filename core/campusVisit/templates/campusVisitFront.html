@@ -2,7 +2,7 @@
 {%extends "base/base.html"%} 
 {%load static%} 
 {%block title %}
-  CEL|CampusVisit
+  SARC|CampusVisit
 {%endblock%} 
 {% block extrahead %}
   <link
@@ -113,19 +113,17 @@
                     <div class="form-row mt-4">
                       <div class="col-sm-3 mt-4 mt-sm-0">
                           <!-- <input class="multisteps-form__input form-control" type="date" placeholder="Date of Visit"/> -->
-                          {{form.arrivialDateTime}}
+                          {{form.arrivialDate}}
                       </div>
                       <div class="col-sm-6 mt-1 mt-sm-0">
                           {{form.purposeOfVisit}}
                       </div>
                       <div class="col-sm-3 mt-4 mt-sm-0">
                         <!-- <input class="multisteps-form__input form-control" type="text" placeholder="Duration of Visit"/> -->
-                        {{form.departureDateTime}}
+                        {{form.departureDate}}
                       </div>
                     </div>
-                    <!--  d-flex mt-4 -->
                   </div>
-                  <!-- <hr style="height: 2px; background-color:black"> -->
                   {%endfor%}
                   
                 </div>
@@ -202,7 +200,7 @@
               <button class="btn btn-outline-primary btn-block btn-lg" type="button" id='add-more-guest'>Add another non-alumni</button>
             </div>
             <div class="col-lg-6">
-              <button class="btn btn-danger btn-block ml-auto btn-lg" type="button" id='' onclick="removeSection(this)">Remove non-alumni</button>
+              <button class="btn btn-danger btn-block ml-auto btn-lg" type="button" id="remove-blank-forms" >Remove blank forms</button>
             </div>
           </div>
         </div>
@@ -349,11 +347,37 @@
     });
   }
 
-    function removeSection(button) {
-      // Find the parent section of the clicked button and remove it
-      // var section = button.parentNode;
-      // section.parentNode.removeChild();
+  document.getElementById('remove-blank-forms').addEventListener('click',removeEmptyForms)
+
+  function removeEmptyForms(event) {
+    if(event){
+      event.preventDefault() 
     }
+
+    const alumniForms = document.querySelectorAll('.alumniForm');
+  
+    // Iterate over each alumni form
+    alumniForms.forEach(function(form) {
+      // Check if the form is blank
+      const inputs = form.querySelectorAll('input, select, textarea');
+      let isBlank = true;
+      inputs.forEach(function(input) {
+          if (input.value.trim() !== '') {
+              isBlank = false;
+          }
+      });
+      console.log("removed");
+      // If the form is blank, remove it
+      if (isBlank) {
+          form.remove();
+          
+          // Decrement the total forms count
+          const totalForms = document.getElementById('id_Alumni-TOTAL_FORMS');
+          totalForms.value = Number(totalForms.value) - 1;
+          console.log("removed1s");
+      }
+    });
+  }
 </script>
 {%endblock%}
 
