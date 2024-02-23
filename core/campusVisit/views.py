@@ -23,6 +23,7 @@ def campusVisitFront(request):
             request.POST, prefix='Guest')
 
         if alumniFormSet.is_valid() and guestFormSet.is_valid():
+            print("===================valid=======================")
             formInstance = visitRequest()
             formInstance.save()
             alumniFormSetInstances = alumniFormSet.save(commit=False)
@@ -36,9 +37,13 @@ def campusVisitFront(request):
                 guestFormSetInstance.save()
             return JsonResponse({'message': 'Form submitted successfully'}, status=200)
         else:
-            errors = {"alumniFormErrors": alumniFormSet.errors.as_json(),
-                      "guestFormErrors": guestFormSet.errors.as_json()}
-            return JsonResponse({'errors': errors}, status=400)
+            # print("===================Notvalid=======================")
+            # errors = [{**alumniFormSet.errors[0], **guestFormSet.errors[0]}]
+            context = {
+                "alumniFormSet": alumniFormSet,
+                "guestFormSet": guestFormSet,
+            }
+            return render(request, 'campusVisitFront.html', context)
 
     alumniFormSet = alumniFormSetClass(prefix='Alumni')
 

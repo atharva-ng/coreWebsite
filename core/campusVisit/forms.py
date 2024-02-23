@@ -119,16 +119,16 @@ class alumniForm(forms.ModelForm):
             "placeholder": "State",
         })
 
-    def clean(self):
-        cleaned_data = super().clean()
-        start_date = cleaned_data.get("start_date")
-        end_date = cleaned_data.get("end_date")
-        print("Called====================================================")
-        if start_date and end_date:
-            if start_date > end_date:
-                raise forms.ValidationError(
-                    "End date should be after start date.")
-        return cleaned_data
+    # def clean(self):
+    #     cleaned_data = super().clean()
+    #     start_date = cleaned_data.get("start_date")
+    #     end_date = cleaned_data.get("end_date")
+    #     print("Called====================================================")
+    #     if start_date and end_date:
+    #         if start_date > end_date:
+    #             raise forms.ValidationError(
+    #                 "End date should be after start date.")
+    #     return cleaned_data
 
     class Meta:
         model = alumni

@@ -29,6 +29,17 @@
                 <h2>Send a message</h2>
                 <form method=POST>
                   {% csrf_token %} 
+                  <!-- {% if form.errors %}
+                      <div class="errors">
+                          <ul>
+                              {% for field, errors in form.errors.items %}
+                                  {% for error in errors %}
+                                      <li>{{ field }}: {{ error }}</li>
+                                  {% endfor %}
+                              {% endfor %}
+                          </ul>
+                      </div>
+                  {% endif %} -->
                   <div class="formBox">
                     <div class="row50">
                       <div class="inputBox">

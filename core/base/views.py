@@ -22,14 +22,16 @@ def contact(request):
         form = contactForm(request.POST)
         if form.is_valid():
             form.save()
-
             form = contactForm()
             context = {"form": form, "message": "submitted"}
-            # return HttpResponseRedirect(reverse("contact"))
+        else:
+            context = {"form": form}
+            return render(request, 'base/contact.html', context)
 
     else:
         form = contactForm()
         context = {"form": form}
+
     return render(request, 'base/contact.html', context)
 
 

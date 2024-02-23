@@ -6,31 +6,27 @@ from .models import *
 
 class guestInline(admin.StackedInline):
     model = guest
+    fields = [("firstName", "lastName"),
+              ("email", "phoneNumber",)]
     extra = 0
-
-    def has_add_permission(self):
-        return False
-
-    # This will help you to disable delete functionaliyt
-    # def has_delete_permission(self, obj=None):
-    #     return False
 
 
 class alumniInline(admin.StackedInline):
     model = alumni
+    fields = [("firstName", "lastName"),
+              ("email", "phoneNumber", "BitsId"),
+              "purposeOfVisit",
+              ("currCompany", "CompanyDesignation"),
+              ("currAddress", "city", "state", "country", "zip"),
+              ("arrivialDate", "departureDate")]
     extra = 0
-
-    # def has_add_permission(self):
-    #     return False
-
-    # def has_delete_permission(self, obj=None):
-    #     return False
 
 
 class requestAdmin(admin.ModelAdmin):
+    model = visitRequest
+    list_display = ('created', "valid")
+    list_filter = ("valid",)
     inlines = [alumniInline, guestInline]
 
 
 admin.site.register(visitRequest, requestAdmin)
-admin.site.register(alumni)
-admin.site.register(guest)
