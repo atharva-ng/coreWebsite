@@ -1,11 +1,23 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect, JsonResponse
-
+from django.http import JsonResponse, HttpResponse, HttpResponseBadRequest
+from django.core.mail import send_mail
 from django.forms import inlineformset_factory
+from django.conf import settings
+
 from .forms import *
 from .models import visitRequest, alumni
 
 # Create your views here.
+
+
+def sendEmails(subject, message):
+    send_mail(
+        subject,
+        message,
+        settings.EMAIL_HOST_USER,
+        ['atharvaghadi4@gmail.com'],
+        fail_silently=False
+    )
 
 
 def campusVisitFront(request):
@@ -35,22 +47,31 @@ def campusVisitFront(request):
             for guestFormSetInstance in guestFormSetInstances:
                 guestFormSetInstance.visitRequestForm = formInstance
                 guestFormSetInstance.save()
-            return JsonResponse({'message': 'Form submitted successfully'}, status=200)
+
+            subject = "Campus visit Request"
+            message = "There is a new Campus visit request."
+            sendEmails(subject, message)
+
+            return redirect('campusVisitFront')
         else:
-            # print("===================Notvalid=======================")
-            # errors = [{**alumniFormSet.errors[0], **guestFormSet.errors[0]}]
             context = {
                 "alumniFormSet": alumniFormSet,
                 "guestFormSet": guestFormSet,
             }
-            return render(request, 'campusVisitFront.html', context)
+            return HttpResponseBadRequest()
+            # return render(request, 'campusVisitFront.html', context)
+    elif request.method == 'GET':
+        alumniFormSet = alumniFormSetClass(prefix='Alumni')
 
-    alumniFormSet = alumniFormSetClass(prefix='Alumni')
+        guestFormSet = guestFormSetClass(prefix='Guest')
+        context = {
+            "alumniFormSet": alumniFormSet,
+            "guestFormSet": guestFormSet
+        }
 
-    guestFormSet = guestFormSetClass(prefix='Guest')
-    context = {
-        "alumniFormSet": alumniFormSet,
-        "guestFormSet": guestFormSet
-    }
-
-    return render(request, 'campusVisitFront.html', context)
+        return render(request, 'campusVisitFront.html', context)
+    elif request.method == "HEAD":
+        response = HttpResponse()
+        return response
+    else:
+        return HttpResponse(status=405)

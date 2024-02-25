@@ -41,8 +41,8 @@
       </div>
       <div class="row">
         <div class="col-12 col-lg-8 m-auto">
-          
-          <form class= "multisteps-form__form" id="alumni-information-form" method="post" action="{% url 'campusVisitFront' %}">
+          <!-- action="{% url 'campusVisitFront' %}" -->
+          <form class= "multisteps-form__form" id="alumni-information-form" method="post" >
             {% csrf_token %} 
             {{alumniFormSet.management_form}}
             <!--single form panel-->
@@ -339,12 +339,14 @@
       body: mergedForms
     })
     .then(response => {
-      if (response.ok) {
-        window.location.reload();
-      }
+      console.log(response)
+      // if (response.ok) {
+      //   window.location.reload();
+      // }
     })
     .catch(error => {
-        // Handle error
+        console.log("ErrorsHere");
+        console.log(error)
     });
   }
 
