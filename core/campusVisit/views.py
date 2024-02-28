@@ -3,6 +3,8 @@ from django.http import JsonResponse, HttpResponse, HttpResponseBadRequest
 from django.core.mail import send_mail
 from django.forms import inlineformset_factory
 from django.conf import settings
+import threading
+import json
 
 from .forms import *
 from .models import visitRequest, alumni
@@ -10,7 +12,9 @@ from .models import visitRequest, alumni
 # Create your views here.
 
 
-def sendEmails(subject, message):
+def sendEmails():
+    subject = "Campus visit Request"
+    message = "There is a new Campus visit request."
     send_mail(
         subject,
         message,
@@ -48,18 +52,29 @@ def campusVisitFront(request):
                 guestFormSetInstance.visitRequestForm = formInstance
                 guestFormSetInstance.save()
 
-            subject = "Campus visit Request"
-            message = "There is a new Campus visit request."
-            sendEmails(subject, message)
+            threading.Thread(
+                target=sendEmails, name="Email Thread").start()
 
-            return redirect('campusVisitFront')
+            data = {}
+            return JsonResponse(data, status=200)
         else:
+            errorList = []
+            for form in alumniFormSet:
+                for field, error in form.errors.items():
+                    errorList.append(error[0])
+
+            alumniFormSet = alumniFormSetClass(
+                request.POST, prefix='Alumni')
+
+            guestFormSet = guestFormSetClass(
+                request.POST, prefix='Guest')
             context = {
-                "alumniFormSet": alumniFormSet,
-                "guestFormSet": guestFormSet,
+                "errors": errorList,
             }
-            return HttpResponseBadRequest()
-            # return render(request, 'campusVisitFront.html', context)
+            serializedContext = json.dumps(context)
+            print(serializedContext)
+            return JsonResponse({"errors": serializedContext}, status=402)
+
     elif request.method == 'GET':
         alumniFormSet = alumniFormSetClass(prefix='Alumni')
 
@@ -70,6 +85,7 @@ def campusVisitFront(request):
         }
 
         return render(request, 'campusVisitFront.html', context)
+
     elif request.method == "HEAD":
         response = HttpResponse()
         return response

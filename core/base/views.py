@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
+import threading
 
 from .models import *
 from .forms import contactForm
@@ -19,24 +20,29 @@ def aboutUs(request):
     return render(request, 'base/aboutUs.html', context)
 
 
+def sendMail():
+    subject = "Contact Request"
+    message = "There is a new contact request."
+
+    send_mail(
+        subject,
+        message,
+        settings.EMAIL_HOST_USER,
+        ['atharvaghadi4@gmail.com'],
+        fail_silently=False
+    )
+
+
 def contact(request):
     if request.method == 'POST':
         form = contactForm(request.POST)
 
         if form.is_valid():
             form.save()
-            # Mail Admin
-            subject = "Contact Request"
-            message = "There is a new contact request."
 
-            send_mail(
-                subject,
-                message,
-                settings.EMAIL_HOST_USER,
-                # [request.POST.get('email')],
-                ['atharvaghadi4@gmail.com'],
-                fail_silently=False
-            )
+            email_thread = threading.Thread(
+                target=sendMail, name="Email Thread")
+            email_thread.start()
 
             messages.success(request, "submitted")
             return redirect(reverse('contact'))

@@ -36,9 +36,10 @@
   <section class="form-container" id="alumni-form-section" style="padding-top: 50px;">
     <div class="container-fluid">
       
-      <div class="container">
+      <div class="container"></div>
         
-      </div>
+        
+
       <div class="row">
         <div class="col-12 col-lg-8 m-auto">
           <!-- action="{% url 'campusVisitFront' %}" -->
@@ -54,8 +55,7 @@
               </div>
               
               {%for form in alumniFormSet%}
-              <div class="multisteps-form__content alumniForm" id="Alumni-Form-Items">
-                
+              <div class="multisteps-form__content alumniForm" id="Alumni-Form-Items">                
                 <div id="additional-alumni-Form-List">
                   <div class="row ">
                     <div class="col-md-12">
@@ -310,10 +310,21 @@
       }else{
         nonAlumniPart.style.display = 'block';
       }
+  }  
+  
+  async function fetchData(mergedForms){
+    const response = await fetch("{% url 'campusVisitFront' %}",{method: 'POST', body: mergedForms});
+    if(response.ok){
+      window.location.reload();
+    }else{
+      const data =await response.json();
+      return JSON.parse(data.errors);
     }
+  }
 
   document.getElementById('submit-forms-btn').addEventListener('click',submit_form)
   function submit_form(event){
+    event.preventDefault()
     alumniForm=document.getElementById("alumni-information-form");
     guestForm=document.getElementById("guest-information-form");
 
@@ -332,22 +343,20 @@
     });
     var csrfToken2 = guestForm.querySelector('input[name="csrfmiddlewaretoken"]');
     mergedForms.append('csrfmiddlewaretoken', csrfToken2.value);
-    
-  
-    fetch("{% url 'campusVisitFront' %}", {
-      method: 'POST',
-      body: mergedForms
+
+    errorDiv=document.getElementById('errorDiv')
+
+    fetchData(mergedForms).then(data=>{
+      if(data.errors.length==0){
+        window.location.reload();
+      }else{
+        data.errors.forEach(error=>{
+          // errorDiv.append(error)
+        })
+      }
+    }).catch(error=>{
+      console.log("caught")
     })
-    .then(response => {
-      console.log(response)
-      // if (response.ok) {
-      //   window.location.reload();
-      // }
-    })
-    .catch(error => {
-        console.log("ErrorsHere");
-        console.log(error)
-    });
   }
 
   document.getElementById('remove-blank-forms').addEventListener('click',removeEmptyForms)
@@ -369,7 +378,6 @@
               isBlank = false;
           }
       });
-      console.log("removed");
       // If the form is blank, remove it
       if (isBlank) {
           form.remove();
@@ -383,4 +391,8 @@
   }
 </script>
 {%endblock%}
+
+
+
+
 

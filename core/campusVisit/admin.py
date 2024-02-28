@@ -1,15 +1,16 @@
-from typing import Any
 from django.contrib import admin
 from django.core.mail import send_mail
 from django.conf import settings
-
 from import_export.admin import ImportExportModelAdmin
+import threading
 from .models import *
 
 # Register your models here.
 
 
-def sendEmails(subject, message, toEmails):
+def sendEmails(toEmails):
+    subject = "Request Approved"
+    message = "Content of the approved mail"
     send_mail(
         subject,
         message,
@@ -61,7 +62,7 @@ class requestAdmin(ImportExportModelAdmin, admin.ModelAdmin):
         return False
 
     def has_delete_permission(self, request, obj=None):
-        return False
+        return True
 
     def has_import_permission(self, request):
         return False
@@ -82,9 +83,9 @@ class requestAdmin(ImportExportModelAdmin, admin.ModelAdmin):
                 toEmails.append(alumni.email)
 
             # Mail Admin
-            subject = "Request Approved"
-            message = "Content of the approved mail"
-            self.sendEmails(subject, message, toEmails)
+
+            threading.Thread(
+                target=sendEmails, name="Email Thread", args=(toEmails,)).start()
 
             self.fields = []
             return super().save_model(request, obj, form, change)
@@ -103,7 +104,7 @@ class alumniAdmin(ImportExportModelAdmin, admin.ModelAdmin):
         return False
 
     def has_delete_permission(self, request, obj=None):
-        return False
+        return True
 
     def has_import_permission(self, request):
         return False

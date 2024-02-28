@@ -1,7 +1,5 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
-# from django.db.models.signals import post_save
-# from django.dispatch import receiver
 
 
 class contactDetail(models.Model):
@@ -22,15 +20,6 @@ class contactDetail(models.Model):
         else:
             response = "Not Contacted"
         return self.firstName+' '+self.lastName + ' '+response
-
-
-# @receiver(post_save, sender=contactDetail)
-# def print_hello_on_first_save(sender, instance, created, **kwargs):
-#     if created:
-#         print("==================================Hello==================================================")
-
-
-# post_save.connect(print_hello_on_first_save, sender=contactDetail)
 
 
 class blog(models.Model):
