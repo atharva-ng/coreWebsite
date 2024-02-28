@@ -3,13 +3,6 @@ body {
   overflow-x: hidden;
 }
 
-body {
-  font-family: "Roboto";
-  font-size: 17px;
-  font-weight: 400;
-  background-color: #eee;
-}
-
 h1 {
   font-size: 200%;
   text-transform: uppercase;

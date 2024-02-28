@@ -27,15 +27,16 @@
     <section>
       <header>
         <div class="red-bar"></div>
-        <div class="navbar-container">
+        <div class="container-fluid-navbar">
+          <div>
           <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="{%url 'frontPage'%}">
+            <a class="navbar-brand" style="margin-left:20px" href="{%url 'frontPage'%}">
               <img src="{%static 'images/alumniRelations.png'%}" alt="Logo" class="navbar-brand-img">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item active">
                   <a class="nav-link" href="{%url 'frontPage'%}">Home</a>
@@ -55,6 +56,7 @@
               </ul>
             </div>
           </nav>
+        </div>
         </div>
       </header>
     </section>
