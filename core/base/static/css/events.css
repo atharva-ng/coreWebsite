@@ -216,5 +216,19 @@ blockquote {
 
 .headline-events-css:hover {
   box-shadow: 0 0 20px #3f88c5;
-  /* Bluish glow effect */
+}
+
+
+.imageContainer {
+  width: 499.5px;
+  height: 200px;
+  /* overflow: hidden; */
+  position: relative;
+}
+
+.imageData {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
 }

@@ -58,13 +58,17 @@
 
     {%for event in events%}
       <div class="timeline-item">
-        <div class="timeline-img"></div>
-
+        <div class="timeline-img">
+        </div>
         <div class="timeline-content timeline-card js--fadeInRight">
           <div class="timeline-img-header">
+            <div class="imageContainer">
+              <img class="imageData" src="{{event.image.url}}" alt="img">
+            </div>
+            
             <h2>{{event.title}}</h2>
           </div>
-          <div class="date">{{event.created}}</div>
+          <div class="date">{{event.date}}</div>
           <p>
             {{event.content}}
           </p>

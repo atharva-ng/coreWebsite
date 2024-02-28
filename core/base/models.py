@@ -34,7 +34,7 @@ class event(models.Model):
     title = models.CharField(max_length=254, null=False, blank=False)
     image = models.ImageField(upload_to="eventsImages/")
     content = models.CharField(max_length=1016, null=False, blank=False)
-    created = models.DateField()
+    date = models.DateField()
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
