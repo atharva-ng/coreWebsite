@@ -226,6 +226,13 @@
 
 <script>
 
+document.addEventListener("DOMContentLoaded", function() {
+    var currentTag= document.getElementsByClassName("active")
+    currentTag[0].classList.remove("active");
+    var element=document.getElementById("id_campusVisit");
+    element.classList.add('active')
+});
+
   // Adding Alumni form script====================================================================
 
   const addMoreAlumni=document.getElementById('add-more-alumni')

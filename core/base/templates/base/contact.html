@@ -120,5 +120,12 @@
 
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var currentTag= document.getElementsByClassName("active")
+      currentTag[0].classList.remove("active");
+      var element=document.getElementById("id_contactUs");
+      element.classList.add('active')
+    });
+  </script>
 {%endblock%}

@@ -136,7 +136,7 @@ header {
   /* Adjust height and width as needed */
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1070px) {
 
   /* Change the breakpoint here */
   .navbar-nav .nav-item {
