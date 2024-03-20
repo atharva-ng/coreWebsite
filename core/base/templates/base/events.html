@@ -43,11 +43,11 @@
       "
     >
       <h3 style="color: #ffffff; margin-bottom: 5px; margin-top: 5px">
-        2024
+        {{currentYear}}
       </h3>
     </button>
   </div>
-  <div class="container" style="margin-top: 50px; position: relative">
+  <div class="container" style="margin-top: 50px; margin-bottom: 50px; position: relative">
 
     {%for event in events%}
       <div class="timeline-item">
@@ -74,6 +74,7 @@
 
   <div class="container text-center"
     style="
+      margin-top: 20px;
       margin-bottom: 20px;
       position: relative;
       z-index: 1;
@@ -91,7 +92,7 @@
       "
     >
       <h3 style="color: #ffffff; margin-bottom: 5px; margin-top: 5px">
-        2023
+        {{prevYear}}
       </h3>
     </button>
   </div>

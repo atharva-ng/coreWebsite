@@ -12,6 +12,10 @@
   /* This property ensures the image covers the entire container */
 }
 
+/* .featurette-image {
+  max-width: 550px;
+} */
+
 .rounded-image {
   border-radius: 50%;
   overflow: hidden;
@@ -32,21 +36,10 @@
 
 .coordinators-heading {}
 
-/* --------------------- CAROSEL CSS ---------------------------- */
-/* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
-
-
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
-/* Carousel base class */
 .carousel {
   margin-bottom: 3rem;
 }
 
-/* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   bottom: 3rem;
   z-index: 10;
@@ -66,10 +59,7 @@
   height: 32rem;
 }
 
-/* MARKETING CONTENT
--------------------------------------------------- */
 
-/* Center align the text within the three columns below the carousel */
 .marketing .col-lg-4 {
   margin-bottom: 1.5rem;
   text-align: center;
@@ -84,8 +74,6 @@
   margin-left: 0.75rem;
 }
 
-/* Featurettes
-------------------------- */
 
 .featurette-divider {
   margin: 5rem 0;
@@ -99,8 +87,7 @@
   letter-spacing: -0.05rem;
 }
 
-/* RESPONSIVE CSS
--------------------------------------------------- */
+
 
 @media (min-width: 40em) {
 
@@ -162,6 +149,7 @@
   transform: rotate(-7deg);
   padding-left: 150px;
   padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .lead {

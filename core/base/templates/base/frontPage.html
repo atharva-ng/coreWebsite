@@ -2,7 +2,10 @@
 {%load static%}
 
 {%block title %}SARC|Home{%endblock%}
-{% block extrahead %}<link rel="stylesheet" href="{% static 'css/frontPage.css' %}">{% endblock %}
+{% block extrahead %}
+  <link rel="stylesheet" href="{% static 'css/frontPage.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+{% endblock %}
 
 {%block content%}
 <section class="section-1-image pt-5 pb-5 mt-0 align-items-end d-flex bg-dark" style="min-height: 70vh; background-size: cover; background-position: center right; background-image: url({%static 'images/bdomeImageMain.jpeg'%});">
@@ -72,6 +75,35 @@
         <img src="{%static 'images/bits logo.png'%}" height="100%" width="100%">
       </div>
     </div>
+  </div>
+</section>
+
+<section>
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-gray-900 mb-8 text-center">Events</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {%for event in events%}
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full" data-v0-t="card">
+            <div class="imageContainer">
+              <img class="imageData" src="{{event.image.url}}" alt="img">
+            </div>
+              <div class="p-4">
+                  <div class="bg-blue-300 text-blue-900 px-3 py-1 inline-block absolute -mt-12 ml-2">
+                      <span class="text-xs font-semibold tracking-wide uppercase">{{event.date}}</span>
+                  </div>
+                  <h3 class="mt-4 text-lg font-semibold overflow-hidden h-12">{{event.title}}</h3>
+                  {% if event.content|length > 30 %}
+                  <p class="mt-2 text-sm text-gray-600">{{event.content| truncatewords:30 }}<a style="color: blue; text-decoration: underline;"href="{%url 'events'%}"> Read More </a></p>
+                  {% else %}  
+                    <p class="mt-2 text-sm text-gray-600">{{event.content}}</p>
+                  {% endif %}
+              </div>
+          </div>
+          {%endfor%}
+      </div>
+      <div class="mt-8 text-center">
+          <a href="{%url 'events'%}"><button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-red-600 text-white">More events</button></a>
+      </div>
   </div>
 </section>
 

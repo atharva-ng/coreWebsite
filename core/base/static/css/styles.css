@@ -21,13 +21,6 @@ body {
   padding: 0rem 1rem;
 }
 
-.navbar-nav .nav-link {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 150%;
-  /* Adjust the font size as needed */
-  font-weight: 500;
-  /* Adjust the font weight (400 for normal, 600 for bold, etc.) */
-}
 
 
 .brand {
@@ -118,11 +111,12 @@ body {
 
 }
 
+
 .navbar-nav .nav-link {
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   /* Adjust the font size as needed */
-  font-weight: 420;
+  font-weight: 405;
   /* Adjust the font weight (400 for normal, 600 for bold, etc.) */
   /* Additional styling properties can be added here */
 }

@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
+import datetime
 import threading
 
 from .models import *
@@ -11,7 +12,11 @@ from .forms import contactForm
 
 
 def frontPage(request):
-    return render(request, 'base/frontPage.html')
+    eventObjects = event.objects.order_by('date')[:4]
+    context = {
+        "events": eventObjects
+    }
+    return render(request, 'base/frontPage.html', context)
 
 
 def aboutUs(request):
@@ -64,6 +69,9 @@ def blogs(request):
 
 
 def eventView(request):
-    eventObjects = event.objects.all()
-    context = {"events": eventObjects}
+    current_year = datetime.datetime.now().year
+    eventObjects = event.objects.filter(date__year=current_year)
+    context = {"events": eventObjects,
+               "currentYear": current_year,
+               "prevYear": current_year-1}
     return render(request, 'base/events.html', context)

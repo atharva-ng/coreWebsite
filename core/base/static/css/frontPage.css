@@ -47,3 +47,17 @@ hr {
 .counter-info-row {
   margin-bottom: 20px;
 }
+
+.imageContainer {
+  width: 288px;
+  height: 192px;
+  /* overflow: hidden; */
+  position: relative;
+}
+
+.imageData {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+}
