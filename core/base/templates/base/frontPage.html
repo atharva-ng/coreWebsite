@@ -1,4 +1,5 @@
 {%extends "base/base.html"%}
+{% load custom_filters %}
 {%load static%}
 
 {%block title %}SARC|Home{%endblock%}
@@ -78,43 +79,59 @@
   </div>
 </section>
 
+
 <section>
-    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <h2 class="text-4xl font-bold text-gray-900 mb-8 text-center">Events</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {%for event in events%}
-          <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full" data-v0-t="card">
-            <div class="imageContainer">
-              <img class="imageData" src="{{event.image.url}}" alt="img">
+  <div class="container-gtb">
+    <div class="text-section-gtb">
+      <div class="title-gtb">Giving to BITS</div>
+      <p class="description-gtb">Thank you for deciding to contribute to BITS – your invaluable donation would help Students and Researchers at the institute, strengthening our efforts to remain an “institute of eminence”. In the past, alumni have donated in areas and causes such as, Scholarships, Research Endowment Fund, Chair Professorships, Setting Up Research Labs, Inter Campus connectivity under BITS Connect 1.0 & 2.0, Infrastructure development and improvement, Faculty Awards, Research Projects and so on.</p>
+      <a href="" class="cta-button-gtb"><span>Know More</span></a>
+    </div>
+    <div class="image-section-gtb">
+      <img src="{%static 'images/bdomeImageMain.jpeg'%}" alt="Campus Image">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <h2 class="text-4xl font-bold text-gray-900 mb-8 text-center">Events</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {%for event in events%}
+      <a class="cardTag" href="{%url 'events'%}">
+        <div class="rounded-lg border bg-card text-card-foreground w-full shadow-lg hover:shadow-xl custom-card-height" data-v0-t="card">
+          <img
+            alt="VA Immersive event"
+            class="w-full h-52 object-cover"
+            height="400"
+            src="{{event.image.url}}"
+            width="300"
+            style="aspect-ratio: 300 / 400; object-fit: cover;"
+          />
+          <div class="p-4">
+            <div class="bg-red-600 text-white px-3 py-1 inline-block absolute -mt-12 ml-4 border-2 border-black">
+              <span class="text-xs font-semibold tracking-wide uppercase">{{ event.date|month_abbr}}</span>
+              <span class="block text-2xl font-bold">{{event.date.day}}</span>
             </div>
-              <div class="p-4">
-                  <div class="bg-blue-300 text-blue-900 px-3 py-1 inline-block absolute -mt-12 ml-2">
-                      <span class="text-xs font-semibold tracking-wide uppercase">{{event.date}}</span>
-                  </div>
-                  <h3 class="mt-4 text-lg font-semibold overflow-hidden h-12">{{event.title}}</h3>
-                  {% if event.content|length > 30 %}
-                  <p class="mt-2 text-sm text-gray-600">{{event.content| truncatewords:30 }}<a style="color: blue; text-decoration: underline;"href="{%url 'events'%}"> Read More </a></p>
-                  {% else %}  
-                    <p class="mt-2 text-sm text-gray-600">{{event.content}}</p>
-                  {% endif %}
-              </div>
+            <h3 class="mt-4 text-lg font-semibold overflow-hidden h-15 break-words">{{event.title}}</h3>
+            <p class="mt-2 text-sm text-gray-600">{{event.content| formatContent}}</p>
           </div>
-          {%endfor%}
-      </div>
-      <div class="mt-8 text-center">
-          <a href="{%url 'events'%}"><button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-red-600 text-white">More events</button></a>
-      </div>
+        </div>
+      </a>
+      {%endfor%}
+    </div>
+    <div class="mt-8 text-center">
+      <a href="{%url 'events'%}">
+      <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-red-600 text-white">
+        More events
+      </button>
+    </a>
+    </div>
   </div>
 </section>
 
 
-
 <script>
-  // JavaScript code will be inserted here
-  // Insert this inside the <script> tag
-
-
-
 function animateCounter(elementId, endValue) {
   let counterElement = document.getElementById(elementId);
   let currentValue = 0;
@@ -155,5 +172,5 @@ document.addEventListener('DOMContentLoaded', function () {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 {%endblock%}

@@ -177,3 +177,11 @@ section[data-type=section-bg].theme--fog .quick-link a {
     padding-right: 400px;
   }
 }
+
+.hover:shadow-xl:hover {
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.custom-card-height {
+  height: 500px;
+}

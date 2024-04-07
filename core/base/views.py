@@ -20,8 +20,7 @@ def frontPage(request):
 
 
 def aboutUs(request):
-    # cordis = coordi.objects.all()
-    context = {}  # {'cordiLsObj': cordis}
+    context = {}
     return render(request, 'base/aboutUs.html', context)
 
 

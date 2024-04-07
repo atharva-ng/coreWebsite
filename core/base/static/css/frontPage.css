@@ -24,40 +24,114 @@
 }
 
 
-.counter-list-container {
-  margin-top: 50px;
-  margin-bottom: 50px;
+/* Giving to bits================================================ */
+
+.container-gtb {
+  display: flex;
+  flex-direction: column;
+  /* Arrange sections vertically */
+  padding: 20px;
+  background-color: #f4f4f4;
 }
 
-.custom-row {
-  margin-right: 15px;
-  margin-left: -15px;
+.text-section-gtb {
+  max-width: 100%;
+  /* Occupy full width */
+  margin-bottom: 20px;
+  /* Add some space between sections */
 }
 
-.custom-col {
-  margin-right: 100px;
-  margin-left: 15px;
-}
-
-
-hr {
-  width: 100%;
-}
-
-.counter-info-row {
+.title-gtb {
+  font-size: 64px;
+  color: #333;
   margin-bottom: 20px;
 }
 
-.imageContainer {
-  width: 288px;
-  height: 192px;
-  /* overflow: hidden; */
-  position: relative;
+.description-gtb {
+  font-size: 20px;
+  color: #666;
+  margin-bottom: 20px;
 }
 
-.imageData {
-  width: 100%;
-  height: 100%;
+.cta-button-gtb {
+  background-color: red !important;
+  color: white !important;
+  padding: 15px 20px !important;
+  text-decoration: none !important;
+  border-radius: 10px !important;
+  display: inline-block !important;
+  /* margin-top: 30px;
+  position: relative; */
+  overflow: hidden;
+}
+
+.cta-button-gtb:hover {
+  background-color: rgb(182, 0, 0) !important;
+}
+
+.cta-button-gtb:before {
+  content: '';
+
   position: absolute;
-  display: block;
+  color: white !important;
+  top: 0;
+  right: 100%;
+  bottom: 0;
+  left: 0;
+  text-decoration: none !important;
+  transition: right 0.5s ease;
+  z-index: 0;
+}
+
+.cta-button-gtb span {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-button-gtb:hover:before {
+  right: 0;
+}
+
+.image-section-gtb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* Occupy full width */
+  margin-bottom: 20px;
+  /* Add some space between sections */
+}
+
+.image-section-gtb img {
+  max-width: 100%;
+  /* Ensure image fits within container */
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.image-section-gtb img:hover {
+  transform: scale(1.05);
+}
+
+@media (min-width: 600px) {
+  .container-gtb {
+    flex-direction: row;
+    /* Switch back to horizontal layout */
+    align-items: center;
+    /* Center align items vertically */
+  }
+
+  .text-section-gtb {
+    max-width: 50%;
+    /* Occupy half width on larger screens */
+    margin-right: 20px;
+    /* Add space between sections */
+  }
+
+  .image-section-gtb {
+    width: 50%;
+    /* Occupy half width on larger screens */
+  }
 }
