@@ -135,3 +135,11 @@
     /* Occupy half width on larger screens */
   }
 }
+
+.cardTag {
+  text-decoration: none;
+}
+
+.cardTag:hover {
+  text-decoration: none;
+}
