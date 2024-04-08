@@ -74,3 +74,8 @@ def eventView(request):
                "currentYear": current_year,
                "prevYear": current_year-1}
     return render(request, 'base/events.html', context)
+
+
+def scholarshipsView(request):
+    context = {}
+    return render(request, 'base/scholarships.html', context)

@@ -1,0 +1,209 @@
+{%extends "base/base.html"%}
+{%load static%}
+
+{%block title %}SARC|Scholarships{%endblock%}
+{% block extrahead %}
+  <link rel="stylesheet" href="{% static 'css/scholarships.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+{% endblock %}
+
+{%block content%}
+
+<section class="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+  <div class="container flex flex-col items-center px-4 md:px-6 space-y-4 mx-auto">
+    <div class="text-center space-y-2">
+      <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Alumni Relations Program</h1>
+      <p class="text-gray-500 md:text-xl dark:text-gray-400">
+        Connecting alumni with their alma mater through meaningful events and engagement.
+      </p>
+    </div>
+  </div>
+</section>      
+
+<section class="container mx-auto px-6 py-16">
+  <h2 class="text-3xl font-bold text-center text-blue-600 mb-12">Scholarships</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
+    <div
+      class="rounded-lg border bg-card text-card-foreground shadow-sm w-full flex items-center justify-center"
+      data-v0-t="card"
+    >
+      <div class="p-6 space-y-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="text-blue-600"
+        >
+          <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path>
+        </svg>
+        <h3 class="text-lg font-semibold mt-4 mb-2">Student Travel Assistance Scholarship</h3>
+        <p class="text-sm">
+          Providing financial aid to students for travel expenses related to education. This scholarship aims to
+          reduce the financial burden on students who need to travel for educational purposes, ensuring that they
+          can focus on their studies without worrying about travel costs.
+        </p>
+        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-blue-600 text-white">
+          Register
+        </button>
+      </div>
+    </div>
+    <div
+      class="rounded-lg border bg-card text-card-foreground shadow-sm w-full flex items-center justify-center"
+      data-v0-t="card"
+    >
+      <div class="p-6 space-y-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="text-blue-600"
+        >
+          <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
+          <path d="M9 18h6"></path>
+          <path d="M10 22h4"></path>
+        </svg>
+        <h3 class="text-lg font-semibold mt-4 mb-2">Research Scholarship</h3>
+        <p class="text-sm">
+          Supporting students in their research endeavors with financial assistance. This scholarship encourages
+          and supports students in pursuing research projects by providing them with the necessary financial
+          resources to conduct their studies effectively.
+        </p>
+        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-blue-600 text-white">
+          Register
+        </button>
+      </div>
+    </div>
+    <div
+      class="rounded-lg border bg-card text-card-foreground shadow-sm w-full flex items-center justify-center"
+      data-v0-t="card"
+    >
+      <div class="p-6 space-y-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="text-blue-600"
+        >
+          <rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        <h3 class="text-lg font-semibold mt-4 mb-2">SUMMER INTERNSHIP ASSISTANCE</h3>
+        <p class="text-sm">
+          Providing support for students participating in summer internships. This scholarship helps students
+          cover the costs associated with summer internships, allowing them to gain valuable work experience
+          without financial constraints.
+        </p>
+        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-blue-600 text-white">
+          Register
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="container mx-auto px-6 py-16">
+  <h2 class="text-3xl font-bold text-center text-blue-600 mb-12">Awards</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 justify-center">
+    <div
+      class="rounded-lg border bg-card text-card-foreground shadow-sm w-full flex items-center justify-center"
+      data-v0-t="card"
+    >
+      <div class="p-6 space-y-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="text-blue-600"
+        >
+          <path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"></path>
+          <path d="M11 12 5.12 2.2"></path>
+          <path d="m13 12 5.88-9.8"></path>
+          <path d="M8 7h8"></path>
+          <circle cx="12" cy="17" r="5"></circle>
+          <path d="M12 18v-2h-.5"></path>
+        </svg>
+        <h3 class="text-lg font-semibold mt-4 mb-2">SURA Awards</h3>
+        <p class="text-sm">
+          Recognizing outstanding achievements in academia and research. The SURA Awards celebrate individuals who
+          have made significant contributions to the fields of academia and research, highlighting their
+          dedication and impact on the community.
+        </p>
+        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-blue-600 text-white">
+          Register
+        </button>
+      </div>
+    </div>
+    <div
+      class="rounded-lg border bg-card text-card-foreground shadow-sm w-full flex items-center justify-center"
+      data-v0-t="card"
+    >
+      <div class="p-6 space-y-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="text-blue-600"
+        >
+          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+          <path d="M4 22h16"></path>
+          <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+          <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+          <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+        </svg>
+        <h3 class="text-lg font-semibold mt-4 mb-2">Mantra Awards</h3>
+        <p class="text-sm">
+          Honoring excellence and dedication in the field of education. The Mantra Awards recognize individuals
+          who have shown exceptional dedication and excellence in the field of education, inspiring others with
+          their commitment to learning and growth.
+        </p>
+        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-blue-600 text-white">
+          Register
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var currentTag= document.getElementsByClassName("active")
+      currentTag[0].classList.remove("active");
+      var element=document.getElementById("id_scholarships");
+      element.classList.add('active')
+    });
+  </script>
+{%endblock%}

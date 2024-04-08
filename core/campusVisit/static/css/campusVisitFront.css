@@ -20,7 +20,7 @@
   top: 0;
   bottom: 0;
   width: 50%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0 5);
   /* Dark shade */
 }
 
@@ -196,10 +196,160 @@ body {
   margin-top: 40px;
 }
 
-/* 
-.footer-section {
-  position: relative;
-  bottom: 0px;
-  top: 170px;
+/* Style for inputs, selects, and textareas within the alumni information form */
+#alumni-information-form input[type="text"],
+#alumni-information-form input[type="email"],
+#alumni-information-form input[type="tel"],
+#alumni-information-form input[type="date"],
+#alumni-information-form select,
+#alumni-information-form textarea {
+  border: 1px solid #000000;
+  /* Border color */
+  border-radius: 5px;
+  /* Border radius */
+  padding: 8px;
+  /* Adjust padding as needed */
+  margin-bottom: 10px;
+  /* Adjust margin as needed */
+  width: 100%;
+  /* Ensure input fields take up full width */
+  box-sizing: border-box;
+  /* Include padding and border in the element's total width and height */
+}
 
-} */
+/* Optional: Add hover and focus styles for better user interaction */
+#alumni-information-form input[type="text"]:hover,
+#alumni-information-form input[type="email"]:hover,
+#alumni-information-form input[type="tel"]:hover,
+#alumni-information-form input[type="date"]:hover,
+#alumni-information-form select:hover,
+#alumni-information-form textarea:hover,
+#alumni-information-form input[type="text"]:focus,
+#alumni-information-form input[type="email"]:focus,
+#alumni-information-form input[type="tel"]:focus,
+#alumni-information-form input[type="date"]:focus,
+#alumni-information-form select:focus,
+#alumni-information-form textarea:focus {
+  border-color: #007bff;
+  /* Change border color on hover and focus */
+  outline: none;
+  /* Remove default focus outline */
+}
+
+/* Style for inputs, selects, and textareas within the alumni information form */
+#alumni-information-form input[type="text"],
+#alumni-information-form input[type="email"],
+#alumni-information-form input[type="tel"],
+#alumni-information-form input[type="date"],
+#alumni-information-form select,
+#alumni-information-form textarea {
+  border: 1px solid #000000;
+  /* Border color */
+  border-radius: 5px;
+  /* Border radius */
+  padding: 8px;
+  /* Adjust padding as needed */
+  margin-bottom: 10px;
+  /* Adjust margin as needed */
+  width: 100%;
+  /* Ensure input fields take up full width */
+  box-sizing: border-box;
+  /* Include padding and border in the element's total width and height */
+}
+
+/* Optional: Add hover and focus styles for better user interaction */
+#guest-information-form input[type="text"]:hover,
+#guest-information-form input[type="email"]:hover,
+#guest-information-form input[type="tel"]:hover,
+#guest-information-form select:hover,
+#guest-information-form textarea:hover,
+#guest-information-form input[type="text"]:focus,
+#guest-information-form input[type="email"]:focus,
+#guest-information-form input[type="tel"]:focus,
+#guest-information-form select:focus,
+#guest-information-form textarea:focus {
+  border-color: #007bff;
+  /* Change border color on hover and focus */
+  outline: none;
+  /* Remove default focus outline */
+}
+
+#guest-information-form input[type="text"],
+#guest-information-form input[type="email"],
+#guest-information-form input[type="tel"],
+#guest-information-form select,
+#guest-information-form textarea {
+  border: 1px solid #000000;
+  /* Border color */
+  border-radius: 5px;
+  /* Border radius */
+  padding: 8px;
+  /* Adjust padding as needed */
+  margin-bottom: 10px;
+  /* Adjust margin as needed */
+  width: 100%;
+  /* Ensure input fields take up full width */
+  box-sizing: border-box;
+  /* Include padding and border in the element's total width and height */
+}
+
+/* Style for the "Add another Alumni" and "Add a non-alumni" buttons */
+#add-more-alumni,
+#add-more-guest,
+#add-non-alumni-button {
+  border: 2px solid #000;
+  /* Border color */
+  border-radius: 10px;
+  /* Border radius */
+  padding: 8px 20px;
+  /* Adjust padding as needed */
+  margin-bottom: 10px;
+  /* Adjust margin as needed */
+  background-color: #fff;
+  /* White background */
+  color: #000;
+  /* Text color */
+  cursor: pointer;
+  /* Cursor style */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  /* Smooth transition */
+}
+
+/* Hover styles for the buttons */
+#add-more-alumni:hover,
+#add-more-guest:hover,
+#add-non-alumni-button:hover {
+  background-color: #cfcccc;
+  /* Background color on hover */
+  color: #000000;
+  /* Text color on hover */
+}
+
+/* Focus styles for the buttons */
+#add-more-alumni:focus,
+#add-more-guest:focus,
+#add-non-alumni-button:focus {
+  outline: none;
+  /* Remove default focus outline */
+}
+
+
+.close {
+  position: absolute;
+  top: 35px;
+  right: 20px;
+  font-size: 4rem;
+  /* Increase the font-size to make the cross button larger */
+  font-weight: 700;
+  line-height: 1;
+  /* Adjust the line-height to keep the button in the same line */
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+}
+
+.close:hover {
+  color: #000;
+  text-decoration: none;
+  opacity: .75;
+}

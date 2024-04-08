@@ -77,6 +77,7 @@ hr {
   max-width: 100%;
   /* Occupy full width */
   margin-bottom: 20px;
+  padding-left: 30px;
   /* Add some space between sections */
 }
 
@@ -183,4 +184,11 @@ hr {
 .cardTag:hover {
   color: #000;
   text-decoration: none;
+}
+
+
+
+
+.max-w-6xl {
+  margin-top: -2rem;
 }

@@ -32,7 +32,7 @@
 </section>
 
 <!-- Alumni Form -->
-<section>
+<section style="background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);">
   <section class="form-container" id="alumni-form-section" style="padding-top: 50px;">
     <div class="container-fluid">
       
@@ -130,14 +130,14 @@
                 </div>
                 </div>
                 
-              <div class="button-row d-flex mt-4 justify-content-center">
-                <div class="col-lg-6">
-                  <button class="btn btn-outline-primary btn-block ml-auto btn-lg" id="add-more-alumni" type="button" title="Send">Add another Alumni</button>
+                <div class="button-row d-flex mt-4 justify-content-center">
+                  <div class="col-lg-6" style="padding-left: 0;">
+                    <button class="btn btn-light btn-block ml-auto btn-lg" id="add-more-alumni" type="button" title="Send">Add another Alumni</button>
+                  </div>
+                  <div class="col-lg-6" style="padding-right: 0;">
+                    <button class="btn btn-light btn-block ml-auto btn-lg" id="add-non-alumni-button" type="button" onclick="toggleNonAlumniPart()">Add a non-alumni</button>
+                  </div>
                 </div>
-                <div class="col-lg-6">
-                  <button class="btn btn-outline-primary btn-block ml-auto btn-lg" id="add-non-alumni-button" type="button" onclick="toggleNonAlumniPart()">Add a non-alumni</button>
-                </div>
-              </div>
           </form>
         </div>
       </div>
@@ -197,11 +197,11 @@
             </div>
           </form>
           <div class="button-row d-flex mt-4">
-            <div class="col-lg-6">
-              <button class="btn btn-outline-primary btn-block btn-lg" type="button" id='add-more-guest'>Add another non-alumni</button>
+            <div class="col-lg-6" style="padding-left: 0px;">
+              <button class="btn btn-light btn-block btn-lg" type="button" id='add-more-guest'>Add another non-alumni</button>
             </div>
-            <div class="col-lg-6">
-              <button class="btn btn-danger btn-block ml-auto btn-lg" type="button" id="remove-blank-forms" >Remove blank forms</button>
+            <div class="col-lg-6" style="padding-right: 0px;">
+              <button class="btn btn-danger btn-block ml-auto btn-lg" type="button" id='' onclick="removeSection(this)">Remove non-alumni</button>
             </div>
           </div>
         </div>
