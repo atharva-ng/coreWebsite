@@ -1,236 +1,110 @@
+{% extends "base/base.html" %}
+{% load static %}
 
-{%extends "base/base.html"%} 
-{%load static%} 
-{%block title %}
-  SARC|CampusVisit
-{%endblock%} 
+{% block title %}
+  SARC | Campus Visit
+{% endblock %}
+
 {% block extrahead %}
-  <link
-    rel="stylesheet"
-    href="{% static 'css/campusVisitFront.css' %}"
-  />
-{% endblock %} 
+  <link rel="stylesheet" href="{% static 'css/campusVisitFront.css' %}">
+{% endblock %}
 
-{%block content%}
+{% block content %}
+  <!-- Image Banner -->
+  <div class="image-banner" style="background-image: url({% static 'images/bdomeImageMain.jpeg' %});">
+    <div class="line-divider"></div>
+    <h1 class="left-text">Visit BITS Goa</h1>
+    <p class="right-text">Whether you have a few hours or a few days, many discoveries await.</p>
+  </div>
 
-<!-- Image Banner -->
-
-<div class="image-banner" style="background-image: url({%static 'images/bdomeImageMain.jpeg'%});">
-  <div class="line-divider"></div>
-  <h1 class="left-text">Visit BITS Goa</h1>
-  <p class="right-text">Whether you have a few hours or a few days, many discoveries await.</p>
-</div>
-
-<!-- Welcome Text -->
-
-<section class="welcome-text">
-  <div class="container">
+  <!-- Welcome Text -->
+  <section class="welcome-text">
+    <div class="container">
       <h1 class="headline pop-in welcome-text-title">Explore BITS Goa</h1>
       <p class="subtext pop-in">Step into a world where education meets innovation. At BITS Goa, every path leads to a new discovery, and every corner tells a story of success and aspiration.</p>
       <p class="subtext pop-in">Ready to witness the pulse of BITS Goa? Fill in the form to book your campus tour. Whether you're exploring academic opportunities, revisiting memories as an alum, or simply soaking in the ambiance of our dynamic campus, we're excited to welcome you. Just a few details, and you'll be on your way to an inspiring visit.</p>
-  </div>
-</section>
-
-<!-- Alumni Form -->
-<section style="background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);">
-  <section class="form-container" id="alumni-form-section" style="padding-top: 50px;">
-    <div class="container-fluid">
-      
-      <div class="container"></div>
-        
-        
-
-      <div class="row">
-        <div class="col-12 col-lg-8 m-auto">
-          <!-- action="{% url 'campusVisitFront' %}" -->
-          <form class= "multisteps-form__form" id="alumni-information-form" method="post" >
-            {% csrf_token %} 
-            {{alumniFormSet.management_form}}
-            <!--single form panel-->
-            <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" id='alumni-Form-List' data-animation="scaleIn">
-              <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                  <h1>Alumni Information</h1> 
-                </div>
-              </div>
-              
-                {%for form in alumniFormSet%}
-                  <div class="multisteps-form__content  alumniForm">  
-                                  
-                    <div id="additional-alumni-Form-List">
-                      <div class="row ">
-                        <div class="col-md-12">
-                          <h2 style="margin-top: 50px;" id="Alumni-Counter">Alumni 1</h2>
-                          <div style="display: inline-block; vertical-align: middle;">
-                            <button type="button" id="cross-0-logo" class="close" aria-label="Close" onclick="removeAlumniForm(this)">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-                        
-                      </div>
-                      <div class="form-row mt-4">
-                        <div class="col-12 col-sm-6">
-                          {{form.firstName}}
-                        </div>
-                        <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                          {{form.lastName}}
-                        </div>
-                      </div>
-                      <div class="form-row mt-4">
-                        <div class="col-12 col-sm-4">
-                          {{form.BitsId}}
-                        </div>
-                        <div class="col-12 col-sm-4 mt-4 mt-sm-0">
-                          {{form.email}}
-                        </div>
-                        <div class="col-12 col-sm-4 mt-4 mt-sm-0">
-                          {{form.phoneNumber}}
-                        </div>
-                      </div>
-                      <div class="form-row mt-4">
-                        <div class="col">
-                          {{form.currAddress}}
-                        </div>
-                      </div>
-                      <div class="form-row mt-4">
-                        <div class="col-12 col-sm-3">
-                          {{form.city}}
-                        </div>
-      
-                        <div class="col-12 col-sm-3">
-                          {{form.state}}
-                        </div>
-      
-                        <div class="col-12 col-sm-3">
-                          {{form.country}}
-                        </div>
-      
-                        <div class="col-12 col-sm-3">
-                          {{form.zip}}
-                        </div>
-                      </div>
-                      <div class="form-row mt-4">
-                          <div class="col-12 col-sm-6">
-                            {{form.currCompany}}
-                          </div>
-                          <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                            {{form.CompanyDesignation}}
-                          </div>
-                        </div>
-                        <div class="form-row mt-4">
-                          <div class="col-sm-3 mt-4 mt-sm-0">
-                              <!-- <input class="multisteps-form__input form-control" type="date" placeholder="Date of Visit"/> -->
-                              {{form.arrivialDate}}
-                          </div>
-                          <div class="col-sm-9 mt-1 mt-sm-0">
-                              {{form.purposeOfVisit}}
-                          </div>
-                        </div>
-                      </div>
-                {%endfor%}
-                  
-                </div>
-                </div>
-                
-                <div class="button-row d-flex mt-4 justify-content-center">
-                  <div class="col-lg-6" style="padding-left: 0;">
-                    <button class="btn btn-light btn-block ml-auto btn-lg" id="add-more-alumni" type="button" title="Send">Add another Alumni</button>
-                  </div>
-                  <div class="col-lg-6" style="padding-right: 0;">
-                    <button class="btn btn-light btn-block ml-auto btn-lg" id="add-non-alumni-button" type="button" onclick="toggleNonAlumniPart()">Add a non-alumni</button>
-                  </div>
-                </div>
-          </form>
-        </div>
-      </div>
     </div>
   </section>
-  
+
   <!-- Alumni Form -->
-  
-  
-  <!-- Guest Form -->
-  <section id="guest-form-section" style="margin-top: 50px;">
-    <div class="container-fluid form-container guest-form-container" id="non-alumni-container-1" style="display:none">
-      <div class="row">
-        <div class="col-12 col-lg-8 m-auto">
-          
-          <form class="multisteps-form__form" id="guest-information-form" method='post' action="{% url 'campusVisitFront' %}">
-            {% csrf_token %} 
-            {{guestFormSet.management_form}}
-            <!--single form panel-->
-            <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn"  id="guest-Form-List">
-              <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                  <h1>Guest Information</h1> 
-                </div>
-              </div>
-              {%for form in guestFormSet%}
-                <div class="multisteps-form__content guestForm">
-                  <div id="additional-guest-form-container">
-                    <div class="row">
-                      <div class="col-lg-12">
-                        <h2 style="margin-top: 50px;" id="Guest-Counter">Guest 1</h2>
-                        <div style="display: inline-block; vertical-align: middle;">
-                          <button type="button" class="close" aria-label="Close" onclick="removeGuestForm(this)">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-row mt-4">
-                      <div class="col-12 col-sm-6">
-                      <!-- <input class="multisteps-form__input form-control" type="text" placeholder="First Name"/> -->
-                        {{form.firstName}}
-                      </div>
-                      <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                      <!-- <input class="multisteps-form__input form-control" type="text" placeholder="Last Name"/> -->
-                        {{form.lastName}}
-                      </div>
-                    </div>
-                    <div class="form-row mt-4">
-                      <div class="col-12 col-sm-6">
-                      <!-- <input class="multisteps-form__input form-control" type="text" placeholder="City"/> -->
-                        {{form.email}}
-                      </div>
-                      <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                        <!-- <input class="multisteps-form__input form-control" type="text" placeholder="Phone Number"/> -->
-                        {{form.phoneNumber}}
-                      </div>
-                    </div>
+  <section style="background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);">
+    <section class="form-container" id="alumni-form-section" style="padding-top: 50px;">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 col-lg-8 m-auto">
+            <form class="multisteps-form__form" id="alumni-information-form" method="post">
+              {% csrf_token %}
+              {{ alumniFormSet.management_form }}
+              <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" id="alumni-Form-List" data-animation="scaleIn">
+                <div class="row justify-content-center">
+                  <div class="col-12 text-center">
+                    <h1>Alumni Information</h1>
                   </div>
                 </div>
-              {%endfor%}
-            </div>
-          </form>
-         <div class="button-row d-flex mt-4">
-              <div class="col-lg-12" >
-                <button class="btn btn-light btn-block btn-lg" type="button" id='add-more-guest'>Add another non-alumni</button>
+                {% for form in alumniFormSet %}
+                  <div class="multisteps-form__content alumniForm">
+                    <!-- Form fields -->
+                  </div>
+                {% endfor %}
               </div>
-              <!-- <div class="col-lg-6" style="padding-right: 0px;">
-                <button class="btn btn-danger btn-block ml-auto btn-lg" type="button" id='' onclick="removeSection(this)">Remove non-alumni</button>
-              </div> -->
-            </div>
+              <!-- Buttons -->
+              <div class="button-row d-flex mt-4 justify-content-center">
+                <div class="col-lg-6" style="padding-left: 0;">
+                  <button class="btn btn-light btn-block ml-auto btn-lg" id="add-more-alumni" type="button" title="Send">Add another Alumni</button>
+                </div>
+                <div class="col-lg-6" style="padding-right: 0;">
+                  <button class="btn btn-light btn-block ml-auto btn-lg" id="add-non-alumni-button" type="button" onclick="toggleNonAlumniPart()">Add a non-alumni</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-  </section>
-  
-  <section>
-    <div class="container" style="padding-bottom: 50px;">
-      <div class="row">
-        <div class="col-lg-12">
-          <button class="btn btn-success btn-block ml-auto btn-lg" id="submit-forms-btn" type="submit" title="Send">Submit</button>
+    </section>
+
+    <!-- Guest Form -->
+    <section id="guest-form-section" style="margin-top: 50px;">
+      <div class="container-fluid form-container guest-form-container" id="non-alumni-container-1" style="display:none">
+        <div class="row">
+          <div class="col-12 col-lg-8 m-auto">
+            <form class="multisteps-form__form" id="guest-information-form" method="post" action="{% url 'campusVisitFront' %}">
+              {% csrf_token %}
+              {{ guestFormSet.management_form }}
+              <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" id="guest-Form-List" data-animation="scaleIn">
+                <div class="row justify-content-center">
+                  <div class="col-12 text-center">
+                    <h1>Guest Information</h1>
+                  </div>
+                </div>
+                {% for form in guestFormSet %}
+                  <div class="multisteps-form__content guestForm">
+                    <!-- Form fields -->
+                  </div>
+                {% endfor %}
+              </div>
+              <!-- Buttons -->
+              <div class="button-row d-flex mt-4">
+                <div class="col-lg-12">
+                  <button class="btn btn-light btn-block btn-lg" type="button" id="add-more-guest">Add another non-alumni</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Submit Button -->
+    <section>
+      <div class="container" style="padding-bottom: 50px;">
+        <div class="row">
+          <div class="col-lg-12">
+            <button class="btn btn-success btn-block ml-auto btn-lg" id="submit-forms-btn" type="submit" title="Send">Submit</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </section>
-</section>
 
 <script>
 
