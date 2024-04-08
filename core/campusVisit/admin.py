@@ -41,7 +41,7 @@ class alumniInline(admin.StackedInline):
                        "purposeOfVisit",
                        "currCompany", "CompanyDesignation",
                        "currAddress", "city", "state", "country", "zip",
-                       "arrivialDate", "departureDate"]
+                       "arrivialDate"]
 
     def has_add_permission(self, request, obj=None):
         return False
@@ -120,7 +120,7 @@ class alumniAdmin(ImportExportModelAdmin, admin.ModelAdmin):
                        "purposeOfVisit",
                        "currCompany", "CompanyDesignation",
                        "currAddress", "city", "state", "country", "zip",
-                       "arrivialDate", "departureDate"]
+                       "arrivialDate"]
 
 
 admin.site.register(alumni, alumniAdmin)

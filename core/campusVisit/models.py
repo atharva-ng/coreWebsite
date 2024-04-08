@@ -32,8 +32,6 @@ class alumni(models.Model):
     purposeOfVisit = models.CharField(max_length=254, null=False, blank=False)
     arrivialDate = models.DateTimeField(
         null=False, blank=False, verbose_name="From Date")
-    departureDate = models.DateTimeField(
-        null=False, blank=False, verbose_name="To Date")
     currCompany = models.CharField(
         max_length=254, null=False, blank=False)
     CompanyDesignation = models.CharField(

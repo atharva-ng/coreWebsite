@@ -62,13 +62,6 @@ class alumniForm(forms.ModelForm):
             "id": "id_Alumni-0-arrivialDate",
             "placeholder": "Arrival Date",
         })
-        self.fields['departureDate'].widget.attrs.update({
-            "class": "multisteps-form__input form-control",
-            "type": "date",
-            "name": "Alumni-0-departureDate",
-            "id": "id_Alumni-0-departureDate",
-            "placeholder": "Departure Date",
-        })
         self.fields['currCompany'].widget.attrs.update({
             "class": "multisteps-form__input form-control",
             "type": "text",
@@ -134,7 +127,6 @@ class alumniForm(forms.ModelForm):
         model = alumni
         exclude = ['aluminiPK', 'visitRequestForm']
         widgets = {
-            'departureDate': DateInput(),
             'arrivialDate': DateInput(),
             'zip': TextInput()
         }
