@@ -395,35 +395,38 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function removeAlumniForm(formInput){
-    var temp=document.getElementById("id_Alumni-1-firstName").value
-    console.log(temp)
-    temp="Minal111"
+    // var temp=document.getElementById("id_Alumni-1-firstName").value
+    // console.log(temp)
 
+    var idNum=parseInt(formInput.id [6]);
 
-    // var idNum=parseInt(formInput.id [6]);
+    let formList = document.getElementsByClassName("alumniForm");
+    var flag=0;
 
-    // let formList = document.getElementsByClassName("alumniForm");
-    // var flag=0;
+    for (var i = 0; i < formList.length; i++) {
+      var regexTemp=new RegExp("Alumni-[0-4]-firstName");
+      var idForm=parseInt(formList[i].innerHTML.match(regexTemp).toString()[7]);
 
-    // for (var i = 0; i < formList.length; i++) {
-    //   var regexTemp=new RegExp("Alumni-[0-4]-firstName");
-    //   var idForm=parseInt(formList[i].innerHTML.match(regexTemp).toString()[7]);
-    //   if(idNum==idForm){
-    //     flag=1;
-    //     if(i>0){
-    //       formList[i].remove();
-    //       const totalForms=document.getElementById('id_Alumni-TOTAL_FORMS')
-    //       totalForms.value=totalForms.value-1;
-    //     }
-    //   }
-    //   if(flag==1){
-    //     const regex=new RegExp('-'+i+'-','g');
-    //     formList[i].innerHTML=formList[i].innerHTML.replace(regex,`-${i-1}-`);
+      if(flag==1){
+        var id="id_Alumni-"+idForm+"-";
+        var firstName=document.getElementById(id+"firstName");
+        console.log(firstName);
+        const regex=new RegExp('-'+i+'-','g');
+        formList[i].innerHTML=formList[i].innerHTML.replace(regex,`-${i-1}-`);
 
-    //     counterHTML=formList[i].querySelector("#Alumni-Counter");
-    //     counterHTML.innerHTML=`Alumni ${i}`;
-    //   }
-    // }
+        counterHTML=formList[i].querySelector("#Alumni-Counter");
+        counterHTML.innerHTML=`Alumni ${i-1}`;
+      }
+      if(idNum==idForm){
+        flag=1;
+        if(i>0){
+          formList[i].remove();
+          const totalForms=document.getElementById('id_Alumni-TOTAL_FORMS')
+          totalForms.value=totalForms.value-1;
+        }
+      }
+      
+    }
   }
   
 </script>
