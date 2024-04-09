@@ -9,19 +9,19 @@
 {% endblock %}
 
 {%block content%}
-<section class="section-1-image pt-5 pb-5 mt-0 align-items-end d-flex bg-dark" style="min-height: 70vh; background-size: cover; background-position: center center; background-image: url({%static 'images/bdomeImageMain.jpeg'%});">
-  <div class=" position: absolute; top: 0; left: 0; height: 100%; width: 100%; background-color: black; opacity: 0.9;"></div>
+<section class="section-1-image pt-5 pb-5 mt-0 align-items-end d-flex bg-dark image-zoom" style="min-height: 70vh; background-size: cover; background-position: center center; background-image: url({%static 'images/bdomeImageMain.jpeg'%});"> 
   <div class="container">
-    <div class="row d-flex justify-content-center">
-      <div class="col-12 col-md-10">
-        <h1 class="display-2 text-white font-weight-bold mb-3 mt-5 display-5 text-center">Welcome Back</h1>
-        <p class="display-5 text-white text-center mb-4 ">
-          Celebrating 20 years of excellence
-        </p>
-      </div>
-    </div>
-  </div>
+   <div class="row d-flex justify-content-center">
+     <div class="col-12 col-md-10">
+       <h1 class="display-2 text-white font-weight-bold mb-3 mt-5 display-5 text-center">Welcome Back</h1>
+       <p class="display-5 text-white text-center mb-4 ">
+         Celebrating 20 years of excellence
+       </p>
+     </div>
+   </div>
+ </div>
 </section>
+
 
 <section>
   <div class="container text-center">
@@ -32,7 +32,7 @@
             <div class="container counter-list-container text-center">
               <div class="row counter-info-row">
                 <div class="col ">
-                  <p class="counter-value" id="alumni">65K+</p>
+                  <p class="counter-value" id="alumni">18K+</p>
                 </div>
                 <div class="col align-self-center">
                   <p class="counter-tag">Alumni</p>
@@ -47,7 +47,7 @@
             <div class="container counter-list-container text-center ">
               <div class="row counter-info-row">
                 <div class="col">
-                  <p class="counter-value" id="students">13K+</p>
+                  <p class="counter-value" id="students">3K+</p>
                 </div>
                 <div class="col align-self-center">
                   <p class="counter-tag">Students</p>
@@ -62,7 +62,7 @@
             <div class="container counter-list-container text-center">
               <div class="row">
                 <div class="col text">
-                  <p class="counter-value" id="faculty">700+</p>
+                  <p class="counter-value" id="faculty">700+  </p>
                 </div>
                 <div class="col align-self-center">
                   <p class="counter-tag">Faculty</p>
@@ -87,13 +87,13 @@
     </div>
     <div class="text-section-gtb">
       <div class="title-gtb">Giving to BITS</div>
-      <p class="description-gtb">Thank you for deciding to donate to BITS Goa. There are various avenues where alumni donations have been used - scholarships, Research Endowment Funds, faculty awards, infrastructure development, setting up labs and many more. Your contributions are valuable and help make the campus what it is today, and what it will be in the years to come.</p>
+      <p class="description-gtb">Thank you for deciding to contribute to BITS – your invaluable donation would help Students and Researchers at the institute, strengthening our efforts to remain an “institute of eminence”. In the past, alumni have donated in areas and causes such as, Scholarships, Research Endowment Fund, Chair Professorships, Setting Up Research Labs, Inter Campus connectivity under BITS Connect 1.0 & 2.0, Infrastructure development and improvement, Faculty Awards, Research Projects and so on.</p>
       <a href="" class="cta-button-gtb"><span>Know More</span></a>
     </div>
     
   </div>
 </section>
-
+<!-- EVENTS -->
 <section>
   <div class="mx-auto py-8 px-4 sm:px-6 lg:px-8 lg:mx-8 event-heading">    
     <h2 class="text-6xl font-bold text-gray-900 mb-8 text-center" >Events</h2>
@@ -103,7 +103,7 @@
         <div class="rounded-lg border bg-card text-card-foreground w-full shadow-lg hover:shadow-xl custom-card-height" data-v0-t="card">
           <img
             alt="VA Immersive event"
-            class="w-full h-52 object-cover"
+            class="w-full h-52 object-cover event-card-img"
             height="400"
             src="{{event.image.url}}"
             width="300"
@@ -166,8 +166,8 @@ document.addEventListener('DOMContentLoaded', function () {
   currentTag[0].classList.remove("active");
   var element=document.getElementById("id_home");
   element.classList.add('active')
-  animateCounter("alumni", 65);
-  animateCounter("students", 13);
+  animateCounter("alumni", 13);
+  animateCounter("students", 3);
   animateCounter("faculty", 700);
   animateCounter("patents", 500);
 });
