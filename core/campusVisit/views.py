@@ -26,7 +26,7 @@ def sendEmails():
 
 def campusVisitFront(request):
     alumniFormSetClass = inlineformset_factory(
-        visitRequest, alumni, form=alumniForm, extra=0, max_num=5, min_num=1)
+        visitRequest, alumni, form=alumniForm, extra=0, min_num=1)
 
     guestFormSetClass = inlineformset_factory(
         visitRequest, guest, form=guestForm, extra=1, max_num=5, min_num=0)
@@ -37,13 +37,21 @@ def campusVisitFront(request):
 
         guestFormSet = guestFormSetClass(
             request.POST, prefix='Guest')
-
+        print("======================================")
+        print(request.POST)
+        print("======================================")
+        print(alumniFormSet)
+        print("======================================")
         if alumniFormSet.is_valid() and guestFormSet.is_valid():
             print("===================valid=======================")
+
             formInstance = visitRequest()
             formInstance.save()
             alumniFormSetInstances = alumniFormSet.save(commit=False)
             for alumniFormInstance in alumniFormSetInstances:
+                print("======================================")
+                print(alumniFormInstance)
+                print("======================================")
                 alumniFormInstance.visitRequestForm = formInstance
                 alumniFormInstance.save()
 
