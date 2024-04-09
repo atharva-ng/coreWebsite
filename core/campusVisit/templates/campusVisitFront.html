@@ -164,70 +164,62 @@
   
   <!-- Guest Form -->
   <section id="guest-form-section" style="margin-top: 50px;">
-    <div class="container-fluid form-container guest-form-container" id="non-alumni-container-1" style="display:none">
-      <div class="row">
-        <div class="col-12 col-lg-8 m-auto">
-          
-          <form class="multisteps-form__form" id="guest-information-form" method='post' action="{% url 'campusVisitFront' %}">
-            {% csrf_token %} 
-            {{guestFormSet.management_form}}
-            <!--single form panel-->
-            <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn"  id="guest-Form-List">
-              <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                  <h1>Guest Information</h1> 
-                </div>
-              </div>
-              {%for form in guestFormSet%}
-                <div class="multisteps-form__content guestForm">
-                  <div id="additional-guest-form-container">
-                    <div class="row">
-                      <div class="col-lg-12">
-                        <h2 style="margin-top: 50px;" id="Guest-Counter">Guest 1</h2>
-                        <div style="display: inline-block; vertical-align: middle;">
-                          <button type="button" class="close" style="display:none;" aria-label="Close" onclick="removeGuestForm(this)">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
+          <div class="container-fluid form-container guest-form-container" id="non-alumni-container-1" style="display:none">
+            <div class="row">
+              <div class="col-12 col-lg-8 m-auto">
+                
+                <form class="multisteps-form__form" id="guest-information-form" method='post' action="{% url 'campusVisitFront' %}">
+                  {% csrf_token %} 
+                  {{guestFormSet.management_form}}
+                  <!--single form panel-->
+                  <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn"  id="guest-Form-List">
+                    <div class="row justify-content-center">
+                      <div class="col-12 text-center">
+                        <h1>Guest Information</h1> 
+                      </div>
+                    </div>
+                    {%for form in guestFormSet%}
+                      <div class="multisteps-form__content guestForm">
+                        <div id="additional-guest-form-container">
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <h2 style="margin-top: 50px;" id="Guest-Counter">Guest 1</h2>
+                              <div style="display: inline-block; vertical-align: middle;">
+                                <button type="button" class="close" id="cross-0-logo" style="display:none;" aria-label="Close" onclick="removeGuestForm(this)">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-row mt-4">
+                            <div class="col-12 col-sm-6">
+                              {{form.firstName}}
+                            </div>
+                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                              {{form.lastName}}
+                            </div>
+                          </div>
+                          <div class="form-row mt-4">
+                            <div class="col-12 col-sm-6">
+                              {{form.email}}
+                            </div>
+                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                              {{form.phoneNumber}}
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="form-row mt-4">
-                      <div class="col-12 col-sm-6">
-                      <!-- <input class="multisteps-form__input form-control" type="text" placeholder="First Name"/> -->
-                        {{form.firstName}}
-                      </div>
-                      <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                      <!-- <input class="multisteps-form__input form-control" type="text" placeholder="Last Name"/> -->
-                        {{form.lastName}}
-                      </div>
-                    </div>
-                    <div class="form-row mt-4">
-                      <div class="col-12 col-sm-6">
-                      <!-- <input class="multisteps-form__input form-control" type="text" placeholder="City"/> -->
-                        {{form.email}}
-                      </div>
-                      <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                        <!-- <input class="multisteps-form__input form-control" type="text" placeholder="Phone Number"/> -->
-                        {{form.phoneNumber}}
-                      </div>
-                    </div>
+                    {%endfor%}
+                  </div>
+                </form>
+                <div class="button-row d-flex mt-4">
+                  <div class="col-lg-12" >
+                    <button class="btn btn-light btn-block btn-lg" type="button" id='add-more-guest'>Add another Guest</button>
                   </div>
                 </div>
-              {%endfor%}
-            </div>
-          </form>
-            <div class="button-row d-flex mt-4">
-              <div class="col-lg-12" >
-                <button class="btn btn-light btn-block btn-lg" type="button" id='add-more-guest'>Add another Guest</button>
               </div>
             </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+          </div>
   </section>
   
   <section>
@@ -435,7 +427,6 @@ document.addEventListener("DOMContentLoaded", function() {
         
         var idNew="id_Alumni-"+(idForm-1)+"-";
         for(var j=0;j<inputFields.length;j++){
-          // console.log(idNew+inputFields[j])
           document.getElementById(idNew+inputFields[j]).value=valueList[j];
         }
         
@@ -457,5 +448,57 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
   
+
+  function removeGuestForm(formInput){
+    var idNum=parseInt(formInput.id.toString().split("-")[1]);
+    console.log(idNum);
+    let formList = document.getElementsByClassName("guestForm");
+    var flag=0;
+    var length = formList.length;
+    console.log(formList);
+
+    for (var i = 0; i <length  ; i++) {
+      var regexTemp=new RegExp("Guest-[0-4]-firstName");
+      var idForm=parseInt(formList[i].innerHTML.match(regexTemp).toString().split("-")[1]);
+      if(flag==1){
+        var id="id_Guest-"+idForm+"-";
+        var inputFields = [
+            "firstName",
+            "lastName",
+            "email",
+            "phoneNumber"
+        ];
+
+        var valueList=[]
+
+        inputFields.forEach(function(fieldName) {
+            valueList.push(document.getElementById(id+fieldName).value);
+        });
+
+        const regex=new RegExp('-'+idForm+'-','g');
+        formList[i].innerHTML=formList[i].innerHTML.replace(regex,`-${idForm-1}-`);
+        
+        var idNew="id_Guest-"+(idForm-1)+"-";
+        for(var j=0;j<inputFields.length;j++){
+          document.getElementById(idNew+inputFields[j]).value=valueList[j];
+        }
+        
+
+        counterHTML=formList[i].querySelector("#Guest-Counter");
+        counterHTML.innerHTML=`Guest ${i+1}`;
+      }
+
+      if(idNum==idForm){
+        flag=1;
+        if(i>0){
+          formList[i].remove();
+          const totalForms=document.getElementById('id_Guest-TOTAL_FORMS')
+          totalForms.value=totalForms.value-1;
+          length--;
+          i--;
+        }
+      }      
+    }
+  }
 </script>
 {%endblock%}
