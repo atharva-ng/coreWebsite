@@ -30,7 +30,7 @@ class alumni(models.Model):
     BitsId = models.CharField(max_length=13, null=False, blank=False, validators=[RegexValidator(
         regex=r'^\d{4}[A-Z0-9]{2}[A-Z0-9]{2}\d{4}[A-Z]+$', message="Enter a valid BITS ID")])
     purposeOfVisit = models.CharField(max_length=254, null=False, blank=False)
-    arrivialDate = models.DateTimeField(
+    arrivalDate = models.DateTimeField(
         null=False, blank=False, verbose_name="From Date")
     currCompany = models.CharField(
         max_length=254, null=False, blank=False)

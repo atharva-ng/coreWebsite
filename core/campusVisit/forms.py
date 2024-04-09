@@ -55,11 +55,11 @@ class alumniForm(forms.ModelForm):
             "id": "id_Alumni-0-purposeOfVisit",
             "placeholder": "Purpose of Visit",
         })
-        self.fields['arrivialDate'].widget.attrs.update({
+        self.fields['arrivalDate'].widget.attrs.update({
             "class": "multisteps-form__input form-control",
             "type": "date",
-            "name": "Alumni-0-arrivialDate",
-            "id": "id_Alumni-0-arrivialDate",
+            "name": "Alumni-0-arrivalDate",
+            "id": "id_Alumni-0-arrivalDate",
             "placeholder": "Arrival Date",
         })
         self.fields['currCompany'].widget.attrs.update({
@@ -73,7 +73,7 @@ class alumniForm(forms.ModelForm):
             "class": "multisteps-form__input form-control",
             "type": "text",
             "name": "Alumni-0-CompanyDesignation",
-            "id": "Alumni-0-CompanyDesignation",
+            "id": "id_Alumni-0-CompanyDesignation",
             "placeholder": "Designation in the Current Company",
         })
         self.fields['currAddress'].widget.attrs.update({
@@ -112,22 +112,11 @@ class alumniForm(forms.ModelForm):
             "placeholder": "State",
         })
 
-    # def clean(self):
-    #     cleaned_data = super().clean()
-    #     start_date = cleaned_data.get("start_date")
-    #     end_date = cleaned_data.get("end_date")
-    #     print("Called====================================================")
-    #     if start_date and end_date:
-    #         if start_date > end_date:
-    #             raise forms.ValidationError(
-    #                 "End date should be after start date.")
-    #     return cleaned_data
-
     class Meta:
         model = alumni
         exclude = ['aluminiPK', 'visitRequestForm']
         widgets = {
-            'arrivialDate': DateInput(),
+            'arrivalDate': DateInput(),
             'zip': TextInput()
         }
 

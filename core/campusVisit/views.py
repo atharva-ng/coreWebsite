@@ -26,7 +26,7 @@ def sendEmails():
 
 def campusVisitFront(request):
     alumniFormSetClass = inlineformset_factory(
-        visitRequest, alumni, form=alumniForm, extra=0, min_num=1)
+        visitRequest, alumni, form=alumniForm, max_num=5, extra=0, min_num=1)
 
     guestFormSetClass = inlineformset_factory(
         visitRequest, guest, form=guestForm, extra=1, max_num=5, min_num=0)
