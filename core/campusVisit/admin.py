@@ -8,16 +8,28 @@ from .models import *
 # Register your models here.
 
 
-def sendEmails(toEmails):
+def sendEmails(toEmails, alumniNameList, guestNameList):
     subject = "Request Approved"
     message = "Content of the approved mail"
-    send_mail(
-        subject,
-        message,
-        settings.EMAIL_HOST_USER,
-        toEmails,
-        fail_silently=False
-    )
+    for name in alumniNameList:
+        message = message+' '+name
+    for name in guestNameList:
+        message = message+' '+name
+    try:
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            toEmails,
+            fail_silently=False
+        )
+    except Exception as e:
+        alumEmails = ""
+        for email in toEmails:
+            alumEmails = alumEmails+email+","
+        with open("emailErrorsCampusVisit.txt", 'a') as file:
+            file.write(str(datetime.datetime.now())+" " +
+                       str(e)+" sendMailToAlumni Emails: "+alumEmails+'\n')
 
 
 class guestInline(admin.StackedInline):
@@ -77,15 +89,21 @@ class requestAdmin(ImportExportModelAdmin, admin.ModelAdmin):
         oldObj = self.model.objects.get(pk=obj.pk)
         if obj.valid and not oldObj.valid:
             alumnis = oldObj.aluminis.all()
+            guests = oldObj.guests.all()
 
             toEmails = []
+            alumniNameList = []
+            guestNameList = []
             for alumni in alumnis:
                 toEmails.append(alumni.email)
+                alumniNameList.append(alumni)
 
+            for guest in guests:
+                guestNameList.append(guest)
             # Mail Admin
 
             threading.Thread(
-                target=sendEmails, name="Email Thread", args=(toEmails,)).start()
+                target=sendEmails, name="Email Thread", args=(toEmails, alumniNameList, guestNameList)).start()
 
             self.fields = []
             return super().save_model(request, obj, form, change)

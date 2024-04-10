@@ -48,7 +48,7 @@ class alumni(models.Model):
         null=False, blank=False)
 
     def __str__(self):
-        return self.firstName+self.lastName
+        return self.firstName+" "+self.lastName
 
 
 class guest(models.Model):
@@ -62,4 +62,4 @@ class guest(models.Model):
     phoneNumber = PhoneNumberField()
 
     def __str__(self):
-        return self.firstName+self.lastName
+        return self.firstName+" "+self.lastName

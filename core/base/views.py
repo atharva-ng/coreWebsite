@@ -14,12 +14,19 @@ from .forms import contactForm
 
 
 def frontPage(request):
-    eventObjects = event.objects.order_by('date')[:4]
-    # print(eventObjects)
-    context = {
-        "events": eventObjects
-    }
-    return render(request, 'base/frontPage.html', context)
+    try:
+        eventObjects = event.objects.order_by('date')[:4]
+        context = {
+            "events": eventObjects
+        }
+
+    except Exception as e:
+        with open("generalErrors.txt", 'a') as file:
+            file.write(str(datetime.datetime.now())+" " +
+                       str(e)+" " + "FrontPageView "+'\n')
+        context = {}
+    finally:
+        return render(request, 'base/frontPage.html', context)
 
 
 def aboutUs(request):
@@ -30,14 +37,17 @@ def aboutUs(request):
 def sendMail():
     subject = "Contact Request"
     message = "There is a new contact request."
-
-    send_mail(
-        subject,
-        message,
-        settings.EMAIL_HOST_USER,
-        ['atharvaghadi4@gmail.com'],
-        fail_silently=False
-    )
+    try:
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            ['atharvaghadi4@gmail.com']
+        )
+    except Exception as e:
+        with open("emailErrorsContact.txt", 'a') as file:
+            file.write(str(datetime.datetime.now())+" " +
+                       str(e)+" " + "sendMailContactView "+'\n')
 
 
 def contact(request):

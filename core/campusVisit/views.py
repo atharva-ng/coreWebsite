@@ -15,13 +15,17 @@ from .models import visitRequest, alumni
 def sendEmails():
     subject = "Campus visit Request"
     message = "There is a new Campus visit request."
-    send_mail(
-        subject,
-        message,
-        settings.EMAIL_HOST_USER,
-        ['atharvaghadi4@gmail.com'],
-        fail_silently=False
-    )
+    try:
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            ["atharvaghadi4@gmail.com"]
+        )
+    except Exception as e:
+        with open("emailErrorsContact.txt", 'a') as file:
+            file.write(str(datetime.datetime.now())+" " +
+                       str(e)+" " + "sendMailToAdmin "+'\n')
 
 
 def campusVisitFront(request):
@@ -40,49 +44,41 @@ def campusVisitFront(request):
         if alumniFormSet.is_valid() and guestFormSet.is_valid():
             formInstance = visitRequest()
             formInstance.save()
+
+            emailList = []
+            nameList = []
+
             alumniFormSetInstances = alumniFormSet.save(commit=False)
             for alumniFormInstance in alumniFormSetInstances:
                 alumniFormInstance.visitRequestForm = formInstance
+                emailList.append(alumniFormInstance.email)
+                nameList.append(alumniFormInstance)
                 alumniFormInstance.save()
 
             guestFormSetInstances = guestFormSet.save(commit=False)
             for guestFormSetInstance in guestFormSetInstances:
+                nameList.append(guestFormSetInstance)
                 guestFormSetInstance.visitRequestForm = formInstance
                 guestFormSetInstance.save()
 
             threading.Thread(
-                target=sendEmails, name="Email Thread").start()
+                target=sendEmails, args=(emailList, nameList), name="Email Thread").start()
 
             data = {}
             return JsonResponse(data, status=200)
         else:
             errorList = []
-            errorList1 = []
-            fieldList = []
 
             for form in alumniFormSet:
                 for field, error in form.errors.items():
-                    errorList1.append(error)
-                    fieldList.append(field)
-                    if error not in errorList:
-                        errorList.append(error)
+                    if field+": "+error not in errorList:
+                        errorList.append(field+": "+error)
 
             for form in guestFormSet:
 
                 for field, error in form.errors.items():
-                    errorList1.append(error)
-                    fieldList.append(field)
-                    if error not in errorList:
-                        errorList.append(error)
-            print("=====================================")
-            for error in errorList1:
-                print(error)
-            print("=====================================")
-            for field in fieldList:
-                print(field)
-            print("=====================================")
-            alumniFormSet = alumniFormSetClass(
-                request.POST, prefix='Alumni')
+                    if field+": "+error not in errorList:
+                        errorList.append(field+": "+error)
 
             guestFormSet = guestFormSetClass(
                 request.POST, prefix='Guest')
@@ -109,4 +105,4 @@ def campusVisitFront(request):
         response = HttpResponse()
         return response
     else:
-        return HttpResponse(status=405)
+        return HttpResponse(status=400)
