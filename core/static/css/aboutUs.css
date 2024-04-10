@@ -1,6 +1,6 @@
 #myCarousel {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   margin: auto;
 }
 
@@ -89,6 +89,18 @@
 
 
 
+.hover-zoom {
+  transition: transform 0.3s;
+}
+
+.hover-zoom:hover {
+  transform: scale(1.03);
+}
+
+/* .profile-heading:hover {
+  color: #353587;
+} */
+
 @media (min-width: 40em) {
 
   /* Bump up size of carousel content */
@@ -160,4 +172,5 @@
 .featurette-heading {
   padding-left: 90px;
   padding-right: 90px;
+  font-size: 40px;
 }
