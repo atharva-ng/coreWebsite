@@ -98,28 +98,32 @@
   <div class="mx-auto py-8 px-4 sm:px-6 lg:px-8 lg:mx-8 event-heading">    
     <h2 class="text-6xl font-bold text-gray-900 mb-8 text-center" >Events</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {%for event in events%}
-      <a class="cardTag" href="{%url 'events'%}">
-        <div class="rounded-lg border bg-card text-card-foreground w-full shadow-lg hover:shadow-xl custom-card-height" data-v0-t="card">
-          <img
-            alt="VA Immersive event"
-            class="w-full h-52 object-cover event-card-img"
-            height="400"
-            src="{{event.image.url}}"
-            width="300"
-            style="aspect-ratio: 300 / 400; object-fit: cover;"
-          />
-          <div class="p-4">
-            <div class="bg-red-600 text-white px-3 py-1 inline-block absolute -mt-12 ml-4 border-2 border-black">
-              <span class="text-xs font-semibold tracking-wide uppercase">{{ event.date|month_abbr}}</span>
-              <span class="block text-2xl font-bold">{{event.date.day}}</span>
+      {%if event%}
+        {%for event in events%}
+          <a class="cardTag" href="{%url 'events'%}">
+            <div class="rounded-lg border bg-card text-card-foreground w-full shadow-lg hover:shadow-xl custom-card-height" data-v0-t="card">
+              <img
+                alt="VA Immersive event"
+                class="w-full h-52 object-cover event-card-img"
+                height="400"
+                src="{{event.image.url}}"
+                width="300"
+                style="aspect-ratio: 300 / 400; object-fit: cover;"
+              />
+              <div class="p-4">
+                <div class="bg-red-600 text-white px-3 py-1 inline-block absolute -mt-12 ml-4 border-2 border-black">
+                  <span class="text-xs font-semibold tracking-wide uppercase">{{ event.date|month_abbr}}</span>
+                  <span class="block text-2xl font-bold">{{event.date.day}}</span>
+                </div>
+                <h3 class="mt-4 text-lg font-semibold overflow-hidden h-15 break-words">{{event.title}}</h3>
+                <p class="mt-2 text-sm text-gray-600">{{event.content| formatContent}}</p>
+              </div>
             </div>
-            <h3 class="mt-4 text-lg font-semibold overflow-hidden h-15 break-words">{{event.title}}</h3>
-            <p class="mt-2 text-sm text-gray-600">{{event.content| formatContent}}</p>
-          </div>
-        </div>
-      </a>
-      {%endfor%}
+          </a>
+        {%endfor%}
+      {%else%}
+          message
+      {%endif%}
     </div>
     <div class="mt-8 text-center">
       <a href="{%url 'events'%}">

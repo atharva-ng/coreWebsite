@@ -37,21 +37,11 @@ def campusVisitFront(request):
 
         guestFormSet = guestFormSetClass(
             request.POST, prefix='Guest')
-        print("======================================")
-        print(request.POST)
-        print("======================================")
-        print(alumniFormSet)
-        print("======================================")
         if alumniFormSet.is_valid() and guestFormSet.is_valid():
-            print("===================valid=======================")
-
             formInstance = visitRequest()
             formInstance.save()
             alumniFormSetInstances = alumniFormSet.save(commit=False)
             for alumniFormInstance in alumniFormSetInstances:
-                print("======================================")
-                print(alumniFormInstance)
-                print("======================================")
                 alumniFormInstance.visitRequestForm = formInstance
                 alumniFormInstance.save()
 
@@ -67,10 +57,30 @@ def campusVisitFront(request):
             return JsonResponse(data, status=200)
         else:
             errorList = []
+            errorList1 = []
+            fieldList = []
+
             for form in alumniFormSet:
                 for field, error in form.errors.items():
-                    errorList.append(error[0])
+                    errorList1.append(error)
+                    fieldList.append(field)
+                    if error not in errorList:
+                        errorList.append(error)
 
+            for form in guestFormSet:
+
+                for field, error in form.errors.items():
+                    errorList1.append(error)
+                    fieldList.append(field)
+                    if error not in errorList:
+                        errorList.append(error)
+            print("=====================================")
+            for error in errorList1:
+                print(error)
+            print("=====================================")
+            for field in fieldList:
+                print(field)
+            print("=====================================")
             alumniFormSet = alumniFormSetClass(
                 request.POST, prefix='Alumni')
 
@@ -81,6 +91,7 @@ def campusVisitFront(request):
             }
             serializedContext = json.dumps(context)
             print(serializedContext)
+
             return JsonResponse({"errors": serializedContext}, status=402)
 
     elif request.method == 'GET':

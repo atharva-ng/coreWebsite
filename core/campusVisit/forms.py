@@ -1,6 +1,7 @@
 from django import forms
 from .models import *
 from django.forms import TextInput
+from phonenumber_field.formfields import PhoneNumberField
 
 
 class DateInput(forms.DateInput):
@@ -9,6 +10,8 @@ class DateInput(forms.DateInput):
 
 class alumniForm(forms.ModelForm):
     required_css_class = 'required-field'
+    phoneNumber = PhoneNumberField(
+        error_messages={'invalid': "Enter a valid Contact Number (+91 xxxxx xxxxx)."})
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -123,6 +126,8 @@ class alumniForm(forms.ModelForm):
 
 class guestForm(forms.ModelForm):
     required_css_class = 'required-field'
+    phoneNumber = PhoneNumberField(
+        error_messages={'invalid': "Enter a valid Contact Number (+91 xxxxx xxxxx)."})
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

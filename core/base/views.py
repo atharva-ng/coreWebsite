@@ -6,6 +6,8 @@ from django.conf import settings
 import datetime
 import threading
 
+from django.http import JsonResponse
+
 from .models import *
 from .forms import contactForm
 # Create your views here.
@@ -40,7 +42,6 @@ def sendMail():
 def contact(request):
     if request.method == 'POST':
         form = contactForm(request.POST)
-
         if form.is_valid():
             form.save()
 
@@ -49,9 +50,14 @@ def contact(request):
             email_thread.start()
 
             messages.success(request, "submitted")
-            return redirect(reverse('contact'))
+
+            context = {"form": contactForm()}
+            context["message"] = "Form submitted successfully"
+            return render(request, 'base/contact.html', context)
         else:
             context = {"form": form}
+            context["form_errors"] = form.errors
+            context["message"] = "Please resolve the errors"
             return render(request, 'base/contact.html', context)
 
     else:
@@ -59,12 +65,6 @@ def contact(request):
         context = {"form": form}
 
     return render(request, 'base/contact.html', context)
-
-
-def blogs(request):
-    blogs = blog.objects.all()
-    print(blogs)
-    return render(request, 'base/blog.html', {"blogs": blogs})
 
 
 def eventView(request):

@@ -1,8 +1,12 @@
 from django.forms import ModelForm
+from phonenumber_field.formfields import PhoneNumberField
 from .models import contactDetail
 
 
 class contactForm(ModelForm):
+    phoneNumber = PhoneNumberField(
+        error_messages={'invalid': "Enter a valid Contact Number (+91 xxxxx xxxxx)."})
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['firstName'].widget.attrs.update({

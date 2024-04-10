@@ -49,10 +49,24 @@
 }
 
 .small-featurette-image {
-  max-width: 500%;
-  max-height: 400px;
+  max-width: 100%;
+  height: auto;
   object-fit: cover;
   object-position: center;
+}
+
+@media (max-width: 768px) {
+.featurette {
+    flex-direction: column;
+  }
+
+.featurette > div {
+    width: 100%;
+  }
+
+.featurette > div:first-child {
+    margin-bottom: 20px;
+  }
 }
 
 </style>
@@ -253,11 +267,11 @@
         </div>
         <div class="row featurette align-self-center"  style="padding: 50px 0;">
           <div class="col-md-6 order-md-2">
-            <h2 class="featurette-heading" style="margin-top: 100px; margin-left: 100px;">
+            <h2 class="featurette-heading" style="margin-top: 70px; margin-left: 50px;">
               Oh yeah, it's that good.
               <span class="text-muted">See for yourself.</span>
             </h2>
-            <p class="lead" style="margin-left: 100px;">
+            <p class="lead" style="margin-left: 30px;">
               Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
               ligula porta felis euismod semper. Praesent commodo cursus magna,
               vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
@@ -297,11 +311,11 @@
         </div>
         <div class="row featurette align-self-center" style="padding: 50px 0;">
           <div class="col-md-6 order-md-2">
-            <h2 class="featurette-heading" style="margin-top: 100px; margin-left: 100px;">
+            <h2 class="featurette-heading" style="margin-top: 70px; margin-left: 50px;">
               Oh yeah, it's that good.
               <span class="text-muted">See for yourself.</span>
             </h2>
-            <p class="lead" style="margin-left: 100px;">
+            <p class="lead" style="margin-left: 30px;">
               Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
               ligula porta felis euismod semper. Praesent commodo cursus magna,
               vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus

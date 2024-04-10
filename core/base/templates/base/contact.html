@@ -25,55 +25,51 @@
               <!-- FORM -->
               <div class="contact form">
                 <h2>Send a message</h2>
+                {% if message %}
+                      {{message}}
+                  {% endif %}
                 <form method=POST>
                   {% csrf_token %} 
-                  <!-- {% if form.errors %}
-                      <div class="errors">
-                          <ul>
-                              {% for field, errors in form.errors.items %}
-                                  {% for error in errors %}
-                                      <li>{{ field }}: {{ error }}</li>
-                                  {% endfor %}
-                              {% endfor %}
-                          </ul>
-                      </div>
-                  {% endif %} -->
                   <div class="formBox">
                     <div class="row50">
                       <div class="inputBox">
                         <span>First Name</span>
                         {{form.firstName}}
+                        {{form.firstName.errors}}
                       </div>
                       <div class="inputBox">
                         <span>Last Name</span>
                         {{form.lastName}}
+                        {{form.lastName.errors}}
                       </div>
                     </div>
                     <div class="row50">
                       <div class="inputBox">
                         <span>Email</span>
                         {{form.email}}
+                        {{form.email.errors}}
                       </div>
                       <div class="inputBox">
                         <span>Phone Number</span>
                         <!-- <input type="text" placeholder="Mobile Number"> -->
                         {{form.phoneNumber}}
+                        {{form.phoneNumber.errors}}
                       </div>
                     </div>
                     <div class="row100">
                       <div class="inputBox">
                         <span>Subject</span>
                         {{form.subject}}
+                        {{form.subject.errors}}
                       </div>
                     </div>
                     <div class="row100">
                       <div class="inputBox">
                         <span>Message</span>
-                        <!-- <textarea placeholder="Write Your Message Here ..." ></textarea> -->
                         {{form.message}}
+                        {{form.message.errors}}
                       </div>
                     </div>
-
                     <div class="row100">
                       <div class="inputBox">
                         <input type="submit" title="submit">

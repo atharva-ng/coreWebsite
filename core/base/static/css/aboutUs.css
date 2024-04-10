@@ -87,17 +87,19 @@
   letter-spacing: -0.05rem;
 }
 
+
+
 .hover-zoom {
   transition: transform 0.3s;
 }
 
 .hover-zoom:hover {
-  transform: scale(1.1);
+  transform: scale(1.03);
 }
 
-.profile-heading:hover {
-  color: red;
-}
+/* .profile-heading:hover {
+  color: #353587;
+} */
 
 @media (min-width: 40em) {
 
