@@ -12,9 +12,9 @@ def sendEmails(toEmails, alumniNameList, guestNameList):
     subject = "Request Approved"
     message = "Content of the approved mail"
     for name in alumniNameList:
-        message = message+' '+name
+        message = message+' '+name.__str__()
     for name in guestNameList:
-        message = message+' '+name
+        message = message+' '+name.__str__()
     try:
         send_mail(
             subject,
