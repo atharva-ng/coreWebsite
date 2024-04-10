@@ -15,7 +15,7 @@ from .forms import contactForm
 
 def frontPage(request):
     eventObjects = event.objects.order_by('date')[:4]
-    print(eventObjects)
+    # print(eventObjects)
     context = {
         "events": eventObjects
     }

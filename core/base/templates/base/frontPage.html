@@ -6,6 +6,7 @@
 {% block extrahead %}
   <link rel="stylesheet" href="{% static 'css/frontPage.css' %}">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 {% endblock %}
 
 {%block content%}
@@ -87,7 +88,8 @@
     </div>
     <div class="text-section-gtb">
       <div class="title-gtb">Giving to BITS</div>
-      <p class="description-gtb">Thank you for deciding to contribute to BITS – your invaluable donation would help Students and Researchers at the institute, strengthening our efforts to remain an “institute of eminence”. In the past, alumni have donated in areas and causes such as, Scholarships, Research Endowment Fund, Chair Professorships, Setting Up Research Labs, Inter Campus connectivity under BITS Connect 1.0 & 2.0, Infrastructure development and improvement, Faculty Awards, Research Projects and so on.</p>
+      <p class="description-gtb">Thank you for deciding to donate to BITS Goa. There are various avenues where alumni donations have been used - scholarships, Research Endowment Funds, faculty awards, infrastructure development, setting up labs and many more. Your contributions are valuable and help make the campus what it is today, and what it will be in the years to come. 
+      </p>
       <a href="" class="cta-button-gtb"><span>Know More</span></a>
     </div>
     
@@ -95,46 +97,119 @@
 </section>
 <!-- EVENTS -->
 <section>
-  <div class="mx-auto py-8 px-4 sm:px-6 lg:px-8 lg:mx-8 event-heading">    
-    <h2 class="text-6xl font-bold text-gray-900 mb-8 text-center" >Events</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {%if events%}
-        {%for event in events%}
-          <a class="cardTag" href="{%url 'events'%}">
-            <div class="rounded-lg border bg-card text-card-foreground w-full shadow-lg hover:shadow-xl custom-card-height" data-v0-t="card">
-              <img
-                alt="VA Immersive event"
-                class="w-full h-52 object-cover event-card-img"
-                height="400"
-                src="{{event.image.url}}"
-                width="300"
-                style="aspect-ratio: 300 / 400; object-fit: cover;"
-              />
-              <div class="p-4">
-                <div class="bg-red-600 text-white px-3 py-1 inline-block absolute -mt-12 ml-4 border-2 border-black">
-                  <span class="text-xs font-semibold tracking-wide uppercase">{{ event.date|month_abbr}}</span>
-                  <span class="block text-2xl font-bold">{{event.date.day}}</span>
+    {%if events%}
+      <div class="mx-auto py-8 px-4 sm:px-6 lg:px-8 lg:mx-8 event-heading">    
+        <h2 class="text-6xl font-bold text-gray-900 mb-8 text-center" >Events</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {%for event in events%}
+              <a class="cardTag" href="{%url 'events'%}">
+                <div class="rounded-lg border bg-card text-card-foreground w-full shadow-lg hover:shadow-xl custom-card-height" data-v0-t="card">
+                  <img
+                    alt="VA Immersive event"
+                    class="w-full h-52 object-cover event-card-img"
+                    height="400"
+                    src="{{event.image.url}}"
+                    width="300"
+                    style="aspect-ratio: 300 / 400; object-fit: cover;"
+                  />
+                  <div class="p-4">
+                    <div class="bg-red-600 text-white px-3 py-1 inline-block absolute -mt-12 ml-4 border-2 border-black">
+                      <span class="text-xs font-semibold tracking-wide uppercase">{{ event.date|month_abbr}}</span>
+                      <span class="block text-2xl font-bold">{{event.date.day}}</span>
+                    </div>
+                    <h3 class="mt-4 text-lg font-semibold overflow-hidden h-15 break-words">{{event.title}}</h3>
+                    <p class="mt-2 text-sm text-gray-600">{{event.content| formatContent}}</p>
+                  </div>
                 </div>
-                <h3 class="mt-4 text-lg font-semibold overflow-hidden h-15 break-words">{{event.title}}</h3>
-                <p class="mt-2 text-sm text-gray-600">{{event.content| formatContent}}</p>
-              </div>
-            </div>
-          </a>
-        {%endfor%}
-      {%else%}
-          message
-      {%endif%}
-    </div>
-    <div class="mt-8 text-center">
-      <a href="{%url 'events'%}">
-      <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-red-600 text-white">
-        More events
-      </button>
-    </a>
-    </div>
-  </div>
+              </a>
+            {%endfor%}
+          </div>
+          <div class="mt-8 text-center">
+            <a href="{%url 'events'%}">
+              <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-red-600 text-white">
+                More events
+              </button>
+            </a>
+          </div>
+      </div>
+    {%else%}
+      <h2 class="text-6xl font-bold text-gray-900 mb-8 text-center" >Events</h2>
+      <section class="flex flex-1 w-full items-center justify-center py-12 text-center">
+
+        <div class="space-y-4">
+          <div class="inline-flex items-center space-x-2 text-5xl font-semibold">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+              <line x1="16" x2="16" y1="2" y2="6"></line>
+              <line x1="8" x2="8" y1="2" y2="6"></line>
+              <line x1="3" x2="21" y1="10" y2="10"></line>
+              <path d="m9 16 2 2 4-4"></path>
+            </svg>
+            <span>Nothing here</span>
+          </div>
+          <p class="text-gray-500 dark:text-gray-400">Check again soon for updates.</p>
+        </div>
+      </section>
+    {%endif%}
 </section>
 
+
+
+<!-- ALUMNI ARICLES PAGE -->
+<section class="timeline alumni-articles">
+  <div class="container container-alumni-articles">
+    <div class="title giving-to-bits-title alumni-articles-title">Alumni Articles</div>
+    <p class="intro-text alumni-articles-intro-text">Unlock the captivating tales of our accomplished alumni. From their personal growth to professional success, their stories are sure to leave you in awe. Get a glimpse into their lives and be motivated by their achievements by reading our Alumni stories today!</p>
+    
+    <div class="row articles">
+      <div class="col-md-4 article">
+        
+          <h2 class="article-title">Heading</h2>
+          
+          <p class="article-summary">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+          
+          <button class="read-more">Read More</button>
+          
+        
+      </div>
+      <div class="col-md-4 article">
+        
+          <h2 class="article-title">Heading</h2>
+          
+          <p class="article-summary">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+          
+          <button class="read-more">Read More</button>
+        
+      </div>
+      <div class="col-md-4 article">
+        
+        <h2 class="article-title">Heading</h2>
+          
+        <p class="article-summary">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+
+        <button class="read-more">Read More</button>
+        
+      </div>
+    </div>
+
+
+    
+  
+    <button class="view-all btn-lg "><span>View All</span></button>
+  
+  
+  </div>
+</section>
 </div>
 
 

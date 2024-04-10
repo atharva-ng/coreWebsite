@@ -9,8 +9,8 @@ def month_abbr(date):
 
 def eventsContentFormat(para):
     words = para.split()
-    if len(words) > 55:
-        return ' '.join(words[:55]) + "..."
+    if len(words) > 25:
+        return ' '.join(words[:25]) + "..."
     else:
         return para
 

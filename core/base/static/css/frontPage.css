@@ -98,13 +98,13 @@ hr {
 .title-gtb {
   font-size: 64px;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .description-gtb {
   font-size: 20px;
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .cta-button-gtb {
@@ -121,6 +121,7 @@ hr {
 
 .cta-button-gtb:hover {
   background-color: rgb(182, 0, 0) !important;
+  color: white !important;
 }
 
 .cta-button-gtb:before {
@@ -205,4 +206,195 @@ hr {
 
 .max-w-6xl {
   margin-top: -2rem;
+}
+
+
+/*----------------- ALUMNI ARTICLES ----------------------------- */
+
+.container-alumni-articles {
+  width: 80%;
+  text-align: center;
+  animation: slideFadeUp 0.5s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.intro-text {
+  margin-bottom: 50px;
+  color: #666;
+}
+
+.articles {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 40px);
+  /* Adjusted for equal height while considering the margins */
+}
+
+.article-title,
+.article-summary,
+.read-more {
+  font-family: "Open Sans", sans-serif;
+  color: #211d70;
+  margin: 10px 0;
+  transition: color 0.3s ease;
+  animation: slideFadeUp 0.5s ease-out forwards;
+  /* Apply pop-in animation */
+  animation-delay: 0.2s;
+  /* Optional: adjust delay as needed */
+}
+
+.article-title {
+  font-size: 40px;
+}
+
+.article-summary {
+  line-height: 1.8;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.article-title:hover {
+  color: #ff0000;
+}
+
+.article-summary {
+  color: #666;
+}
+
+.read-more {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border-radius: 5px;
+  margin-top: auto;
+  /* Push the button to the bottom */
+  align-self: center;
+  /* Center the button */
+  animation: slideFadeUp 0.5s ease-out forwards;
+  /* Apply pop-in animation */
+  animation-delay: 0.2s;
+  /* Optional: adjust delay as needed */
+}
+
+.read-more:hover {
+  background-color: #ff0000;
+}
+
+.alumni-articles-title {
+  margin-top: 50px;
+  margin-bottom: 35px;
+}
+
+.alumni-articles-intro-text {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 50px;
+  line-height: 1.8;
+}
+
+.view-all {
+  border: 2px solid #007bff;
+  background-color: transparent;
+  color: #007bff;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: "Nunito Sans", sans-serif;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  animation: slideFadeUp 0.5s ease-out forwards;
+  /* Apply pop-in animation */
+  animation-delay: 0.2s;
+  /* Optional: adjust delay as needed */
+}
+
+.view-all span,
+.view-all::after {
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+@keyframes text-pop {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  49% {
+    transform: translateY(-200%);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+}
+
+.view-all:hover span,
+.view-all:hover::after {
+  animation: text-pop 0.4s ease-out forwards;
+}
+
+/* Other styles remain the same */
+
+@media (max-width: 768px) {
+  .articles {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .article {
+    width: 100%;
+  }
+
+  .article h2,
+  .article p,
+  .article button {
+    align-self: center;
+  }
+}
+
+.title,
+.giving-to-bits-title,
+.alumni-articles-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+.article-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.alumni-articles {
+  background-color: #f4f4f4;
+}
+
+.giving-to-bits-title {
+  font-family: "Open Sans";
+  font-weight: 600 !important;
+  margin-top: 20px;
+  margin-bottom: 20px !important;
 }
