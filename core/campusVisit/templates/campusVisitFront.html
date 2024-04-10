@@ -8,6 +8,10 @@
     rel="stylesheet"
     href="{% static 'css/campusVisitFront.css' %}"
   />
+  <link 
+  href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" 
+  rel="stylesheet"
+  />
 {% endblock %} 
 
 {%block content%}
@@ -21,14 +25,103 @@
 </div>
 
 <!-- Welcome Text -->
-
-<section class="welcome-text">
-  <div class="container">
-      <h1 class="headline pop-in welcome-text-title">Explore BITS Goa</h1>
-      <p class="subtext pop-in">Step into a world where education meets innovation. At BITS Goa, every path leads to a new discovery, and every corner tells a story of success and aspiration.</p>
-      <p class="subtext pop-in">Ready to witness the pulse of BITS Goa? Fill in the form to book your campus tour. Whether you're exploring academic opportunities, revisiting memories as an alum, or simply soaking in the ambiance of our dynamic campus, we're excited to welcome you. Just a few details, and you'll be on your way to an inspiring visit.</p>
+<section class="procedure-section">
+  <div class="bg-white py-12">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:leading-10">
+          Explore BITS Goa
+        </h2>
+        <p class="mt-4 text-xl text-gray-500">
+          Fill out the form below to Visit Campus 
+        </p>
+      </div>
+      <div class="flex justify-between">
+        <div class="w-1/3 px-4">
+          <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="blue"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="h-16 w-16 mx-auto mb-4"
+        filter="url(#shadow)"
+      >
+        <defs>
+          <filter id="shadow" x="0" y="0" width="200%" height="200%">
+            <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="black" flood-opacity="0.5"/>
+          </filter>
+        </defs>
+        <rect width="20" height="12" x="2" y="6" rx="2"></rect>
+        <path d="M12 12h.01"></path>
+        <path d="M17 12h.01"></path>
+        <path d="M7 12h.01"></path>
+      </svg>
+          <h3 class="text-lg leading-6 font-medium text-gray-900 text-center mb-2">Submit Details</h3>
+          <p class="text-base leading-6 text-gray-500 text-center">Fill the form below</p>
+        </div>
+        <div class="w-1/3 px-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="blue"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-16 w-16 mx-auto mb-4"
+            filter="url(#shadow)"
+            >
+            <defs>
+                <filter id="shadow" x="0" y="0" width="200%" height="200%">
+                  <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="black" flood-opacity="0.5"/>
+                </filter>
+              </defs>
+          >
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+          <h3 class="text-lg leading-6 font-medium text-gray-900 text-center mb-2">Wait for the conformation email</h3>
+          <p class="text-base leading-6 text-gray-500 text-center">
+              Wait for confirmation from alumirelations@goa.bits-pilani.ac.in
+          </p>
+        </div>
+        <div class="w-1/3 px-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="blue"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-16 w-16 mx-auto mb-4"
+            filter="url(#shadow)"
+            >
+            <defs>
+                <filter id="shadow" x="0" y="0" width="200%" height="200%">
+                  <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="black" flood-opacity="0.5"/>
+                </filter>
+              </defs>
+          >
+          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <h3 class="text-lg leading-6 font-medium text-gray-900 text-center mb-2">Visit Campus</h3>
+          <p class="text-base leading-6 text-gray-500 text-center">Relive your memories</p>
+        </div>
+      </div>
+    </div>
   </div>
-</section>
+  </section>
 
 <!-- Alumni Form -->
 <section style="background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);">

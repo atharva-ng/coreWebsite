@@ -98,7 +98,7 @@
   <div class="mx-auto py-8 px-4 sm:px-6 lg:px-8 lg:mx-8 event-heading">    
     <h2 class="text-6xl font-bold text-gray-900 mb-8 text-center" >Events</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {%if event%}
+      {%if events%}
         {%for event in events%}
           <a class="cardTag" href="{%url 'events'%}">
             <div class="rounded-lg border bg-card text-card-foreground w-full shadow-lg hover:shadow-xl custom-card-height" data-v0-t="card">

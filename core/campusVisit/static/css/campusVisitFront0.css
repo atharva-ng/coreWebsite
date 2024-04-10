@@ -55,19 +55,6 @@
   }
 }
 
-svg:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
-}
-h3:hover {
-  color: #ff0000; 
-}
-
-.procedure-section {
-  max-width: 2000px; /* Adjust the value as per your requirement */
-  margin: 0 auto; /* Center align the section */
-}
-
 .left-text {
   position: absolute;
   left: 4%;

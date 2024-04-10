@@ -26,8 +26,13 @@
               <div class="contact form">
                 <h2>Send a message</h2>
                 {% if message %}
-                      {{message}}
+                  {%if form_errors%}
+                  <span class="error-message">{{message}}</span>
+                      
+                  {%else%}
+                    {{message}}
                   {% endif %}
+                {% endif %}
                 <form method=POST>
                   {% csrf_token %} 
                   <div class="formBox">
@@ -35,39 +40,43 @@
                       <div class="inputBox">
                         <span>First Name</span>
                         {{form.firstName}}
-                        {{form.firstName.errors}}
+                        <!-- {{form.firstName.errors}} -->
+                        <span class="error-message">{{form.firstName.errors}}</span>
                       </div>
                       <div class="inputBox">
                         <span>Last Name</span>
                         {{form.lastName}}
-                        {{form.lastName.errors}}
+                        <span class="error-message">{{form.lastName.errors}}</span>
+                        <!-- {{form.lastName.errors}} -->
                       </div>
                     </div>
                     <div class="row50">
                       <div class="inputBox">
                         <span>Email</span>
                         {{form.email}}
-                        {{form.email.errors}}
+                        <!-- {{form.email.errors}} -->
+                        <span class="error-message">{{form.email.errors}}</span>
                       </div>
                       <div class="inputBox">
                         <span>Phone Number</span>
                         <!-- <input type="text" placeholder="Mobile Number"> -->
                         {{form.phoneNumber}}
-                        {{form.phoneNumber.errors}}
+                        <span class="error-message">{{form.phoneNumber.errors}}</span>
+                        <!-- {{form.phoneNumber.errors}} -->
                       </div>
                     </div>
                     <div class="row100">
                       <div class="inputBox">
                         <span>Subject</span>
                         {{form.subject}}
-                        {{form.subject.errors}}
+                        <span class="error-message">{{form.subject.errors}}</span>
                       </div>
                     </div>
                     <div class="row100">
                       <div class="inputBox">
                         <span>Message</span>
                         {{form.message}}
-                        {{form.message.errors}}
+                        <span class="error-message">{{form.message.errors}}</span>
                       </div>
                     </div>
                     <div class="row100">
