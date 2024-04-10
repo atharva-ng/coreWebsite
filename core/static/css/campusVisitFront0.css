@@ -369,13 +369,3 @@ body {
   text-decoration: none;
   opacity: .75;
 }
-
-#errorBox {
-  padding: 10px;
-  border: 1px solid red;
-  margin-top: 10px;
-  text-align: center;
-  width: 100%;
-  box-sizing: border-box;
-  background: #ffffff;
-}

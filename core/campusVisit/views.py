@@ -71,14 +71,14 @@ def campusVisitFront(request):
 
             for form in alumniFormSet:
                 for field, error in form.errors.items():
-                    if field+": "+error not in errorList:
-                        errorList.append(field+": "+error)
+                    if error not in errorList:
+                        errorList.append(error)
 
             for form in guestFormSet:
 
                 for field, error in form.errors.items():
-                    if field+": "+error not in errorList:
-                        errorList.append(field+": "+error)
+                    if error not in errorList:
+                        errorList.append(error)
 
             guestFormSet = guestFormSetClass(
                 request.POST, prefix='Guest')

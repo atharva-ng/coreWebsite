@@ -136,13 +136,17 @@
         <div class="col-12 col-lg-8 m-auto">
           <!-- action="{% url 'campusVisitFront' %}" -->
             <form class= "multisteps-form__form" id="alumni-information-form" method="post" >
+              <div id="errorBox" style="display: none; color: red; font-weight: bold;">
+                Bro you are a BITSIAN. These errors are not expected from you:
+                <div id="individual-error"></div>
+              </div>
               {% csrf_token %} 
               {{alumniFormSet.management_form}}
               <!--single form panel-->
               <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" id='alumni-Form-List' data-animation="scaleIn">
                 <div class="row justify-content-center">
                   <div class="col-12 text-center">
-                    <h1>Alumni Information</h1> 
+                    <h1 style="font-size: 3rem; font-weight: bold; color: black;">Alumni Details</h1>
                   </div>
                 </div>
                 <hr style="border: 1.5px solid black;">
@@ -151,7 +155,7 @@
                       <div id="additional-alumni-Form-List">
                         <div class="row ">
                           <div class="col-md-12">
-                            <h2 style="margin-top: 50px;" id="Alumni-Counter">Alumni 1</h2>
+                            <h2 id="Alumni-Counter" style="font-size: 2rem; margin-top: 25px; margin-bottom: 0;">Alumni 1</h2>
                             <div style="display: inline-block; vertical-align: middle;" >
                               <button type="button" id="cross-0-logo" class="close" aria-label="Close" style="display:none;" onclick="removeAlumniForm(this)">
                                 <span aria-hidden="true">&times;</span>
@@ -268,7 +272,7 @@
                   <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn"  id="guest-Form-List">
                     <div class="row justify-content-center">
                       <div class="col-12 text-center">
-                        <h1>Guest Information</h1> 
+                        <h1 style="font-size: 3rem; font-weight: bold; color: black;">Guest Details</h1>
                       </div>
                     </div>
                     {%for form in guestFormSet%}
@@ -277,7 +281,7 @@
                         <div id="additional-guest-form-container">
                           <div class="row">
                             <div class="col-lg-12">
-                              <h2 style="margin-top: 50px;" id="Guest-Counter">Guest 1</h2>
+                              <h2 id="Guest-Counter" style="font-size: 2rem; margin-top: 25px; margin-bottom: 0;">Guest 1</h2>
                               <div style="display: inline-block; vertical-align: middle;">
                                 <button type="button" class="close" id="cross-0-logo" style="display:none;" aria-label="Close" onclick="removeGuestForm(this)">
                                   <span aria-hidden="true">&times;</span>
@@ -471,8 +475,15 @@ document.addEventListener("DOMContentLoaded", function() {
       if(data.errors.length==0){
         window.location.reload();
       }else{
+        var errBox=document.getElementById("errorBox")
+        if(errBox.style.display === 'none'){
+          errBox.style.display='block';
+        }
+        var singleError=document.getElementById("individual-error");
+        
         data.errors.forEach(error=>{
-          console.log(error);
+          singleError.innerHTML=singleError.innerHTML+error[0]+"<br>";
+          console.log(error[0]);
         })
       }
     }).catch(error=>{
