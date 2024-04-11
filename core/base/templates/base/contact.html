@@ -5,6 +5,314 @@
 {% block extrahead %}<link rel="stylesheet" href="{% static 'css/Contact.css' %}">{% endblock %}
 
 {%block content%}
+<style>
+  .image-banner {
+  position: relative;
+  height: 450px;
+  /* top: 150px;             Keep in percentages               */
+
+  /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  /*height: 30vw;*/
+  /* Adjusts height relative to the width of the viewport */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.);
+
+}
+
+.image-banner-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 450%;
+  /* Adjust the font size as needed */
+  font-weight: 500;
+  /* position: absolute;*/
+
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; */
+}
+
+.image-banner-description {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 150%;
+  /* Adjust the font size as needed */
+  font-weight: 200;
+  margin-bottom: 2em;
+  /*position: absolute;*/
+
+  /* top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; */
+}
+
+.overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Adjust the alpha value for the darkness effect */
+}
+
+.text {
+  position: absolute;
+  bottom: -15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  z-index: 1;
+  /* Place the text above the overlay */
+}
+
+.contact-us-form-section {
+  position: relative;
+  /* top: 150px; */
+  /* height: 100%; */
+}
+
+
+.blueGradientBG {
+  --comm-bottom: 16px;
+  --comm-section: 60px;
+  --comm-section-big: 110px;
+  --blueGradient: linear-gradient(45deg, #0b3589 0, #0d72ca 40%, #0fecfa 100%);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  box-sizing: border-box;
+  display: block;
+  background: var(--blueGradient);
+  padding: var(--comm-section-big) 0;
+  position: relative;
+}
+
+.contact {
+  padding: 40px;
+  background: #fff;
+  box-shadow: 0 5px 35px rgba(0, 0, 0, 0.15);
+}
+
+.form {
+  grid-area: form;
+}
+
+.info {
+  grid-area: info;
+}
+
+.map {
+  grid-area: map;
+}
+
+.box {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 5fr 4fr;
+  grid-template-areas:
+    "form info"
+    "form map";
+  grid-gap: 20px;
+}
+
+.contact h3 {
+  color: #0e3959;
+  font-weight: 500;
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+/* form */
+
+.formBox {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.formBox .row50 {
+  display: flex;
+  gap: 20px;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 50%;
+}
+
+.formBox .row100 .inputBox {
+  width: 100%;
+}
+
+.inputBox span {
+  color: #18b7ff;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.inputBox input {
+  padding: 10px;
+  font-size: 1.1em;
+  outline: none;
+  border: 1px solid #333;
+  border-radius: 10px;
+}
+
+.inputBox textarea {
+  padding: 10px;
+  font-size: 1.1em;
+  outline: none;
+  border: 1px solid #333;
+  resize: none;
+  min-height: 220px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.inputBox input[type="submit"] {
+  background: #18b7ff;
+  color: #fff;
+  border: none;
+  font-size: 1.1em;
+  max-width: 120px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 14px 15px;
+}
+
+.inputBox ::placeholder {
+  color: #999;
+}
+
+/* info */
+
+.info {
+  background-color: #0e3959;
+}
+
+.info h3 {
+  color: #fff;
+}
+
+.info .infoBox div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+.info .infoBox div span {
+  min-width: 50px;
+  height: 50px;
+  color: #fff;
+  background-color: #18b7ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.info .infoBox div p {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+.info .infoBox div a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+.sci {
+  margin-top: 40px;
+  display: flex;
+}
+
+.sci li {
+  list-style: none;
+  margin-right: 15px;
+}
+
+.sci li a {
+  color: #fff;
+  font-size: 2em;
+  color: #ccc;
+}
+
+.sci li a:hover {
+  color: #fff;
+}
+
+.map {
+  padding: 0;
+}
+
+.map iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.contactUs {
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+/* responsive */
+@media (max-width: 991px) {
+  .contactUs {
+    padding: 20px;
+  }
+
+  .box {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "form"
+      "info"
+      "map";
+  }
+
+  .map {
+    min-height: 300px;
+  }
+
+  .formBox .row50 {
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+  }
+
+  .inputBox {
+    width: 100%;
+  }
+}
+
+
+.error-message {
+  color: red !important;
+  font-size: 20px !important;
+  margin-bottom: 0% !important;
+}
+
+.errorlist {
+  padding-left: 10px;
+  margin-bottom: 0px;
+}
+  </style>
 
   <section class="align-items-end">
     <div class="image-banner align-items-end" style="background-image: url({%static 'images/bdomeImageMain.jpeg'%});">
