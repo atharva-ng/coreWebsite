@@ -27,7 +27,7 @@ def sendEmails(toEmails, alumniNameList, guestNameList):
         alumEmails = ""
         for email in toEmails:
             alumEmails = alumEmails+email+","
-        with open("emailErrorsCampusVisit.txt", 'a') as file:
+        with open("errorFiles/emailErrorsCampusVisit.txt", 'a') as file:
             file.write(str(datetime.datetime.now())+" " +
                        str(e)+" sendMailToAlumni Emails: "+alumEmails+'\n')
 

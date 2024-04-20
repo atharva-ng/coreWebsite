@@ -23,7 +23,7 @@ def sendEmails():
             ["atharvaghadi4@gmail.com"]
         )
     except Exception as e:
-        with open("emailErrorsContact.txt", 'a') as file:
+        with open("errorFiles/emailErrorsContact.txt", 'a') as file:
             file.write(str(datetime.datetime.now())+" " +
                        str(e)+" " + "sendMailToAdmin "+'\n')
 
@@ -51,18 +51,15 @@ def campusVisitFront(request):
             alumniFormSetInstances = alumniFormSet.save(commit=False)
             for alumniFormInstance in alumniFormSetInstances:
                 alumniFormInstance.visitRequestForm = formInstance
-                emailList.append(alumniFormInstance.email)
-                nameList.append(alumniFormInstance)
                 alumniFormInstance.save()
 
             guestFormSetInstances = guestFormSet.save(commit=False)
             for guestFormSetInstance in guestFormSetInstances:
-                nameList.append(guestFormSetInstance)
                 guestFormSetInstance.visitRequestForm = formInstance
                 guestFormSetInstance.save()
 
             threading.Thread(
-                target=sendEmails, args=(emailList, nameList), name="Email Thread").start()
+                target=sendEmails, args=(), name="Email Thread").start()
 
             data = {}
             return JsonResponse(data, status=200)

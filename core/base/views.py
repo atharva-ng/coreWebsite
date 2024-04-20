@@ -21,7 +21,7 @@ def frontPage(request):
         }
 
     except Exception as e:
-        with open("generalErrors.txt", 'a') as file:
+        with open("fileErrors/generalErrors.txt", 'a') as file:
             file.write(str(datetime.datetime.now())+" " +
                        str(e)+" " + "FrontPageView "+'\n')
         context = {}

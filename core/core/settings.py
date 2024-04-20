@@ -10,15 +10,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 with open(os.path.join(BASE_DIR, 'secretKey.txt')) as f:
     SECRET_KEY = f.read().strip()
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# ALLOWED_HOSTS = ['16.171.149.100', 'localhost']
 ALLOWED_HOSTS = ['*']
 
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 # SECURE_SSL_REDIRECT = False
 
 # SECURE_HSTS_SECONDS = 31536000
