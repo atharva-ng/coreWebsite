@@ -12,27 +12,26 @@
 {%block content%}
 <style>
   .section-1-image {
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      min-height: 110vh; 
-      width: 100%;
-  }
-  
-  
-    @media (max-width: 991px) {
-   .section-1-image {
-      padding: 0;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+}
+  @media (max-width: 991px) {
+    .section-1-image {
+        padding: 0;
+        min-height: 50vh;
+        background-image: url({%static 'images/bdomeImageMainMobile.jpeg'%}); 
+      }
     }
-  }
-  .section-1-image {
-      background-position: 50% 0%!important;
-      background-size: cover!important; 
-      background-repeat: no-repeat;
-      min-height: auto;
-   
-    }
-  
+    .section-1-image {
+        background-image: url({%static 'images/bdomeImageMain.jpeg'%}); 
+        background-position: 50% 50%!important;
+        background-size: cover!important;
+        background-repeat: no-repeat;
+    
+      }
   
     </style>
 
