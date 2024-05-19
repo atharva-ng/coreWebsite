@@ -91,20 +91,20 @@ hr {
   max-width: 100%;
   /* Occupy full width */
   margin-bottom: 20px;
-  padding-left: 30px;
+  padding-left: 10px;
   /* Add some space between sections */
 }
 
 .title-gtb {
   font-size: 64px;
   color: #333;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .description-gtb {
   font-size: 20px;
   color: #666;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .cta-button-gtb {
@@ -116,6 +116,7 @@ hr {
   display: inline-block;
   /* margin-top: 30px;
   position: relative; */
+  transition: background-color 0.8s ease;
   overflow: hidden;
 }
 
@@ -172,7 +173,7 @@ hr {
 
 @media (min-width: 600px) {
   .container-gtb {
-    flex-direction: row;
+    flex-direction: column;
     /* Switch back to horizontal layout */
     align-items: center;
     /* Center align items vertically */
@@ -401,6 +402,3 @@ hr {
   margin-top: 20px;
   margin-bottom: 20px !important;
 }
-
-
-
