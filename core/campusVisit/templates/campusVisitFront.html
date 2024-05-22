@@ -21,27 +21,58 @@
   margin-bottom: 20px;
   }
 
-span{
-  color: #00c6fb;
-  font-size: 18px;
-  font-weight: 400;
-}
+  span{
+    color: #00c6fb;
+    font-size: 18px;
+    font-weight: 400;
+  }
 
-#alumni-information-form input[type="text"],
-#alumni-information-form input[type="email"],
-#alumni-information-form input[type="tel"],
-#alumni-information-form input[type="date"],
-#alumni-information-form select,
-#alumni-information-form textarea {
+  #alumni-information-form input[type="text"],
+  #alumni-information-form input[type="email"],
+  #alumni-information-form input[type="tel"],
+  #alumni-information-form input[type="date"],
+  #alumni-information-form select,
+  #alumni-information-form textarea {
+    height: 40px;
+  }
+
+  #guest-information-form input[type="text"],
+  #guest-information-form input[type="email"],
+  #guest-information-form input[type="tel"],
+  #guest-information-form select,
+  #guest-information-form textarea {
   height: 40px;
-}
+  }
+  .addMore{
+    font-size: 1.25em ;
+  }
+@media (max-width: 991px) {
+  span{
+    font-size: 1.8em;
+  }
 
-#guest-information-form input[type="text"],
-#guest-information-form input[type="email"],
-#guest-information-form input[type="tel"],
-#guest-information-form select,
-#guest-information-form textarea {
-height: 40px;
+  #alumni-information-form input[type="text"],
+  #alumni-information-form input[type="email"],
+  #alumni-information-form input[type="tel"],
+  #alumni-information-form input[type="date"],
+  #alumni-information-form select,
+  #alumni-information-form textarea {
+    height: 48px;
+    font-size: 1.5em;
+  }
+
+  #guest-information-form input[type="text"],
+  #guest-information-form input[type="email"],
+  #guest-information-form input[type="tel"],
+  #guest-information-form select,
+  #guest-information-form textarea {
+    height: 48px;
+    font-size: 1.5em;
+  }
+
+  .addMore{
+    font-size: 1.5em !important;
+  }
 }
 </style>
 
@@ -184,10 +215,10 @@ height: 40px;
                       <div id="additional-alumni-Form-List">
                         <div class="row ">
                           <div class="col-md-12">
-                            <h2 id="Alumni-Counter" style="font-size: 2rem; margin-top: 25px; margin-bottom: 0;">Alumni 1</h2>
+                            <h2 id="Alumni-Counter" style="font-size: 2.5rem; margin-top: 25px; margin-bottom: 0;">Alumni 1</h2>
                             <div style="display: inline-block; vertical-align: middle;" >
                               <button type="button" id="cross-0-logo" class="close" aria-label="Close" style="display:none;" onclick="removeAlumniForm(this)">
-                                <span aria-hidden="true" style="color:#FF3333;">&times;</span>
+                                <span class="cross-close"aria-hidden="true" style="color:#FF3333;">&times;</span>
                               </button>
                             </div>
                           </div>
@@ -291,10 +322,10 @@ height: 40px;
                   <div id="duelAddBtn" style="display:block;">
                   <div class="button-row d-flex mt-4 justify-content-center" >
                     <div class="col-lg-6" style="padding-left: 0;">
-                      <button class="btn btn-light btn-block ml-auto btn-lg" onclick="add_alumni_form()" id="add-more-alumni" type="button" title="Send">Add another Alumni</button>
+                      <button class="btn btn-light btn-block ml-auto addMore" onclick="add_alumni_form()" id="add-more-alumni" type="button" title="Send">Add another Alumni</button>
                     </div>
                     <div class="col-lg-6" style="padding-right: 0;">
-                      <button class="btn btn-light btn-block ml-auto btn-lg" id="add-non-alumni-button" type="button" onclick="toggleNonAlumniPart()">Add a non-alumni</button>
+                      <button class="btn btn-light btn-block ml-auto addMore" id="add-non-alumni-button" type="button" onclick="toggleNonAlumniPart()">Add a non-alumni</button>
                     </div>
                   </div>
                 </div>
@@ -302,7 +333,7 @@ height: 40px;
                   <div id="singleAddBtn" style="display: none;">
                     <div class="button-row d-flex mt-4 justify-content-center" >
                       <div class="col-lg-12">
-                        <button class="btn btn-light btn-block ml-auto btn-lg" onclick="add_alumni_form()" id="add-more-alumni" type="button" title="Send">Add another Alumni</button>
+                        <button class="btn btn-light btn-block ml-auto addMore" onclick="add_alumni_form()" id="add-more-alumni" type="button" title="Send">Add another Alumni</button>
                       </div>
                     </div>
                   </div>
@@ -329,7 +360,7 @@ height: 40px;
                   <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn"  id="guest-Form-List">
                     <div class="row justify-content-center">
                       <div class="col-12 text-center">
-                        <h1 style="font-size: 3rem; font-weight: bold; color: black; margin-bottom: 20px;">Guest Details</h1>
+                        <h1 style="font-size: 2.5rem; font-weight: bold; color: black; margin-bottom: 20px;">Guest Details</h1>
                       </div>
                     </div>
                     {%for form in guestFormSet%}
@@ -377,7 +408,7 @@ height: 40px;
                 </form>
                 <div class="button-row d-flex mt-4">
                   <div class="col-lg-12" >
-                    <button class="btn btn-light btn-block btn-lg" type="button" id='add-more-guest'>Add another Guest</button>
+                    <button class="btn btn-light btn-block addMore" type="button" id='add-more-guest'>Add another Guest</button>
                   </div>
                 </div>
               </div>
@@ -390,7 +421,7 @@ height: 40px;
     <div class="container" style="padding-bottom: 50px;">
       <div class="row">
         <div class="col-lg-12">
-          <button class="btn btn-success btn-block ml-auto btn-lg" id="submit-forms-btn" type="submit" title="Send">Submit</button>
+          <button class="btn btn-success btn-block ml-auto addMore" id="submit-forms-btn" type="submit" title="Send">Submit</button>
         </div>
       </div>
     </div>

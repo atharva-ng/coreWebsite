@@ -81,30 +81,33 @@ hr {
 
 .container-gtb {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   /* Arrange sections vertically */
   padding: 20px;
   background-color: #f4f4f4;
+  justify-content: center;
+
 }
 
 .text-section-gtb {
   max-width: 100%;
   /* Occupy full width */
   margin-bottom: 20px;
-  padding-left: 30px;
+  padding-left: 10px;
   /* Add some space between sections */
+
 }
 
 .title-gtb {
-  font-size: 64px;
+  font-size: 72px;
   color: #333;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .description-gtb {
-  font-size: 20px;
+  font-size: 25px;
   color: #666;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .cta-button-gtb {
@@ -114,9 +117,10 @@ hr {
   text-decoration: none !important;
   border-radius: 10px;
   display: inline-block;
-  /* margin-top: 30px;
-  position: relative; */
+  max-width: fit-content;
+  transition: background-color 0.8s ease;
   overflow: hidden;
+
 }
 
 .cta-button-gtb:hover {
@@ -126,7 +130,6 @@ hr {
 
 .cta-button-gtb:before {
   content: '';
-
   position: absolute;
   color: white !important;
   top: 0;
@@ -149,8 +152,9 @@ hr {
 
 .image-section-gtb {
   display: flex;
-  justify-content: center;
   align-items: center;
+  padding-right: 10px;
+  min-width: 650px;
   width: 100%;
   /* Occupy full width */
   margin-bottom: 20px;
@@ -170,24 +174,60 @@ hr {
   transform: scale(1.05);
 }
 
-@media (min-width: 600px) {
+@media (max-width: 990px) {
   .container-gtb {
-    flex-direction: row;
+    flex-direction: column;
     /* Switch back to horizontal layout */
     align-items: center;
     /* Center align items vertically */
   }
 
   .text-section-gtb {
+    display: grid;
     max-width: 50%;
     /* Occupy half width on larger screens */
     margin-right: 20px;
     /* Add space between sections */
   }
 
+  .title-gtb {
+    display: flex;
+    justify-self: center;
+    font-size: 70px;
+  }
+
+  .description-gtb {
+    display: flex;
+    justify-self: center;
+    text-align: center;
+    font-size: 35px;
+  }
+
+  .cta-button-gtb {
+    display: flex;
+    justify-self: center;
+    font-size: 30px;
+  }
+
   .image-section-gtb {
     width: 50%;
     /* Occupy half width on larger screens */
+  }
+
+  .article-title {
+    font-size: 64px;
+  }
+
+  .article-summary {
+    font-size: 20px;
+  }
+
+  .alumni-articles-title {
+    font-size: 64px;
+  }
+
+  .alumni-articles-intro-text {
+    font-size: 20px;
   }
 }
 
@@ -255,14 +295,11 @@ hr {
 
 .article-summary {
   line-height: 1.8;
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 20px;
   margin-bottom: 50px;
 }
 
-.article-title:hover {
-  color: #ff0000;
-}
 
 .article-summary {
   color: #666;
@@ -293,12 +330,13 @@ hr {
 .alumni-articles-title {
   margin-top: 50px;
   margin-bottom: 35px;
+  font-size: 64px;
 }
 
 .alumni-articles-intro-text {
   font-family: "Open Sans";
   font-weight: 400;
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 50px;
   line-height: 1.8;
 }
@@ -374,6 +412,7 @@ hr {
 }
 
 */
+/* 
 
 .title,
 .giving-to-bits-title,
@@ -400,7 +439,4 @@ hr {
   font-weight: 600 !important;
   margin-top: 20px;
   margin-bottom: 20px !important;
-}
-
-
-
+} */

@@ -44,8 +44,8 @@
         .navbar-toggler{
           margin-right: 30px;
           margin-bottom: 40px;
-          width: 76px;
-          height: 60px;
+          width: 100px;
+          height: 80px;
         }
 
         .nav-link{
@@ -53,6 +53,10 @@
           padding-left: 20px !important;
           padding-bottom: 20px !important;
           padding-top: 20px !important;
+        }
+        .navbar-toggler-icon{
+          height: 2.5em;
+          width: 2.5em;
         }
       }
 
@@ -68,7 +72,7 @@
               <img src="{%static 'images/alumniRelations.png'%}" alt="Logo" class="navbar-brand-img">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+              <span class="navbar-toggler-icon" ></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
               <ul class="navbar-nav">
@@ -130,13 +134,7 @@
                   <li><a href="{%url 'campusVisitFront'%}">Campus Visit</a></li>
                   <li><a href="{%url 'contact'%}">Contact Us</a></li>
                 </ul>
-                <!-- <ul style="padding-top: 30px;">
-                  <li>
-                    <div style="display: flex; align-items: center;">
-                      <p><span class="designer"><img src="{%static 'images/SARCLogo.png'%}" alt="Alternative text for the image" style="max-width: 300px; max-height: 300px;"></span></p>
-                    </div>
-                  </li>
-                </ul> -->
+              
             </div>
         </div>
         <div class="footerBottom">

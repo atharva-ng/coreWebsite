@@ -12,35 +12,29 @@
 {%block content%}
 <style>
   .section-1-image {
-    background-position: center center;
-    background-size: cover;
+    background-position: 50% 50%!important;
+    background-size: cover!important;
     background-repeat: no-repeat;
     min-height: 100vh;
     width: 100%;
+    background-image: url({%static 'images/bdomeMobile.jpeg'%}); 
 }
-  @media (max-width: 991px) {
+@media (max-width: 991px) {
     .section-1-image {
         padding: 0;
-        min-height: 50vh;
-        background-image: url({%static 'images/bdomeImageMainMobile.jpeg'%}); 
+        min-height: 50vh !important;
+        background-image: url({%static 'images/bdomeMobile.jpeg'%}) !important; 
       }
-    }
-    .section-1-image {
-        background-image: url({%static 'images/bdomeImageMain.jpeg'%}); 
-        background-position: 50% 50%!important;
-        background-size: cover!important;
-        background-repeat: no-repeat;
-    
-      }
-  
-    </style>
+}
+
+</style>
 
 <section class="section-1-image pt-5 pb-5 mt-0 align-items-end d-flex bg-dark image-zoom" style="min-height: 70vh; background-size: cover; background-position: center center; background-image: url({%static 'images/bdomeImageMain.jpeg'%});"> 
   <div class="container">
    <div class="row d-flex justify-content-center">
      <div class="col-12 col-md-10">
        <h1 class="display-2 text-white font-weight-bold mb-3 mt-5 display-5 text-center">Welcome Back</h1>
-       <p class="display-5 text-white text-center mb-4 ">
+       <p class="display-5 text-white text-center mb-4 " style="font-size: 30px">
          Celebrating 20 years of excellence
        </p>
      </div>
@@ -142,19 +136,16 @@
                       <span class="text-xs font-semibold tracking-wide uppercase">{{ event.date|month_abbr}}</span>
                       <span class="block text-2xl font-bold">{{event.date.day}}</span>
                     </div>
-                    <h3 class="mt-4 text-lg font-semibold overflow-hidden h-15 break-words">{{event.title}}</h3>
-                    <p class="mt-2 text-sm text-gray-600">{{event.content| formatContent}}</p>
+                    <h3 class="mt-4 text-lg font-semibold overflow-hidden h-15 break-words" style="font-size: 30px;">{{event.title}}</h3>
+                    <p class="mt-2 text-sm text-gray-600" style="font-size: 20px;">{{event.content| formatContent}}</p>
                   </div>
                 </div>
               </a>
             {%endfor%}
           </div>
-          <div class="mt-8 text-center">
-            <a href="{%url 'events'%}">
-              <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-red-600 text-white">
-                More events
-              </button>
-            </a>
+          <div class="mt-8 text-center" style="display: flex;  justify-content: center;">
+            <a href="{%url 'events'%}"style="font-size: 25px !important;" class="cta-button-gtb"><span>More events</span></a>
+            
           </div>
       </div>
     {%else%}
@@ -199,26 +190,26 @@
           <div class="article-content">
             <h2 class="article-title">Kushal Verma: Riding the Creative Business Waves to Mastery</h2>
             <p class="article-summary">Kushal Verma, a BITS Pilani marine engineering graduate, shifted into a creative business expert, crafting brand strategies and growth plans. Inspired by his tech logistics startup, he emphasizes authentic storytelling across various mediums.<br><br></p>
-            <button class="read-more">Read More</button>
+            <a href="https://www.bits-pilani.ac.in/riding-the-creative-business-waves-to-mastery/"><button class="read-more">Read More</button></a>
           </div>
         </div>
         <div class="col-12 col-lg-4 article" style="margin-bottom: 40px;">
           <div class="article-content">
             <h2 class="article-title">Career Transitions: Insights from Noyonika Banerjee</h2>
             <p class="article-summary">Noyonika Banerjee, a 2015 BITS Goa graduate in Electrical and Electronics, transitioned to investment banking, emphasizing adaptability and skill transferability. Her experiences offer guidance for navigating dynamic career paths, highlighting the significance of a strong educational foundation.</p>
-            <button class="read-more">Read More</button>
+            <a href="https://www.bits-pilani.ac.in/navigating-career-transitions-insights-from-noyonika-banerjee-electrical-engineering-graduate-to-senior-associate-in-finance/"><button class="read-more">Read More</button></a>
           </div>
         </div>
         <div class="col-12 col-lg-4 article" style="margin-bottom: 40px;">
           <div class="article-content">
             <h2 class="article-title">Suryansh Rastogi: Cloud Security Today</h2>
             <p class="article-summary"><br> Suryansh Rastogi, a BITS Pilani graduate, transitioned into cloud security roles at Deloitte US, Oracle, and Microsoft. He shares insights on security considerations, career transitions, and growth opportunities in the field. Connect with him on LinkedIn for guidance.<br><br></p>
-            <button class="read-more">Read More</button>
+            <a href="https://www.bits-pilani.ac.in/suryansh-rastogi-cloud-security-today/"><button class="read-more">Read More</button></a>
           </div>
         </div>
       </div>
       <div class="col-12 text-center">
-        <button class="view-all btn-lg "><span>View All</span></button>
+        <a href="https://www.bits-pilani.ac.in/alumni/alumni-articles/"><button class="view-all btn-lg "><span>View All</span></button></a>
       </div>
     </div>
   </div>

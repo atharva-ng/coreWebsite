@@ -81,10 +81,12 @@ hr {
 
 .container-gtb {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   /* Arrange sections vertically */
   padding: 20px;
   background-color: #f4f4f4;
+  justify-content: center;
+
 }
 
 .text-section-gtb {
@@ -93,16 +95,17 @@ hr {
   margin-bottom: 20px;
   padding-left: 10px;
   /* Add some space between sections */
+
 }
 
 .title-gtb {
-  font-size: 64px;
+  font-size: 72px;
   color: #333;
   margin-bottom: 20px;
 }
 
 .description-gtb {
-  font-size: 20px;
+  font-size: 25px;
   color: #666;
   margin-bottom: 20px;
 }
@@ -114,10 +117,10 @@ hr {
   text-decoration: none !important;
   border-radius: 10px;
   display: inline-block;
-  /* margin-top: 30px;
-  position: relative; */
+  max-width: fit-content;
   transition: background-color 0.8s ease;
   overflow: hidden;
+
 }
 
 .cta-button-gtb:hover {
@@ -127,7 +130,6 @@ hr {
 
 .cta-button-gtb:before {
   content: '';
-
   position: absolute;
   color: white !important;
   top: 0;
@@ -150,8 +152,9 @@ hr {
 
 .image-section-gtb {
   display: flex;
-  justify-content: center;
   align-items: center;
+  padding-right: 10px;
+  min-width: 650px;
   width: 100%;
   /* Occupy full width */
   margin-bottom: 20px;
@@ -171,7 +174,7 @@ hr {
   transform: scale(1.05);
 }
 
-@media (min-width: 600px) {
+@media (max-width: 991px) {
   .container-gtb {
     flex-direction: column;
     /* Switch back to horizontal layout */
@@ -180,16 +183,54 @@ hr {
   }
 
   .text-section-gtb {
+    display: grid;
     max-width: 50%;
     /* Occupy half width on larger screens */
     margin-right: 20px;
     /* Add space between sections */
   }
 
+  .title-gtb {
+    display: flex;
+    justify-self: center;
+    font-size: 70px;
+  }
+
+  .description-gtb {
+    display: flex;
+    justify-self: center;
+    text-align: center;
+    font-size: 35px;
+  }
+
+  .cta-button-gtb {
+    display: flex;
+    justify-self: center;
+    font-size: 30px;
+  }
+
   .image-section-gtb {
     width: 50%;
     /* Occupy half width on larger screens */
   }
+
+  .article-title {
+    font-size: 50px !important;
+  }
+
+  .article-summary {
+    font-size: 40px !important;
+  }
+
+  .alumni-articles-title {
+    font-size: 80px !important;
+    font-weight: 500 !important;
+  }
+
+  .alumni-articles-intro-text {
+    font-size: 30px !important;
+  }
+
 }
 
 .cardTag {
@@ -256,14 +297,11 @@ hr {
 
 .article-summary {
   line-height: 1.8;
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 20px;
   margin-bottom: 50px;
 }
 
-.article-title:hover {
-  color: #ff0000;
-}
 
 .article-summary {
   color: #666;
@@ -278,6 +316,7 @@ hr {
   transition: background-color 0.3s ease, transform 0.3s ease;
   border-radius: 5px;
   margin-top: auto;
+  font-size: 25px;
   /* Push the button to the bottom */
   align-self: center;
   /* Center the button */
@@ -294,12 +333,13 @@ hr {
 .alumni-articles-title {
   margin-top: 50px;
   margin-bottom: 35px;
+  font-size: 64px;
 }
 
 .alumni-articles-intro-text {
   font-family: "Open Sans";
   font-weight: 400;
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 50px;
   line-height: 1.8;
 }
@@ -308,7 +348,7 @@ hr {
   border: 2px solid #007bff;
   background-color: transparent;
   color: #007bff;
-  padding: 10px 20px;
+  padding: 10px 20px !important;
   cursor: pointer;
   font-family: "Nunito Sans", sans-serif;
   text-decoration: none;
@@ -323,6 +363,7 @@ hr {
   animation: slideFadeUp 0.5s ease-out forwards;
   /* Apply pop-in animation */
   animation-delay: 0.2s;
+  font-size: 20px !important;
   /* Optional: adjust delay as needed */
 }
 
@@ -375,6 +416,7 @@ hr {
 }
 
 */
+/* 
 
 .title,
 .giving-to-bits-title,
@@ -401,4 +443,4 @@ hr {
   font-weight: 600 !important;
   margin-top: 20px;
   margin-bottom: 20px !important;
-}
+} */
