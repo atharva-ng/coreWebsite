@@ -8,6 +8,7 @@
   <meta charset="UTF-8" />
 
   <script href="{% static 'js/events.js' %}"></script>
+
   <link
       href="https://fonts.googleapis.com/css?family=Roboto:100i,300,400,500,700"
       rel="stylesheet"
@@ -178,12 +179,12 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        var currentTag= document.getElementsByClassName("active")
-        currentTag[0].classList.remove("active");
-        var element=document.getElementById("id_events");
-        element.classList.add('active')
-      });
+      document.addEventListener("DOMContentLoaded", function () {
+  var currentTag = document.getElementsByClassName("active")
+  currentTag[0].classList.remove("active");
+  var element = document.getElementById("id_events");
+  element.classList.add('active')
+});
     </script>
 {%endblock%}
 

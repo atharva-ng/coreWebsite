@@ -2,7 +2,10 @@
 {%load static%}
 
 {%block title %}SARC|Contact{%endblock%}
-{% block extrahead %}<link rel="stylesheet" href="{% static 'css/Contact.css' %}">{% endblock %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/Contact.css' %}">
+<script src="{% static 'js/contact.js' %}"></script>
+{% endblock %}
 
 {%block content%}
 <style>
@@ -445,12 +448,4 @@
 
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var currentTag= document.getElementsByClassName("active")
-      currentTag[0].classList.remove("active");
-      var element=document.getElementById("id_contactUs");
-      element.classList.add('active')
-    });
-  </script>
 {%endblock%}
