@@ -25,10 +25,10 @@ class alumni(models.Model):
     firstName = models.CharField(max_length=50, null=False, blank=False)
     lastName = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False, validators=[
-                              EmailValidator(message='Invalid email address')])
+                              EmailValidator(message='You have entered an invalid email address')])
     phoneNumber = PhoneNumberField()
     BitsId = models.CharField(max_length=13, null=False, blank=False, validators=[RegexValidator(
-        regex=r'^\d{4}[A-Z0-9]{2}[A-Z0-9]{2}\d{4}[A-Z]+$', message="Enter a valid BITS ID")])
+        regex=r'^\d{4}[A-Z0-9]{2}[A-Z0-9]{2}\d{4}[A-Z]+$', message="Enter a valid BITS ID(20##XXPS####G)")])
     purposeOfVisit = models.CharField(max_length=254, null=False, blank=False)
     arrivalDate = models.DateTimeField(
         null=False, blank=False, verbose_name="From Date")

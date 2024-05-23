@@ -203,7 +203,7 @@
           <!-- action="{% url 'campusVisitFront' %}" -->
             <form class= "multisteps-form__form" id="alumni-information-form" method="post" >
               <div id="errorBox" style="display: none; color: red; font-weight: bold;">
-                Bro you are a BITSIAN. These errors are not expected from you:
+                Please resolve these issues:
                 <div id="individual-error"></div>
               </div>
               {% csrf_token %} 
@@ -231,38 +231,38 @@
                           </div>
                         </div>
 
-                        <div class="form-row mt-4" style="margin-top: 10px !important;">
+                        <div class="form-row mt-4" >
                           <div class="col-12 col-lg-6">
                             <span>First Name</span>
                             <div style="height: 5px;"></div>
                             {{form.firstName}}
                           </div>
-                          <div class="col-12 col-lg-6 mt-4 mt-lg-0">
+                          <div class="col-12 col-lg-6 mt-lg-0">
                             <span>Last Name</span>
                             <div style="height: 5px;"></div>
                             {{form.lastName}}
                           </div>
                         </div>
 
-                        <div class="form-row mt-4" style="margin-top: 10px !important;">
+                        <div class="form-row" >
                           <div class="col-12 col-lg-4">
                             <span>BITS ID</span>
                             <div style="height: 5px;"></div>
                             {{form.BitsId}}
                           </div>
-                          <div class="col-12 col-lg-4 mt-4 mt-lg-0">
+                          <div class="col-12 col-lg-4 mt-lg-0">
                             <span>Email</span>
                             <div style="height: 5px;"></div>
                             {{form.email}}
                           </div>
-                          <div class="col-12 col-lg-4 mt-4 mt-lg-0">
+                          <div class="col-12 col-lg-4 mt-lg-0">
                             <span>Phone Number</span>
                             <div style="height: 5px;"></div>
                             {{form.phoneNumber}}
                           </div>
                         </div>
 
-                        <div class="form-row mt-4" style="margin-top: 10px !important;">
+                        <div class="form-row" >
                           <div class="col">
                             <span>Address</span>
                             <div style="height: 5px;"></div>
@@ -270,47 +270,47 @@
                           </div>
                         </div>
 
-                        <div class="form-row mt-4" style="margin-top: 10px !important;">
-                          <div class="col-12 col-lg-3 adjust-margin-bottom">
+                        <div class="form-row " >
+                          <div class="col-12 col-lg-3">
                             <span>City</span>
                             <div style="height: 5px;"></div>
                             {{form.city}}
                           </div>
         
-                          <div class="col-12 col-lg-3 adjust-margin-bottom">
+                          <div class="col-12 col-lg-3 ">
                             <span>State</span>
                             <div style="height: 5px;"></div>
                             {{form.state}}
                           </div>
         
-                          <div class="col-12 col-lg-3 adjust-margin-bottom">
+                          <div class="col-12 col-lg-3">
                             <span>Country</span>
                             <div style="height: 5px;"></div>
                             {{form.country}}
                           </div>
         
-                          <div class="col-12 col-lg-3 adjust-margin-bottom">
+                          <div class="col-12 col-lg-3 ">
                             <span>Zipcode</span>
                             <div style="height: 5px;"></div>
                             {{form.zip}}
                           </div>
                         </div>
 
-                        <div class="form-row mt-4" style="margin-top: 10px !important;">
+                        <div class="form-row" >
                           <div class="col-12 col-lg-6 ">
                             <span>Current Company</span>
                             <div style="height: 5px;"></div>
                             {{form.currCompany}}
                           </div>
-                          <div class="col-12 col-lg-6 mt-4 mt-lg-0 ">
+                          <div class="col-12 col-lg-6 mt-lg-0 ">
                             <span>Company Designation</span>
                             <div style="height: 5px;"></div>
                             {{form.CompanyDesignation}}
                           </div>
                         </div>
 
-                        <div class="form-row mt-4" style="margin-top: 10px !important;">
-                          <div class="col-lg-3 mt-4 mt-lg-0">
+                        <div class="form-row " >
+                          <div class="col-lg-3  mt-lg-0">
                               <!-- <input class="multisteps-form__input form-control" type="date" placeholder="Date of Visit"/> -->
                               <span>Arrival Date</span>
                               <div style="height: 5px;"></div>

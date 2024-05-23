@@ -36,6 +36,10 @@ function add_alumni_form(event) {
     counterHTML = alumniFormsCopy.querySelector("#Alumni-Counter");
     counterHTML.innerHTML = `Alumni ${alumniCounter}`;
 
+    //Adding constant fields
+    alumniFormsCopy.querySelector("#id_Alumni-" + formCount + "-arrivalDate").value = document.getElementById("id_Alumni-0-arrivalDate").value;
+    alumniFormsCopy.querySelector("#id_Alumni-" + formCount + "-purposeOfVisit").value = document.getElementById("id_Alumni-0-purposeOfVisit").value;
+
     //Showing the cross button
     var temp = alumniFormsCopy.querySelector(".close");
     temp.removeAttribute("style");
@@ -149,10 +153,12 @@ function submit_form(event) {
         errBox.style.display = 'block';
       }
       var singleError = document.getElementById("individual-error");
-
+      singleError.innerHTML = "";
       data.errors.forEach(error => {
+        if (error[0] == 'This field is required.') {
+          error[0] = 'All fields are required.';
+        }
         singleError.innerHTML = singleError.innerHTML + error[0] + "<br>";
-        console.log(error[0]);
       })
     }
   }).catch(error => {

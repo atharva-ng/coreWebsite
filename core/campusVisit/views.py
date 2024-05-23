@@ -62,12 +62,13 @@ def campusVisitFront(request):
                 target=sendEmails, args=(), name="Email Thread").start()
 
             data = {}
-            return JsonResponse(data, status=200)
+            return JsonResponse(data, status=201)
         else:
             errorList = []
 
             for form in alumniFormSet:
                 for field, error in form.errors.items():
+                    # print(error)
                     if error not in errorList:
                         errorList.append(error)
 
@@ -82,10 +83,9 @@ def campusVisitFront(request):
             context = {
                 "errors": errorList,
             }
-            serializedContext = json.dumps(context)
-            print(serializedContext)
 
-            return JsonResponse({"errors": serializedContext}, status=402)
+            serializedContext = json.dumps(context)
+            return JsonResponse({"errors": serializedContext}, status=403)
 
     elif request.method == 'GET':
         alumniFormSet = alumniFormSetClass(prefix='Alumni')

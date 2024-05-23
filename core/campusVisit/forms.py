@@ -123,11 +123,79 @@ class alumniForm(forms.ModelForm):
             'zip': TextInput()
         }
 
+    def clean(self):
+        cleaned_data = super().clean()
+
+        readonly_fields = ["firstName", "lastName",
+                           "email", "phoneNumber", "BitsId",
+                           "purposeOfVisit",
+                           "currCompany", "CompanyDesignation",
+                           "currAddress", "city", "state", "country", "zip",
+                           ]
+        error_messages = {
+            'firstName': {
+                'blank': ('First Name Cannot be empty.'),
+            },
+            'lastName': {
+                'blank': ('Last Name cannot be empty.'),
+            },
+            'email': {
+                'blank': ('Please enter your Email address.'),
+            },
+            'phoneNumber': {
+                'blank': ('Please enter your Phone number'),
+            },
+            'BitsId': {
+                'blank': ('Please enter your BITS Id'),
+            },
+            'purposeOfVisit': {
+                'blank': ('Please enter the purpose of this visit'),
+            },
+            'currCompany': {
+                'blank': ('Please enter your current place of employment'),
+            },
+            'CompanyDesignation': {
+                'blank': ('Please enter your designation in your company.'),
+            },
+            'currAddress': {
+                'blank': ('Please enter your current address'),
+            },
+            'city': {
+                'blank': ('Please enter your City'),
+            },
+            'state': {
+                'blank': ('Please enter your State'),
+            },
+            'country': {
+                'blank': ('Please enter your country'),
+            },
+            'zip': {
+                'blank': ('Please enter your ZIP code'),
+            },
+            'arrivalDate': {
+                'blank': ("Please enter the arrival date."),
+            }
+        }
+
+        for field in readonly_fields:
+            data = cleaned_data.get(field)
+            if data == None:
+                if self.errors[field][0] == "This field is required.":
+                    self.errors[field][0] = error_messages[field]['blank']
+                elif self.errors[field][0] == "Enter a whole number.":
+                    self.errors[field][0] = "Zip Code should not be alphanumeric or have special characters."
+
+        data = cleaned_data.get("arrivalDate")
+        if data == None:
+            self.errors["arrivalDate"][0] = error_messages["arrivalDate"]['blank']
+
+        return cleaned_data
+
 
 class guestForm(forms.ModelForm):
     required_css_class = 'required-field'
     phoneNumber = PhoneNumberField(
-        error_messages={'invalid': "Enter a valid Contact Number (+91 xxxxx xxxxx)."})
+        error_messages={'invalid': "Guest-Enter a valid Contact Number (+91 xxxxx xxxxx)."})
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -164,3 +232,31 @@ class guestForm(forms.ModelForm):
     class Meta:
         model = guest
         exclude = ['guestPK', 'relatedAlumni']
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        readonly_fields = ["firstName", "lastName",
+                           "email", "phoneNumber",
+                           ]
+        error_messages = {
+            'firstName': {
+                'blank': ('Guest-First Name Cannot be empty.'),
+            },
+            'lastName': {
+                'blank': ('Guest-Last Name cannot be empty.'),
+            },
+            'email': {
+                'blank': ('Guest-Please enter your Email address.'),
+            },
+            'phoneNumber': {
+                'blank': ('Guest-Please enter your Phone number'),
+            },
+        }
+
+        for field in readonly_fields:
+            data = cleaned_data.get(field)
+            if data == None:
+                if self.errors[field][0] == "This field is required.":
+                    self.errors[field][0] = error_messages[field]['blank']
+        return cleaned_data

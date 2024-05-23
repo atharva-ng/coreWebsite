@@ -4,19 +4,19 @@ function animateCounter(elementId, endValue) {
   let increment = endValue < 200 ? 1 : Math.floor(endValue / 100);
 
   function updateDisplay() {
-    if (elementId == "faculty") {
+    if (elementId == "CEO") {
       counterElement.textContent = `${currentValue}`
     } else {
-      counterElement.textContent = `${currentValue}K+`;
+      counterElement.textContent = `${currentValue}+`;
     }
     if (currentValue < endValue) {
       currentValue += increment;
       requestAnimationFrame(updateDisplay);
     } else {
-      if (elementId == "faculty") {
-        counterElement.textContent = `${endValue}`;
+      if (elementId == "CEO") {
+        counterElement.textContent = `${endValue}+`;
       } else {
-        counterElement.textContent = `${endValue}K+`;
+        counterElement.textContent = `${endValue}+`;
       }
     }
   }
@@ -29,8 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
   currentTag[0].classList.remove("active");
   var element = document.getElementById("id_home");
   element.classList.add('active')
-  animateCounter("alumni", 13);
-  animateCounter("students", 3);
-  animateCounter("faculty", 700);
-  animateCounter("patents", 500);
+  animateCounter("alumni", 16000);
+  animateCounter("students", 3000);
+  animateCounter("CEO", 7400);
 });
