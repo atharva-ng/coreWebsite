@@ -12,7 +12,7 @@ with open(os.path.join(BASE_DIR, 'secretKey.txt')) as f:
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'atharvaghadidev.com', 'www.atharvaghadidev.com']
 
 
 # SESSION_COOKIE_SECURE = True

@@ -80,7 +80,7 @@ def contact(request):
 
 def eventView(request):
     current_year = datetime.datetime.now().year
-    eventObjects = event.objects.filter(date__year=current_year)
+    eventObjects = event.objects.filter(date__year=current_year)[::-1]
     context = {"events": eventObjects,
                "currentYear": current_year,
                "prevYear": current_year-1}
