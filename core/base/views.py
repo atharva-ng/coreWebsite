@@ -1,12 +1,9 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.shortcuts import render
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
 import datetime
 import threading
-
-from django.http import JsonResponse
 
 from .models import *
 from .forms import contactForm
@@ -15,16 +12,24 @@ from .forms import contactForm
 
 def frontPage(request):
     try:
-        eventObjects = event.objects.order_by('date')[:4]
+        eventObjects0 = event.objects.order_by('date')
+        if len(eventObjects0) < 4:
+            eventObjects = eventObjects0
+        else:
+            eventObjects = eventObjects0[::-1][:4]
+
         context = {
             "events": eventObjects
         }
 
     except Exception as e:
-        with open("fileErrors/generalErrors.txt", 'a') as file:
+        with open("errorFiles/generalErrors.txt", 'a') as file:
             file.write(str(datetime.datetime.now())+" " +
                        str(e)+" " + "FrontPageView "+'\n')
-        context = {}
+        eventObjects = []
+        context = {
+            "events": eventObjects
+        }
     finally:
         return render(request, 'base/frontPage.html', context)
 

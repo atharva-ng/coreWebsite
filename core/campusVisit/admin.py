@@ -10,11 +10,20 @@ from .models import *
 
 def sendEmails(toEmails, alumniNameList, guestNameList):
     subject = "Request Approved"
-    message = "Content of the approved mail"
-    for name in alumniNameList:
-        message = message+' '+name.__str__()
-    for name in guestNameList:
-        message = message+' '+name.__str__()
+    names = ""
+    namesG = ""
+    for alumni in alumniNameList:
+        names = names+alumni.__str__()+', '
+    message = f"Dear {names} \nWe take great pleasure in providing our utmost assistance at ARD. To ensure a smooth entry, kindly remember to carry a valid ID proof for verification at the gate.\n"
+    if len(guestNameList) != 0:
+        for guest in guestNameList:
+            namesG = namesG+guest.__str__()+', '
+        namesG = namesG[:-2]+'.'
+        message = message + \
+            f"Also, the following guests are permitted to enter with you: {namesG}\n"
+
+    message = message +\
+        "Furthermore, please diligently adhere to Institutional and COVID-appropriate norms throughout your visit.\nPlease join AlmaConnect! by clicking on this link: https://bitspilani.almaconnect.com \nPlease let us know in case of any queries.\nWishing you a delightful experience.\nAlumni Relations Division\n\nThe information contained in this electronic communication is intended solely for the individual(s) or entity to which it is addressed. It may contain proprietary, confidential and / or legally privileged information. Any review, retransmission, dissemination, printing, copying or other use of, or taking any action in reliance on the contents of this information by person(s) or entities other than the intended recipient is strictly prohibited and may be unlawful. If you have received this communication in error, please notify us by responding to this email or telephone and immediately and permanently delete all copies of this message and any attachments from your system(s). The contents of this message do not necessarily represent the views or policies of BITS Pilani.\n"
     try:
         send_mail(
             subject,
