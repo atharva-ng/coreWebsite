@@ -10,9 +10,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 with open(os.path.join(BASE_DIR, 'secretKey.txt')) as f:
     SECRET_KEY = f.read().strip()
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*', 'atharvaghadidev.com', 'www.atharvaghadidev.com']
+ALLOWED_HOSTS = ['*', 'alumniaffairs.bits-goa.ac.in',
+                 'www.alumniaffairs.bits-goa.ac.in']
 
 
 # SESSION_COOKIE_SECURE = True
@@ -134,6 +135,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
-EMAIL_HOST_USER = "dev.byg.2002@gmail.com"
+EMAIL_HOST_USER = "alumnirelations@goa.bits-pilani.ac.in"
 EMAIL_HOST_PASSWORD = "iefb sgrf hxir uszt"
 EMAIL_USE_TLS = True

@@ -95,3 +95,7 @@ def eventView(request):
 def scholarshipsView(request):
     context = {}
     return render(request, 'base/scholarships.html', context)
+
+
+def handler404(request, exception):
+    return render(request, '404.html', {}, status=404)

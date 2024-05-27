@@ -174,7 +174,7 @@ hr {
   transform: scale(1.05);
 }
 
-@media (max-width: 990px) {
+@media (max-width: 991px) {
   .container-gtb {
     flex-direction: column;
     /* Switch back to horizontal layout */
@@ -215,20 +215,22 @@ hr {
   }
 
   .article-title {
-    font-size: 64px;
+    font-size: 50px !important;
   }
 
   .article-summary {
-    font-size: 20px;
+    font-size: 40px !important;
   }
 
   .alumni-articles-title {
-    font-size: 64px;
+    font-size: 80px !important;
+    font-weight: 500 !important;
   }
 
   .alumni-articles-intro-text {
-    font-size: 20px;
+    font-size: 30px !important;
   }
+
 }
 
 .cardTag {
@@ -251,11 +253,16 @@ hr {
 
 /*----------------- ALUMNI ARTICLES ----------------------------- */
 
+.alumni-articles {
+  background-color: #f4f4f4;
+}
+
 .container-alumni-articles {
   width: 80%;
   text-align: center;
   animation: slideFadeUp 0.5s ease-out forwards;
   animation-delay: 0.2s;
+
 }
 
 .intro-text {
@@ -314,6 +321,7 @@ hr {
   transition: background-color 0.3s ease, transform 0.3s ease;
   border-radius: 5px;
   margin-top: auto;
+  font-size: 25px;
   /* Push the button to the bottom */
   align-self: center;
   /* Center the button */
@@ -345,7 +353,7 @@ hr {
   border: 2px solid #007bff;
   background-color: transparent;
   color: #007bff;
-  padding: 10px 20px;
+  padding: 10px 20px !important;
   cursor: pointer;
   font-family: "Nunito Sans", sans-serif;
   text-decoration: none;
@@ -360,6 +368,7 @@ hr {
   animation: slideFadeUp 0.5s ease-out forwards;
   /* Apply pop-in animation */
   animation-delay: 0.2s;
+  font-size: 20px !important;
   /* Optional: adjust delay as needed */
 }
 

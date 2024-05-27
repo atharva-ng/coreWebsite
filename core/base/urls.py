@@ -9,3 +9,5 @@ urlpatterns = [
     path('events/', eventView, name="events"),
     path('scholarships/', scholarshipsView, name="scholarships"),
 ]
+
+handler404 = 'base.views.handler404'

@@ -1,0 +1,20 @@
+{%extends "base/base.html"%}
+{%load static%}
+
+{%block title %}SARC|Page not found{%endblock%}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/Contact.css' %}">
+{% endblock %}
+
+{%block content%}
+<section>
+  <div class="full-screen-size-fixed-container d-flex justify-content-center align-items-center">
+      <div class="p-3 text-center shadow">
+          <h1 class="display-1 font-weight-bold ">404</h1>
+          <h4 class="text-muted">Page Not Found</h4>
+          <p class="">The page you are looking for could not be found</p>
+          <!-- <a class="btn btn-dark" href="#" role="button"><i class="fas fa-house-user mr-2"></i> Back to Dashboard</a> -->
+      </div>
+  </div>
+  </section>
+{%endblock%}
