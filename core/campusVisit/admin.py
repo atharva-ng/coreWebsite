@@ -23,7 +23,7 @@ def sendEmails(toEmails, alumniNameList, guestNameList):
             f"Also, the following guests are permitted to enter with you: {namesG}\n"
 
     message = message +\
-        "Furthermore, please diligently adhere to Institutional and COVID-appropriate norms throughout your visit.\nPlease join AlmaConnect! by clicking on this link: https://bitspilani.almaconnect.com \nPlease let us know in case of any queries.\nWishing you a delightful experience.\nAlumni Relations Division\n\nThe information contained in this electronic communication is intended solely for the individual(s) or entity to which it is addressed. It may contain proprietary, confidential and / or legally privileged information. Any review, retransmission, dissemination, printing, copying or other use of, or taking any action in reliance on the contents of this information by person(s) or entities other than the intended recipient is strictly prohibited and may be unlawful. If you have received this communication in error, please notify us by responding to this email or telephone and immediately and permanently delete all copies of this message and any attachments from your system(s). The contents of this message do not necessarily represent the views or policies of BITS Pilani.\n"
+        "Furthermore, please diligently adhere to Institutional and COVID-appropriate norms throughout your visit.\nPlease join AlmaConnect! by clicking on this link: https://bitspilani.almaconnect.com \nPlease let us know in case of any queries.\nWishing you a delightful experience.\nAlumni Relations Division"
     try:
         send_mail(
             subject,
