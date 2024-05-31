@@ -47,7 +47,7 @@ def sendMail():
             subject,
             message,
             settings.EMAIL_HOST_USER,
-            ['alumnirelations@goa.bits-pilani.ac.in']
+            ['atharvaghadi4@gmail.com']
         )
     except Exception as e:
         with open("emailErrorsContact.txt", 'a') as file:
