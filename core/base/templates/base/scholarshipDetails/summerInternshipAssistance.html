@@ -1,0 +1,277 @@
+{%extends "base/base.html"%}
+{%load static%}
+
+{%block title %}SARC|Scholarship Details{%endblock%}
+{% block extrahead %}
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+{% endblock %}
+
+{%block content%}
+
+<div class="w-full max-w-6xl mx-auto py-12 md:py-16 lg:py-20 px-4 md:px-6">
+  <div class="flex justify-center items-center mb-8">
+      <div class="flex items-center">
+          <button onclick="window.location.href='{% url 'scholarships' %}'" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 mr-2">
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-red-500"
+              >
+                  <path d="m12 19-7-7 7-7"></path>
+                  <path d="M19 12H5"></path>
+              </svg>
+          </button>
+          <h1 class="text-3xl md:text-4xl font-bold">Summer Internship Assistance</h1>
+      </div>
+  </div>
+  <p class="text-gray-500 dark:text-gray-400 text-center max-w-4xl mx-auto">
+    Providing support for students participating in summer internships. This scholarship helps students cover the costs associated with summer internships, allowing them to gain valuable work experience without financial constraints.
+  </p>
+  <div class="flex flex-col items-center mt-8">
+      <div class="bg-blue-100 dark:bg-blue-800 rounded-lg p-6 mb-8 w-full max-w-3xl">
+        <h2 class="text-2xl font-bold mb-4">About the Award</h2>
+        <ul class="space-y-2 text-gray-500 dark:text-gray-400">
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            Supports students conducting summer research at educational/research institutes across India.
+
+
+          </li>
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            Award amount: Rs. 80,000 total (divided among 3-5 awardees)
+
+
+          </li>
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            Open to BE/MSc students (any year/branch) enrolled at the Goa campus.
+
+          </li>
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            Selection based on research experience, project proposal, and personal statement.
+          </li>
+        </ul>
+      </div>
+      <div class="bg-blue-100 dark:bg-blue-800 rounded-lg p-6 mb-8 w-full max-w-3xl">
+          <h2 class="text-2xl font-bold mb-4">Application Process:</h2>
+          <ul class="space-y-2 text-gray-500 dark:text-gray-400">
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            Interested students should prepare a single PDF document that:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1]Explains the objective and intent of their summer research project (max 200 words)
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2]Explains their past research experiences (max 300 words)
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3]Includes a personal statement on why they feel that they should get this award (max 300 words)
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4]Prepare a CV (not more than 2 pages)
+
+          </li>
+          <br>
+         
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            In addition, the student should submit an acceptance letter on the institute letterhead from their supervisor of the host institute clearly mentioning:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1]The title and duration of the summer research project
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2]If the student would receive any financial/residential support from the host institute/professor
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3]The type of research project: Online / Onsite
+
+
+          </li>
+          <br>
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            Besides, any other documents supporting their motivation (eg: papers published or posters presented) can also be sent along with the aforementioned set of documents.
+
+          </li>
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            Tentative timeline –
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1]15 January 2023  – 15 March : Application submission
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2]April: Evaluation period
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3]May 1st week: Results announced
+
+
+          </li>
+        </ul>
+      </div>
+      <div class="bg-blue-100 dark:bg-blue-800 rounded-lg p-6 mb-8 w-full max-w-3xl">
+          <h2 class="text-2xl font-bold mb-4">Application Deadlines</h2>
+          <ul class="space-y-2 text-gray-500 dark:text-gray-400">
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M8 2v4"></path>
+              <path d="M16 2v4"></path>
+              <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+              <path d="M3 10h18"></path>
+            </svg>
+            15 January, 2024
+
+          </li>
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M8 2v4"></path>
+              <path d="M16 2v4"></path>
+              <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+              <path d="M3 10h18"></path>
+            </svg>
+            15 March, 2024
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="bg-blue-100 dark:bg-blue-800 rounded-lg p-6 w-full max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-4">Apply Now</h2>
+      <p class="text-gray-500 dark:text-gray-400 mb-6">
+        Don't miss this opportunity to receive financial support for your education. Apply today!
+      </p>
+      <!-- <p>
+          Coming Soon...
+      </p> -->
+      <button onclick="window.location.href='https://forms.gle/ZdvSU1uH3xtBsrxD9'" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 rounded-md px-8 bg-blue-500 hover:bg-blue-600 text-white">
+        Apply for Scholarship
+      </button>
+    </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var currentTag = document.getElementsByClassName("active");
+    currentTag[0].classList.remove("active");
+    var element = document.getElementById("id_scholarships");
+    element.classList.add('active');
+  });
+</script>
+{%endblock%}

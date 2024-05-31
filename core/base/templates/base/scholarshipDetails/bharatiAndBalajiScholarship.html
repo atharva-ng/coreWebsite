@@ -1,0 +1,241 @@
+{%extends "base/base.html"%}
+{%load static%}
+
+{%block title %}SARC|Scholarship Details{%endblock%}
+{% block extrahead %}
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+{% endblock %}
+
+{%block content%}
+
+<div class="w-full max-w-6xl mx-auto py-12 md:py-16 lg:py-20 px-4 md:px-6">
+  <div class="flex justify-center items-center mb-8">
+      <div class="flex items-center">
+          <button onclick="window.location.href='{% url 'scholarships' %}'" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 mr-2">
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-red-500"
+              >
+                  <path d="m12 19-7-7 7-7"></path>
+                  <path d="M19 12H5"></path>
+              </svg>
+          </button>
+          <h1 class="text-3xl md:text-4xl font-bold">Bharati & B Balaji Scholarship</h1>
+      </div>
+  </div>
+  <p class="text-gray-500 dark:text-gray-400 text-center max-w-4xl mx-auto">
+    Mr. Balaji Bakthisaran from 1977-1982 Batch have initiated 03 Scholarship under 40% category of the Merit-Cum-Need (MCN) category for the qualified, needy, First-Degree students as per the scholarships policy applicable from time to time to study at the Pilani and Goa Campuses of BITS Pilani.
+  </p>
+  <div class="flex flex-col items-center mt-8">
+      <div class="bg-blue-100 dark:bg-blue-800 rounded-lg p-6 mb-8 w-full max-w-3xl">
+        <h2 class="text-2xl font-bold mb-4">About the Scholarship</h2>
+        <ul class="space-y-2 text-gray-500 dark:text-gray-400">
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            Donor(s): Mr. Balaji Bakthisaran (1977-1982 Batch)
+
+
+          </li>
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            Category: Merit-Cum-Need (MCN) 40%
+
+
+          </li>
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            Eligible Students: First-degree students in Core Engineering/Technical programs
+
+
+          </li>
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            Campus: Pilani & Goa
+          </li>
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            Award: 40% of tuition fees
+          </li>
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            Renewal: Based on maintaining 40% MCN criteria
+          </li>
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            Established: Academic Year 2021-22
+          </li>
+        </ul>
+      </div>
+      <div class="bg-blue-100 dark:bg-blue-800 rounded-lg p-6 mb-8 w-full max-w-3xl">
+          <h2 class="text-2xl font-bold mb-4">Application Process:</h2>
+          <ul class="space-y-2 text-gray-500 dark:text-gray-400">
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            This scholarship is announced after the MCN scholarship for that particular Semester is released. MCN for regular batches will be released in Sept / Oct 2023
+
+          </li>
+        </ul>
+      </div>
+      <div class="bg-blue-100 dark:bg-blue-800 rounded-lg p-6 mb-8 w-full max-w-3xl">
+          <h2 class="text-2xl font-bold mb-4">Application Deadlines</h2>
+          <ul class="space-y-2 text-gray-500 dark:text-gray-400">
+          <li>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mr-2 inline-block text-red-500"
+            >
+              <path d="M8 2v4"></path>
+              <path d="M16 2v4"></path>
+              <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+              <path d="M3 10h18"></path>
+            </svg>
+            N.A.
+
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="bg-blue-100 dark:bg-blue-800 rounded-lg p-6 w-full max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-4">Apply Now</h2>
+      <p class="text-gray-500 dark:text-gray-400 mb-6">
+        Don't miss this opportunity to receive financial support for your education. Apply today!
+      </p>
+      <p>
+          Coming Soon...
+      </p>
+      <!-- <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 rounded-md px-8 bg-blue-500 hover:bg-blue-600 text-white">
+        Apply for Scholarship
+      </button> -->
+    </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var currentTag = document.getElementsByClassName("active");
+    currentTag[0].classList.remove("active");
+    var element = document.getElementById("id_scholarships");
+    element.classList.add('active');
+  });
+</script>
+{%endblock%}

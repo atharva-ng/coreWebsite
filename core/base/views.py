@@ -47,7 +47,7 @@ def sendMail():
             subject,
             message,
             settings.EMAIL_HOST_USER,
-            ['atharvaghadi4@gmail.com']
+            ['alumnirelations@goa.bits-pilani.ac.in']
         )
     except Exception as e:
         with open("emailErrorsContact.txt", 'a') as file:
@@ -93,8 +93,13 @@ def eventView(request):
 
 
 def scholarshipsView(request):
+
     context = {}
     return render(request, 'base/scholarships.html', context)
+
+
+def scholarshipsViewDetails(request, scName):
+    return render(request, f'base/scholarshipDetails/{scName}.html')
 
 
 def handler404(request, exception):
