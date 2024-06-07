@@ -1,9 +1,9 @@
 {%extends "base/base.html"%}
+{% load custom_filters %}
 {%load static%}
-
 {%block title %}SARC|Contact{%endblock%}
 {% block extrahead %}
-<link rel="stylesheet" href="{% static 'css/Contact.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'css/contact.css' %}"> -->
 <script src="{% static 'js/contact.js' %}"></script>
 {% endblock %}
 
@@ -316,7 +316,11 @@
     font-size: 1.3em;
 }
 }
-
+.success-message {
+    color: green;
+    font-size: 24px;  
+    /* font-weight: bold; */
+}
 
 .error-message {
   color: red !important;
@@ -354,7 +358,9 @@
                   <span class="error-message">{{message}}</span>
                       
                   {%else%}
+                  <div class="success-message">
                     {{message}}
+                  </div>
                   {% endif %}
                 {% endif %}
                 <form method=POST>

@@ -11,21 +11,48 @@
    .boxInner{
     margin-top: 100px;
     margin-bottom: 100px;
+    min-width: 800px;
+    min-height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
   }
+
+  
+
 @media (max-width: 991px) {
   .boxInner{
-    margin-top: 200px;
-    margin-bottom: 400px;
+    margin-top: 500px;
+    margin-bottom: 650px;
+    padding: 20px !important;
+    min-width: 600px;
+    min-height: 600px;
+    justify-self: center;
+  }
+
+  .inner404{
+    font-size: 200px;
+  }
+  .innerPNF{
+    font-size: 60px;
+  }
+  .innerDATA{
+    font-size:40px;
+  }
+  .buttonC{
+    font-size: 30px;
   }
 }
 </style>
 <section>
-  <div class="full-screen-size-fixed-container d-flex justify-content-center align-items-center" >
+  <div class="full-screen-size-fixed-container d-flex justify-content-center align-items-center " >
       <div class="p-3 text-center shadow boxInner">
-          <h1 class="display-1 font-weight-bold ">404</h1>
-          <h4 class="text-muted">Page Not Found</h4>
-          <p class="">The page you are looking for could not be found</p>
-          <a class="btn btn-dark" href="#" role="button"><i class="fas fa-house-user mr-2"></i> Back to Dashboard</a>
+          <h1 class="display-1 font-weight-bold inner404">404</h1>
+          <h4 class="text-muted innerPNF">Page Not Found</h4>
+          <p class="innerDATA">The page you are looking for could not be found</p>
+          <a class="btn btn-dark buttonC" href="{%url 'frontPage'%}" role="button"><i class="fas fa-house-user mr-2"></i> Back to Homepage</a>
       </div>
   </div>
   </section>

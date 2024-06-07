@@ -22,14 +22,6 @@ class contactDetail(models.Model):
         return self.firstName+' '+self.lastName + ' '+response
 
 
-class blog(models.Model):
-    title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="blogImages/")
-    link = models.URLField()
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-
-
 class event(models.Model):
     title = models.CharField(max_length=254, null=False, blank=False)
     image = models.ImageField(upload_to="eventsImages/")

@@ -25,6 +25,10 @@ def sendEmails(toEmails, alumniNameList, guestNameList):
     message = message +\
         "Furthermore, please diligently adhere to Institutional and COVID-appropriate norms throughout your visit.\nPlease join AlmaConnect! by clicking on this link: https://bitspilani.almaconnect.com \nPlease let us know in case of any queries.\nWishing you a delightful experience.\nAlumni Relations Division"
 
+    # toEmails.append("ad.ar@goa.bits-pilani.ac.in")
+    # toEmails.append("cso@goa.bits-pilani.ac.in")
+    # toEmails.append("security@goa.bits-pilani.ac.in")
+
     try:
         send_mail(
             subject,

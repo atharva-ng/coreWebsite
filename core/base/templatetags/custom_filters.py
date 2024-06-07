@@ -15,11 +15,5 @@ def eventsContentFormat(para):
         return para
 
 
-# def errorSlice(error):
-#     print(error)
-#     return error
-
-
 register.filter('month_abbr', month_abbr)
 register.filter('formatContent', eventsContentFormat)
-# register.filter('errorSlice', errorSlice)
