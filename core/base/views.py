@@ -85,7 +85,13 @@ def contact(request):
 
 def eventView(request):
     current_year = datetime.datetime.now().year
-    eventObjects = event.objects.filter(date__year=current_year)[::-1]
+    try:
+        eventObjects = event.objects.filter(date__year=current_year)[::-1]
+    except Exception as e:
+        with open("errorFiles/generalErrors.txt", 'a') as file:
+            file.write(str(datetime.datetime.now())+" " +
+                       str(e)+" " + "EventView "+'\n')
+        eventObjects = []
     context = {"events": eventObjects,
                "currentYear": current_year,
                "prevYear": current_year-1}
@@ -102,5 +108,7 @@ def scholarshipsViewDetails(request, scName):
     return render(request, f'base/scholarshipDetails/{scName}.html')
 
 
-def handler404(request, exception):
-    return render(request, '404.html', {}, status=404)
+# def handler404(request, exception, template_name='404.html'):
+#     response = render_to_response(template_name)
+#     response.status_code = 404
+#     return response
