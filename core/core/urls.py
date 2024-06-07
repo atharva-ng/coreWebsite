@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', include("base.urls")),
     path('campusVisit/', include("campusVisit.urls")),
-    path('arcAdmin8879/', admin.site.urls),
+    path('`arcAdmin8879`/', admin.site.urls),
 ]+static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
@@ -30,3 +30,5 @@ urlpatterns = [
 admin.site.index_title = "BITS Alumni Relations"
 admin.site.site_header = "Alumni Control Admin"
 admin.site.site_title = "ALumni Control Admin"
+
+handler404 = 'base.views.handeling_404'

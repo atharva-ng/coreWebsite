@@ -11,5 +11,3 @@ urlpatterns = [
     path('scholarshipDetails/<str:scName>',
          scholarshipsViewDetails, name="scholarshipDetails"),
 ]
-
-handler404 = 'base.views.handler404'

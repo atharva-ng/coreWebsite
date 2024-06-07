@@ -136,3 +136,6 @@ EMAIL_PORT = '587'
 EMAIL_HOST_USER = "dev.byg.2002@gmail.com"
 EMAIL_HOST_PASSWORD = "iefb sgrf hxir uszt"
 EMAIL_USE_TLS = True
+
+
+handler404 = 'base.views.handeling_404'
