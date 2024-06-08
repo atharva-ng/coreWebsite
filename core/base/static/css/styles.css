@@ -68,14 +68,35 @@ body {
   z-index: 1000;
 }
 
-@media (max-width: 1070px) {
+@media (max-width: 991px) {
 
   /* Change the breakpoint here */
   .navbar-nav .nav-item {
     margin-right: 5px;
     /* Adjust spacing between items */
   }
+
+  .footerNavUL {
+    list-style-type: none;
+    justify-self: center !important;
+    flex-direction: column !important;
+    align-items: center;
+    padding: 0;
+    margin-left: 30px;
+    margin-bottom: 0px;
+  }
+
+  .footerNavL {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+
+  .socialIcons {
+    margin-bottom: 20px !important;
+    font-size: 20px !important;
+  }
 }
+
 
 /* Adjusting navbar items */
 .navbar-nav .nav-item {
@@ -172,7 +193,7 @@ footer {
   /* Added margin-top */
 }
 
-.footerNav ul {
+.footerNavUL {
   display: flex;
   justify-content: center;
   list-style-type: none;
@@ -209,27 +230,6 @@ footer {
   letter-spacing: 1px;
   font-weight: 500;
   margin: 0px 5px;
-}
-
-@media (max-width: 700px) {
-  .footerNav ul {
-    flex-direction: column;
-  }
-
-  .footerNav ul li {
-    width: 100%;
-    text-align: center;
-    margin: 10px;
-  }
-
-  .socialIcons a {
-    padding: 8px;
-    margin: 4px;
-  }
-
-  .footerNav ul ul {
-    padding-top: 10px;
-  }
 }
 
 .footerNav ul li p {
