@@ -12,17 +12,19 @@ with open(os.path.join(BASE_DIR, 'secretKey.txt')) as f:
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*', 'alumniaffairs.bits-goa.ac.in',
-                 'www.alumniaffairs.bits-goa.ac.in']
+ALLOWED_HOSTS = ['atharvaghadidev.com', 'www.atharvaghadidev.com']
+
+# ALLOWED_HOSTS = ['*', 'alumniaffairs.bits-goa.ac.in',
+#                  'www.alumniaffairs.bits-goa.ac.in']
 
 
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-# SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = False
 
-# SECURE_HSTS_SECONDS = 31536000
-# SECURE_HSTS_PRELOAD = True
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 # Application definition
 
 INSTALLED_APPS = [
