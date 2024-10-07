@@ -8,6 +8,8 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src="{% static 'js/frontPage.js' %}"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 {% endblock %}
 
 {%block content%}
@@ -44,78 +46,109 @@
 </section>
 
 
-<section>
-  <div class="container text-center">
-    <div class="row custom-row counter-container">
-      <div class="col-md-6 custom-col">
-        <ul class="counter-list">
-          <li>
-            <div class="container counter-list-container text-center">
-              <div class="row counter-info-row">
-                <div class="col ">
-                  <p class="counter-value" id="alumni">16000+</p>
-                </div>
-                <div class="col align-self-center">
-                  <p class="counter-tag">Alumni</p>
-                </div>
+<!-- 2005 BATCH REUNION -->
+<section class="py-16 px-4 md:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-blue-100">
+  <style>
+    .bg-bits-blue {
+        background-color: #003366;
+    }
+    .text-bits-blue {
+        color: #003366;
+    }
+    .hover\:bg-bits-blue-light:hover {
+        background-color: #f0f8ff;
+    }
+</style>
+  <div class="max-w-6xl mx-auto">
+      <div id="reunionCard" class="bg-white overflow-hidden border-none shadow-2xl transition-all duration-1000 opacity-0 transform translate-y-10">
+          <div class="md:flex">
+              <div class="md:w-2/5 bg-bits-blue text-white p-8 flex flex-col justify-between">
+                  <div>
+                      <h2 class="text-3xl font-bold mb-4">2005 Batch Reunion Registration</h2>
+                      <p class="text-lg mb-6">Relive the memories, reconnect with friends</p>
+                  </div>
+                  <!-- <img src="https://via.placeholder.com/400x300" alt="BITS Goa 2005 Batch Reunion Poster" class="rounded-lg shadow-lg mb-6"> -->
+                  <img src="{%static 'images/re05_1.png'%}" alt="BITS Goa 2005 Batch Reunion Poster" class="rounded-lg shadow-lg mb-6">
+                  <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm" target="_blank">
+                    <button class="w-full bg-white text-bits-blue hover:bg-bits-blue-light font-semibold py-3 px-6 rounded-full text-lg transition-colors duration-300">
+                        Register Now
+                    </button>
+                  </a>
+                  
               </div>
-              <div class="row">
-                <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+              <div class="md:w-3/5 p-8">
+                  <div class="grid gap-6 md:grid-cols-2 mb-8">
+                      <div class="flex items-center">
+                          <i data-feather="calendar" class="w-6 h-6 mr-3 text-bits-blue"></i>
+                          <div>
+                              <h3 class="font-semibold text-bits-blue">Date</h3>
+                              <p>February 15-16, 2025</p>
+                          </div>
+                      </div>
+                      <div class="flex items-center">
+                          <i data-feather="clock" class="w-6 h-6 mr-3 text-bits-blue"></i>
+                          <div>
+                              <h3 class="font-semibold text-bits-blue">Time</h3>
+                              <p>9:00 AM onwards</p>
+                          </div>
+                      </div>
+                      <div class="flex items-center col-span-2">
+                          <i data-feather="map-pin" class="w-6 h-6 mr-3 text-bits-blue"></i>
+                          <div>
+                              <h3 class="font-semibold text-bits-blue">Venue</h3>
+                              <p>BITS Pilani, KK Birla Goa Campus, NH 17B, Zuarinagar 403726, Goa, India</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="mb-8">
+                      <h3 class="text-xl font-semibold mb-4 text-bits-blue">Steps to Register:</h3>
+                      <ol class="list-decimal list-inside space-y-3">
+                          <li class="flex items-start">
+                              <span class="mr-2">1.</span>
+                              <span>Click "Register Now" to start your registration process</span>
+                          </li>
+                          <li class="flex items-start">
+                              <span class="mr-2">2.</span>
+                              <span>Search for "Birla Institute of Technology and Science" on the SBI Portal</span>
+                          </li>
+                          <li class="flex items-start">
+                              <span class="mr-2">3.</span>
+                              <span>Choose "2005 Batch Reunion" from the Payment Category options, fill out all the details</span>
+                          </li>
+                          <li class="flex items-start">
+                              <span class="mr-2">4.</span>
+                              <span>Complete your registration fee payment</span>
+                          </li>
+                      </ol>
+                  </div>
               </div>
-            </div>
-          </li>
-          <li>
-            <div class="container counter-list-container text-center ">
-              <div class="row counter-info-row">
-                <div class="col">
-                  <p class="counter-value" id="students">3000+</p>
-                </div>
-                <div class="col align-self-center">
-                  <p class="counter-tag">Students</p>
-                </div>
-              </div>
-              <div class="row">
-                <hr style="height:1px;border-width:0;color:gray;background-color:gray">
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="container counter-list-container text-center">
-              <div class="row">
-                <div class="col text">
-                  <p class="counter-value" id="CEO">7400+  </p>
-                </div>
-                <div class="col align-self-center">
-                  <p class="counter-tag">CEOs</p>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
+          </div>
       </div>
-      <div class="col align-self-center">
-        <img src="{%static 'images/bits logo.png'%}" height="100%" width="100%">
-      </div>
-    </div>
   </div>
 </section>
 
 
+<!-- DONATE TO BITS GOA -->
 <section>
   <div class="container-gtb">
     <div class="image-section-gtb">
       <img src="{%static 'images/bdomeImageMain.jpeg'%}" alt="Campus Image">
     </div>
     <div class="text-section-gtb">
-      <div class="title-gtb">Giving to BITS</div>
+      <div class="title-gtb"><h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-600">
+        Giving Back to BITS 
+    </h1></div>
       <p class="description-gtb">Thank you for deciding to donate to BITS Goa. There are various avenues where alumni donations have been used - scholarships, Research Endowment Funds, faculty awards, infrastructure development, setting up labs and many more. Your contributions are valuable and help make the campus what it is today, and what it will be in the years to come. 
       </p>
-      <!-- <a href="" class="cta-button-gtb"><span>Know More</span></a> -->
-      <span style="font-size: 30px; font-weight-bold">Coming soon...</span>
+      <!-- <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm" target="_blank" class="cta-button-gtb"><span>Know More</span></a> -->
+      <!-- <span style="font-size: 30px; font-weight-bold">Coming soon...</span> -->
+      <a href="{% url 'donations' %}" class="cta-button-gtb"><span>Know More</span></a>
+
     </div>
-    
   </div>
 </section>
+
+
 <!-- EVENTS -->
 <section>
     {%if events%}
@@ -184,7 +217,9 @@
 <!-- ALUMNI ARTICLES PAGE -->
 <section class="timeline alumni-articles" style="padding-top:20px;">
   <div class="container container-alumni-articles">
-    <div class="title giving-to-bits-title alumni-articles-title">Alumni Articles</div>
+    <div class="title giving-to-bits-title alumni-articles-title"><h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 text-600">
+      Alumni Articles 
+  </h1></div>
     <p class="intro-text alumni-articles-intro-text">Unlock the captivating tales of our accomplished alumni. From their personal growth to professional success, their stories are sure to leave you in awe. Get a glimpse into their lives and be motivated by their achievements by reading our Alumni stories today!</p>
     <div class="alumni-articles-container">
       <div class="row articles">
@@ -227,7 +262,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-
-
+<script>
+  lucide.createIcons();
+</script>
+<script>
+  feather.replace();
+  document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+          var card = document.getElementById('reunionCard');
+          card.classList.remove('opacity-0', 'translate-y-10');
+      }, 100);
+  });
+</script>
 
 {%endblock%}

@@ -10,9 +10,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 with open(os.path.join(BASE_DIR, 'secretKey.txt')) as f:
     SECRET_KEY = f.read().strip()
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['atharvaghadidev.com', 'www.atharvaghadidev.com']
+ALLOWED_HOSTS = ['atharvaghadidev.com', 'www.atharvaghadidev.com','*']
 
 # ALLOWED_HOSTS = ['*', 'alumniaffairs.bits-goa.ac.in',
 #                  'www.alumniaffairs.bits-goa.ac.in']
