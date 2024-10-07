@@ -9,25 +9,7 @@ import json
 from .forms import *
 from .models import visitRequest, alumni
 
-# Create your views here.
-
-
-def sendEmails():
-    subject = "Campus visit Request"
-    message = "There is a new Campus visit request."
-    try:
-        send_mail(
-            subject,
-            message,
-            settings.EMAIL_HOST_USER,
-            ["atharvaghadi4@gmail.com"]
-        )
-    except Exception as e:
-        with open("errorFiles/emailErrorsContact.txt", 'a') as file:
-            file.write(str(datetime.datetime.now())+" " +
-                       str(e)+" " + "sendMailToAdmin "+'\n')
-
-
+# Existing campus visit view
 def campusVisitFront(request):
     alumniFormSetClass = inlineformset_factory(
         visitRequest, alumni, form=alumniForm, max_num=5, extra=0, min_num=1)
@@ -36,11 +18,9 @@ def campusVisitFront(request):
         visitRequest, guest, form=guestForm, extra=1, max_num=5, min_num=0)
 
     if request.method == 'POST':
-        alumniFormSet = alumniFormSetClass(
-            request.POST, prefix='Alumni')
+        alumniFormSet = alumniFormSetClass(request.POST, prefix='Alumni')
+        guestFormSet = guestFormSetClass(request.POST, prefix='Guest')
 
-        guestFormSet = guestFormSetClass(
-            request.POST, prefix='Guest')
         if alumniFormSet.is_valid() and guestFormSet.is_valid():
             formInstance = visitRequest()
             formInstance.save()
@@ -65,37 +45,27 @@ def campusVisitFront(request):
             return JsonResponse(data, status=201)
         else:
             errorList = []
-
             for form in alumniFormSet:
                 for field, error in form.errors.items():
-                    # print(error)
                     if error not in errorList:
                         errorList.append(error)
 
             for form in guestFormSet:
-
                 for field, error in form.errors.items():
                     if error not in errorList:
                         errorList.append(error)
 
-            guestFormSet = guestFormSetClass(
-                request.POST, prefix='Guest')
-            context = {
-                "errors": errorList,
-            }
-
+            context = {"errors": errorList}
             serializedContext = json.dumps(context)
             return JsonResponse({"errors": serializedContext}, status=403)
 
     elif request.method == 'GET':
         alumniFormSet = alumniFormSetClass(prefix='Alumni')
-
         guestFormSet = guestFormSetClass(prefix='Guest')
         context = {
             "alumniFormSet": alumniFormSet,
             "guestFormSet": guestFormSet
         }
-
         return render(request, 'campusVisitFront.html', context)
 
     elif request.method == "HEAD":
@@ -103,3 +73,9 @@ def campusVisitFront(request):
         return response
     else:
         return HttpResponse(status=400)
+
+
+# New view for handling donations page
+def donations(request):
+    if request.method == 'GET':
+        return render(request, 'base/donations.html')

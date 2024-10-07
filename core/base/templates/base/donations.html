@@ -1,0 +1,66 @@
+{%extends "base/base.html"%}
+{%load static%}
+
+{%block title %}SARC|Donations{%endblock%}
+{% block extrahead %}
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width">
+    <title>BITS Pilani Alumni Donations</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+{% endblock %}
+
+{%block content%}
+<body class="min-h-screen bg-gray-50">
+    <main class="container mx-auto px-4 py-12 space-y-12">
+        <!-- <h1 class="text-4xl font-bold text-blue-900 text-center mb-8">BITS Pilani Alumni Donations</h1> -->
+        
+        <section class="grid md:grid-cols-2 gap-8">
+            <div class="overflow-hidden bg-white shadow-lg rounded-lg">
+                <img src="{%static 'images/2004.jpg'%}" alt="2004 Batch" class="w-full object-cover h-58">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-blue-900 mb-4">2004 Batch Fund</h2>
+                    <p class="text-gray-700">
+                        The 2004 batch celebrated their reunion on April 14, 2024, marking two decades of shared experiences and friendships. To honor this milestone, they established the 2004 Batch Fund to support the growth of BITS Pilani, Goa Campus. Your contributions will help ensure future generations of BITSians thrive.                    </p>
+                </div>
+            </div>
+            <div class="overflow-hidden bg-white shadow-lg rounded-lg">
+                <img src="{%static 'images/o5fund.jpeg'%}" alt="2005 Batch" class="w-full object-cover h-58">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-blue-900 mb-4">2005 Batch Fund</h2>
+                    <p class="text-gray-700">
+                        The 2005 batch is eagerly anticipating their reunion on February 15-16, 2025. In preparation for this memorable occasion, they have enthusiastically launched the 2005 Batch Fund, which aims to support the growth and development of BITS Pilani, Goa Campus. Your contribution will play a vital role in creating lasting positive impacts for future generations of BITSians.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold text-blue-900 mb-6 text-center">Steps to Donate</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <img src="{%static 'images/don01.png'%}" alt="Click Button" class="mx-auto mb-4 rounded-full">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">1. Click the Button Below</h3>
+                    <p class="text-gray-700">Start your donation process by clicking the "Donate Now" button.</p>
+                </div>
+                <div class="text-center">
+                    <img src="{%static 'images/don1.png'%}" alt="Search BITS" class="mx-auto mb-4 rounded-full">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">2. Search for BITS Pilani</h3>
+                    <p class="text-gray-700">Search for "Birla Institute of Technology and Science" on the donation platform.</p>
+                </div>
+                <div class="text-center">
+                    <img src="{%static 'images/don02.png'%}" alt="Select and Donate" class="mx-auto mb-4 rounded-full">
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">3. Select and Donate</h3>
+                    <p class="text-gray-700">Choose "Alumni Relations Fund" from the options, fill out the details, select donation purpose and complete your donation.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center">
+            <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm" target="_blank" class="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-6 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105">
+                Donate Now
+            </a>
+        </div>
+    </main>
+</body>
+{%endblock%}
