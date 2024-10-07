@@ -3,101 +3,137 @@
 
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>BITS Alumni Relations</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{%static 'css/styles.css'%}"> 
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="{%static 'css/styles.css'%}" />
     <script type="text/javascript" src="https://livejs.com/live.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="icon" type="image/png" href="{%static 'images/bitsLogo.png'%}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Source+Sans+3&display=swap" rel="stylesheet">
-  
-    {% block extrahead %}
-    {% endblock %}
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" type="image/png" href="{%static 'images/bitsLogo.png'%}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Source+Sans+3&display=swap"
+      rel="stylesheet"
+    />
+
+    {% block extrahead %} {% endblock %}
   </head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <style>
-     @media (max-width: 991px) {
-  .nav-link {
-    font-size: 18px !important;  /* Adjust to fit mobile screens */
-    padding-left: 10px !important;
-    padding-bottom: 10px !important;
-    padding-top: 10px !important;
-  }
+    @media (max-width: 991px) {
+      .nav-link {
+        font-size: 18px !important; /* Adjust to fit mobile screens */
+        padding-left: 10px !important;
+        padding-bottom: 10px !important;
+        padding-top: 10px !important;
+      }
 
-  .navbar-toggler {
-    margin-right: 10px;  /* Adjust margin */
-    margin-bottom: 20px;
-    width: 50px;
-    height: 50px;
-  }
+      .navbar-toggler {
+        margin-right: 10px; /* Adjust margin */
+        margin-bottom: 20px;
+        width: 50px;
+        height: 50px;
+      }
 
-  .navbar-toggler-icon {
-    height: 1.5em;
-    width: 1.5em;
-  }
+      .navbar-toggler-icon {
+        height: 1.5em;
+        width: 1.5em;
+      }
 
-  .red-bar {
-    height: 20px;
-  }
+      .red-bar {
+        height: 20px;
+      }
 
-  .container-fluid-navbar {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-}
+      .container-fluid-navbar {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+    }
+  </style>
 
-
-
-    </style>
-  
   <body>
     <section>
       <header>
         <div class="red-bar"></div>
         <div class="container-fluid-navbar">
           <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" style="margin-left:4px" href="{%url 'frontPage'%}">
-              <img src="{%static 'images/alumniRelations.png'%}" alt="Logo" class="navbar-brand-img">
+            <a
+              class="navbar-brand"
+              style="margin-left: 4px"
+              href="{%url 'frontPage'%}"
+            >
+              <img
+                src="{%static 'images/alumniRelations.png'%}"
+                alt="Logo"
+                class="navbar-brand-img"
+              />
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon" ></span>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div
+              class="collapse navbar-collapse justify-content-end"
+              id="navbarNav"
+            >
               <ul class="navbar-nav">
                 <li id="id_home" class="nav-item active">
-                  
                   <a href="{%url 'frontPage'%}" class="nav-link">Home</a>
                 </li>
                 <li id="id_aboutUs" class="nav-item">
-                  
                   <a href="{%url 'aboutUs'%}" class="nav-link">About Us</a>
                 </li>
                 <li id="id_events" class="nav-item">
-                  
                   <a href="{%url 'events'%}" class="nav-link">Events</a>
                 </li>
 
                 <li id="id_scholarships" class="nav-item">
-                  
-                  <a href="{%url 'scholarships'%}" class="nav-link">Scholarships/Awards</a>
+                  <a href="{%url 'scholarships'%}" class="nav-link"
+                    >Scholarships/Awards</a
+                  >
+                </li>
+                <li id="id_donations" class="nav-item">
+                  <a href="{%url 'donations'%}" class="nav-link">Donations</a>
                 </li>
 
                 <li id="id_campusVisit" class="nav-item">
-                  
-                  <a href="{%url 'campusVisitFront'%}" class="nav-link">Campus Visit</a>
+                  <a href="{%url 'campusVisitFront'%}" class="nav-link"
+                    >Campus Visit</a
+                  >
                 </li>
                 <li id="id_contactUs" class="nav-item">
-                  
                   <a href="{%url 'contact'%}" class="nav-link">Contact Us</a>
                 </li>
               </ul>
@@ -107,35 +143,52 @@
       </header>
     </section>
 
-    
-  
-
-    {%block content%}
-    {%endblock%}
-
+    {%block content%} {%endblock%}
 
     <section>
       <footer>
         <div class="footerContainer">
-            <div class="socialIcons">
-                <a href="https://www.facebook.com/AlumniRelationsBITSGoa"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/bitsgoa_sarc?igsh=dmZocmE3ZTlyMXJ0"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/company/alumni-relations-cell-bits-pilani-goa/mycompany/"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.youtube.com/@alumnirelationscellbitspil8302/featured"><i class="fab fa-youtube"></i></a>
-            </div>
-            <div class="footerNav">
-                <ul class="footerNavUL">
-                  <li class="footerNavL"><a href="{%url 'frontPage'%}">Home</a></li>
-                  <li class="footerNavL"><a href="{%url 'aboutUs'%}">About Us</a></li>
-                  <li class="footerNavL"><a href="{%url 'events'%}">Events</a></li>
-                  <li class="footerNavL"><a href="{%url 'scholarships'%}">Scholarships/Awards</a></li>
-                  <li class="footerNavL"><a href="{%url 'campusVisitFront'%}">Campus Visit</a></li>
-                  <li class="footerNavL"><a href="{%url 'contact'%}">Contact Us</a></li>
-                </ul>
-            </div>
+          <div class="socialIcons">
+            <a href="https://www.facebook.com/AlumniRelationsBITSGoa"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/bitsgoa_sarc?igsh=dmZocmE3ZTlyMXJ0"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/company/alumni-relations-cell-bits-pilani-goa/mycompany/"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://www.youtube.com/@alumnirelationscellbitspil8302/featured"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+          <div class="footerNav">
+            <ul class="footerNavUL">
+              <li class="footerNavL"><a href="{%url 'frontPage'%}">Home</a></li>
+              <li class="footerNavL">
+                <a href="{%url 'aboutUs'%}">About Us</a>
+              </li>
+              <li class="footerNavL"><a href="{%url 'events'%}">Events</a></li>
+              <li class="footerNavL">
+                <a href="{%url 'scholarships'%}">Scholarships/Awards</a>
+              </li>
+              <li class="footerNavL">
+                <a href="{%url 'campusVisitFront'%}">Campus Visit</a>
+              </li>
+              <li class="footerNavL">
+                <a href="{%url 'contact'%}">Contact Us</a>
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="footerBottom">
-            <p>Copyright &copy;2023 Alumni Relations Cell BITS Pilani KK Birla Goa Campus;</p>
+          <p>
+            Copyright &copy;2023 Alumni Relations Cell BITS Pilani KK Birla Goa
+            Campus;
+          </p>
         </div>
       </footer>
     </section>

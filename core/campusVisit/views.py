@@ -9,7 +9,25 @@ import json
 from .forms import *
 from .models import visitRequest, alumni
 
+
+def sendEmails():
+    subject = "Campus visit Request"
+    message = "There is a new Campus visit request."
+    try:
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            ["atharvaghadi4@gmail.com"]
+        )
+    except Exception as e:
+        with open("errorFiles/emailErrorsContact.txt", 'a') as file:
+            file.write(str(datetime.datetime.now())+" " +
+                       str(e)+" " + "sendMailToAdmin "+'\n')
+
 # Existing campus visit view
+
+
 def campusVisitFront(request):
     alumniFormSetClass = inlineformset_factory(
         visitRequest, alumni, form=alumniForm, max_num=5, extra=0, min_num=1)
@@ -73,9 +91,3 @@ def campusVisitFront(request):
         return response
     else:
         return HttpResponse(status=400)
-
-
-# New view for handling donations page
-def donations(request):
-    if request.method == 'GET':
-        return render(request, 'base/donations.html')

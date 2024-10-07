@@ -10,4 +10,6 @@ urlpatterns = [
     path('scholarships/', scholarshipsView, name="scholarships"),
     path('scholarshipDetails/<str:scName>',
          scholarshipsViewDetails, name="scholarshipDetails"),
+    # New URL pattern for donations
+    path('donations/', donations, name='donations'),
 ]

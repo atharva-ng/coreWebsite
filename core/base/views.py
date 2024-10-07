@@ -47,7 +47,7 @@ def sendMail():
             subject,
             message,
             settings.EMAIL_HOST_USER,
-            ['atharvaghadi4@gmail.com']
+            ['atharvaghadi4@gmail.com', settings.EMAIL_HOST_USER]
         )
     except Exception as e:
         with open("emailErrorsContact.txt", 'a') as file:
@@ -110,3 +110,9 @@ def scholarshipsViewDetails(request, scName):
 
 def handeling_404(request, exception):
     return render(request, 'base/404.html', status=404)
+
+# New view for handling donations page
+
+
+def donations(request):
+    return render(request, 'base/donations.html')
