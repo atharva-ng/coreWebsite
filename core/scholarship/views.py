@@ -34,7 +34,7 @@ def scholarship_form(request):
             # Send an email notification
             send_mail(
                 'Summer Research Application Received',
-                f"Dear {application.name},\n\nYour application for the Summer Research Program has been received. Your application ID is {application.id}. We will review your application and get back to you soon.\n\nBest regards,\nResearch Team",
+                f"Dear {application.name},\n\nYour application for the Summer Research Program has been received. Your application ID is {application.id}. We will review your application and get back to you soon.\n\nBest regards,\nAlumni Relations Division",
                 settings.DEFAULT_FROM_EMAIL,
                 [application.email],
                 fail_silently=False,

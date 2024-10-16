@@ -4,30 +4,58 @@ from django.conf import settings
 from import_export.admin import ImportExportModelAdmin
 import threading
 from .models import *
+import datetime
 
 # Register your models here.
 
 
-def sendEmails(toEmails, alumniNameList, guestNameList):
-    subject = "Request Approved"
-    names = ""
-    namesG = ""
+def sendEmails(toEmails, alumniNameList, guestNameList, visitRequest):
+    subject = "Campus Visit Request Approved"
+    
+    message = f"""Dear Alumni,
+
+We are pleased to inform you that your campus visit request has been approved. We look forward to welcoming you to our campus.
+
+Visit Details:
+{'-' * 50}
+"""
+
     for alumni in alumniNameList:
-        names = names+alumni.__str__()+', '
-    message = f"Dear {names} \nWe take great pleasure in providing our utmost assistance at ARD. To ensure a smooth entry, kindly remember to carry a valid ID proof for verification at the gate.\n"
-    if len(guestNameList) != 0:
+        message += f"""
+Visitor: {alumni.firstName} {alumni.lastName}
+BITS ID: {alumni.BitsId}
+Time of Visit: {alumni.arrivalDate.strftime('%I:%M %p, %d %B %Y')}
+Duration: {alumni.purposeOfVisit}
+Contact Number: {alumni.phoneNumber}
+Address: {alumni.currAddress}, {alumni.city}, {alumni.state}, {alumni.country}, {alumni.zip}
+
+"""
+
+    if guestNameList:
+        message += f"\nAccompanying Guests:\n{'-' * 50}\n"
         for guest in guestNameList:
-            namesG = namesG+guest.__str__()+', '
-        namesG = namesG[:-2]+'.'
-        message = message + \
-            f"Also, the following guests are permitted to enter with you: {namesG}\n"
+            message += f"""
+Guest Name: {guest.firstName} {guest.lastName}
+Contact Number: {guest.phoneNumber}
 
-    message = message +\
-        "Furthermore, please diligently adhere to Institutional and COVID-appropriate norms throughout your visit.\nPlease join AlmaConnect! by clicking on this link: https://bitspilani.almaconnect.com \nPlease let us know in case of any queries.\nWishing you a delightful experience.\nAlumni Relations Division"
+"""
 
-    # toEmails.append("ad.ar@goa.bits-pilani.ac.in")
-    # toEmails.append("cso@goa.bits-pilani.ac.in")
-    # toEmails.append("security@goa.bits-pilani.ac.in")
+    message += f"""
+Important Information:
+{'-' * 50}
+1. Please carry a valid ID proof for verification at the gate.
+2. Kindly adhere to all Institutional and COVID-appropriate norms throughout your visit.
+3. Join AlmaConnect by visiting: https://bitspilani.almaconnect.com
+
+If you have any queries, please don't hesitate to contact us.
+
+We wish you a pleasant and memorable visit to your alma mater.
+
+Best regards,
+Alumni Relations Division
+BITS Pilani K.K. Birla Goa Campus"""
+
+    toEmails.extend(["ad.ar@goa.bits-pilani.ac.in", "cso@goa.bits-pilani.ac.in", "security@goa.bits-pilani.ac.in", "sarc@goa.bits-pilani.ac.in"])
 
     try:
         send_mail(
@@ -38,12 +66,9 @@ def sendEmails(toEmails, alumniNameList, guestNameList):
             fail_silently=False
         )
     except Exception as e:
-        alumEmails = ""
-        for email in toEmails:
-            alumEmails = alumEmails+email+","
+        alumEmails = ",".join(toEmails)
         with open("errorFiles/emailErrorsCampusVisit.txt", 'a') as file:
-            file.write(str(datetime.datetime.now())+" " +
-                       str(e)+" sendMailToAlumni Emails: "+alumEmails+'\n')
+            file.write(f"{datetime.datetime.now()} {str(e)} sendMailToAlumni Emails: {alumEmails}\n")
 
 
 class guestInline(admin.StackedInline):
@@ -117,7 +142,8 @@ class requestAdmin(ImportExportModelAdmin, admin.ModelAdmin):
             # Mail Admin
 
             threading.Thread(
-                target=sendEmails, name="Email Thread", args=(toEmails, alumniNameList, guestNameList)).start()
+                target=sendEmails, name="Email Thread", args=(toEmails, alumniNameList, guestNameList, oldObj)
+            ).start()
 
             self.fields = []
             return super().save_model(request, obj, form, change)
