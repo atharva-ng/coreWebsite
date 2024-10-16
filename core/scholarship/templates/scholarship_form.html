@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@
 <body class="min-h-screen bg-gradient-to-br from-blue-900 to-indigo-800 py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden border-4 border-white">
         <div class="bg-gradient-to-r from-blue-900 to-indigo-900 px-4 py-6 sm:px-6 flex items-center">
-            <img src="https://upload.wikimedia.org/wikipedia/en/d/d3/BITS_Pilani-Logo.svg" alt="BITS Pilani Logo" class="h-12 w-auto mr-4">
+            <img src="{% static 'images/bits-pilani-logo.svg' %}" alt="BITS Pilani Logo" class="h-12 w-auto mr-4">
             <div>
                 <h2 class="text-2xl leading-6 font-bold text-white">BITS Pilani Summer Research Application</h2>
                 <p class="mt-1 text-sm text-blue-200">Please complete all steps to submit your application</p>
@@ -30,19 +31,19 @@
             <div class="mb-8">
                 <div class="flex items-center justify-between">
                     <div class="flex flex-col items-center text-blue-600">
-                        <div id="step1Icon" class="w-10 h-10 rounded-full border-2 border-blue-600 bg-blue-600 text-white flex items-center justify-center">
+                        <div id="step1Icon" class="w-10 h-10 rounded-full border-2 border-blue-600 bg-blue-600 text-white flex items-center justify-center shadow-md">
                             1
                         </div>
                         <div class="mt-2 text-sm font-medium">Step 1</div>
                     </div>
                     <div class="flex flex-col items-center text-gray-400">
-                        <div id="step2Icon" class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                        <div id="step2Icon" class="w-10 h-10 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center">
                             2
                         </div>
                         <div class="mt-2 text-sm font-medium">Step 2</div>
                     </div>
                     <div class="flex flex-col items-center text-gray-400">
-                        <div id="step3Icon" class="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                        <div id="step3Icon" class="w-10 h-10 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center">
                             3
                         </div>
                         <div class="mt-2 text-sm font-medium">Step 3</div>
@@ -53,53 +54,47 @@
                 </div>
             </div>
 
-            <form id="applicationForm" class="space-y-8">
+            <form id="applicationForm" method="post" enctype="multipart/form-data" class="space-y-8">
+                {% csrf_token %}
                 <div id="step1" class="space-y-6">
                     <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" id="email" name="email" required
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-700">Email</label>
+                        {{ form.email }}
                         <p id="emailError" class="mt-2 text-sm text-red-600 hidden"></p>
                     </div>
                     <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                        <input type="text" id="name" name="name" required
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        <label for="{{ form.name.id_for_label }}" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        {{ form.name }}
                         <p id="nameError" class="mt-2 text-sm text-red-600 hidden"></p>
                     </div>
                     <div>
-                        <label for="idNumber" class="block text-sm font-medium text-gray-700">ID Number</label>
-                        <input type="text" id="idNumber" name="idNumber" required
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        <label for="{{ form.id_number.id_for_label }}" class="block text-sm font-medium text-gray-700">ID Number</label>
+                        {{ form.id_number }}
                         <p id="idNumberError" class="mt-2 text-sm text-red-600 hidden"></p>
                     </div>
                     <div>
-                        <label for="contactNumber" class="block text-sm font-medium text-gray-700">Contact Number</label>
-                        <input type="tel" id="contactNumber" name="contactNumber" required
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        <label for="{{ form.contact_number.id_for_label }}" class="block text-sm font-medium text-gray-700">Contact Number</label>
+                        {{ form.contact_number }}
                         <p id="contactNumberError" class="mt-2 text-sm text-red-600 hidden"></p>
                     </div>
                 </div>
 
                 <div id="step2" class="space-y-6 hidden">
                     <div>
-                        <label for="projectObjective" class="block text-sm font-medium text-gray-700">Project Objective (max 200 words) *</label>
-                        <textarea id="projectObjective" name="projectObjective" rows="4" required
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
+                        <label for="{{ form.project_objective.id_for_label }}" class="block text-sm font-medium text-gray-700">Project Objective (max 200 words) *</label>
+                        {{ form.project_objective }}
                         <p id="projectObjectiveCount" class="mt-2 text-sm text-gray-500 text-right">0/200 words</p>
                         <p id="projectObjectiveError" class="mt-2 text-sm text-red-600 hidden"></p>
                     </div>
                     <div>
-                        <label for="pastResearch" class="block text-sm font-medium text-gray-700">Past Research Experience (max 300 words) *</label>
-                        <textarea id="pastResearch" name="pastResearch" rows="6" required
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
+                        <label for="{{ form.past_research.id_for_label }}" class="block text-sm font-medium text-gray-700">Past Research Experience (max 300 words) *</label>
+                        {{ form.past_research }}
                         <p id="pastResearchCount" class="mt-2 text-sm text-gray-500 text-right">0/300 words</p>
                         <p id="pastResearchError" class="mt-2 text-sm text-red-600 hidden"></p>
                     </div>
                     <div>
-                        <label for="personalStatement" class="block text-sm font-medium text-gray-700">Personal Statement (max 300 words) *</label>
-                        <textarea id="personalStatement" name="personalStatement" rows="6" required
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
+                        <label for="{{ form.personal_statement.id_for_label }}" class="block text-sm font-medium text-gray-700">Personal Statement (max 300 words) *</label>
+                        {{ form.personal_statement }}
                         <p id="personalStatementCount" class="mt-2 text-sm text-gray-500 text-right">0/300 words</p>
                         <p id="personalStatementError" class="mt-2 text-sm text-red-600 hidden"></p>
                     </div>
@@ -107,36 +102,18 @@
 
                 <div id="step3" class="space-y-6 hidden">
                     <div>
-                        <label for="cv" class="block text-sm font-medium text-gray-700">CV (PDF, max 2 pages)</label>
-                        <input type="file" id="cv" name="cv" accept=".pdf" required
-                            class="mt-1 block w-full text-sm text-gray-500
-                            file:mr-4 file:py-2 file:px-4
-                            file:rounded-md file:border-0
-                            file:text-sm file:font-semibold
-                            file:bg-blue-50 file:text-blue-700
-                            hover:file:bg-blue-100">
+                        <label for="{{ form.cv.id_for_label }}" class="block text-sm font-medium text-gray-700">CV (PDF, max 2 pages)</label>
+                        {{ form.cv }}
                         <p id="cvError" class="mt-2 text-sm text-red-600 hidden"></p>
                     </div>
                     <div>
-                        <label for="acceptanceLetter" class="block text-sm font-medium text-gray-700">Acceptance Letter (PDF)</label>
-                        <input type="file" id="acceptanceLetter" name="acceptanceLetter" accept=".pdf" required
-                            class="mt-1 block w-full text-sm text-gray-500
-                            file:mr-4 file:py-2 file:px-4
-                            file:rounded-md file:border-0
-                            file:text-sm file:font-semibold
-                            file:bg-blue-50 file:text-blue-700
-                            hover:file:bg-blue-100">
+                        <label for="{{ form.acceptance_letter.id_for_label }}" class="block text-sm font-medium text-gray-700">Acceptance Letter (PDF)</label>
+                        {{ form.acceptance_letter }}
                         <p id="acceptanceLetterError" class="mt-2 text-sm text-red-600 hidden"></p>
                     </div>
                     <div>
-                        <label for="supportingDocuments" class="block text-sm font-medium text-gray-700">Supporting Documents (Optional)</label>
-                        <input type="file" id="supportingDocuments" name="supportingDocuments" accept=".pdf,.doc,.docx" multiple
-                            class="mt-1 block w-full text-sm text-gray-500
-                            file:mr-4 file:py-2 file:px-4
-                            file:rounded-md file:border-0
-                            file:text-sm file:font-semibold
-                            file:bg-blue-50 file:text-blue-700
-                            hover:file:bg-blue-100">
+                        <label for="{{ form.supporting_documents.id_for_label }}" class="block text-sm font-medium text-gray-700">Supporting Documents (Optional)</label>
+                        {{ form.supporting_documents }}
                         <p id="supportingDocumentsInfo" class="mt-2 text-sm text-gray-500"></p>
                     </div>
                 </div>
@@ -148,7 +125,7 @@
                         </svg>
                         Previous
                     </button>
-                    <button type="button" id="nextBtn" class="ml-auto inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    <button type="button" id="nextBtn" class="ml-auto inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-blue-500">
                         Next
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
@@ -198,10 +175,10 @@
 
         function validateStep1() {
             let isValid = true;
-            const email = document.getElementById('email');
-            const name = document.getElementById('name');
-            const idNumber = document.getElementById('idNumber');
-            const contactNumber = document.getElementById('contactNumber');
+            const email = document.getElementById('id_email');
+            const name = document.getElementById('id_name');
+            const idNumber = document.getElementById('id_id_number');
+            const contactNumber = document.getElementById('id_contact_number');
 
             if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
                 showError(email, 'emailError', 'Please enter a valid email address');
@@ -236,9 +213,9 @@
 
         function validateStep2() {
             let isValid = true;
-            const projectObjective = document.getElementById('projectObjective');
-            const pastResearch = document.getElementById('pastResearch');
-            const personalStatement = document.getElementById('personalStatement');
+            const projectObjective = document.getElementById('id_project_objective');
+            const pastResearch = document.getElementById('id_past_research');
+            const personalStatement = document.getElementById('id_personal_statement');
 
             if (!projectObjective.value.trim()) {
                 showError(projectObjective, 'projectObjectiveError', 'Project Objective is required');
@@ -275,8 +252,8 @@
 
         function validateStep3() {
             let isValid = true;
-            const cv = document.getElementById('cv');
-            const acceptanceLetter = document.getElementById('acceptanceLetter');
+            const cv = document.getElementById('id_cv');
+            const acceptanceLetter = document.getElementById('id_acceptance_letter');
 
             if (!cv.files[0]) {
                 showError(cv, 'cvError', 'Please upload your CV');
@@ -334,9 +311,7 @@
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             if (validateStep3()) {
-                // Here you would typically send the form data to your server
-                console.log('Form submitted!');
-                alert('Application submitted successfully!');
+                form.submit();
             }
         });
 
@@ -351,9 +326,9 @@
             });
         }
 
-        updateWordCount('projectObjective', 'projectObjectiveCount', 200);
-        updateWordCount('pastResearch', 'pastResearchCount', 300);
-        updateWordCount('personalStatement', 'personalStatementCount', 300);
+        updateWordCount('id_project_objective', 'projectObjectiveCount', 200);
+        updateWordCount('id_past_research', 'pastResearchCount', 300);
+        updateWordCount('id_personal_statement', 'personalStatementCount', 300);
 
         // File input functionality
         function updateFileName(inputId, infoId) {
@@ -368,11 +343,11 @@
             });
         }
 
-        updateFileName('cv', 'cvError');
-        updateFileName('acceptanceLetter', 'acceptanceLetterError');
+        updateFileName('id_cv', 'cvError');
+        updateFileName('id_acceptance_letter', 'acceptanceLetterError');
 
         // Supporting documents can have multiple files
-        const supportingDocs = document.getElementById('supportingDocuments');
+        const supportingDocs = document.getElementById('id_supporting_documents');
         const supportingDocsInfo = document.getElementById('supportingDocumentsInfo');
         supportingDocs.addEventListener('change', () => {
             if (supportingDocs.files.length > 0) {
